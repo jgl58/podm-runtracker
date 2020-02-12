@@ -14,6 +14,7 @@
 		7D56BBE923F46EB400E1080A /* RunTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D56BBE723F46EB400E1080A /* RunTracker.xcdatamodeld */; };
 		7D56BBEB23F46EB500E1080A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D56BBEA23F46EB500E1080A /* Assets.xcassets */; };
 		7D56BBEE23F46EB500E1080A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D56BBEC23F46EB500E1080A /* LaunchScreen.storyboard */; };
+		7D56BBF623F477DE00E1080A /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56BBF523F477DE00E1080A /* MapController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		7D56BBEA23F46EB500E1080A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D56BBED23F46EB500E1080A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D56BBEF23F46EB500E1080A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D56BBF523F477DE00E1080A /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				7D56BBEC23F46EB500E1080A /* LaunchScreen.storyboard */,
 				7D56BBEF23F46EB500E1080A /* Info.plist */,
 				7D56BBE723F46EB400E1080A /* RunTracker.xcdatamodeld */,
+				7D56BBF523F477DE00E1080A /* MapController.swift */,
 			);
 			path = RunTracker;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 				7D56BBE923F46EB400E1080A /* RunTracker.xcdatamodeld in Sources */,
 				7D56BBE323F46EB400E1080A /* ViewController.swift in Sources */,
 				7D56BBDF23F46EB400E1080A /* AppDelegate.swift in Sources */,
+				7D56BBF623F477DE00E1080A /* MapController.swift in Sources */,
 				7D56BBE123F46EB400E1080A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

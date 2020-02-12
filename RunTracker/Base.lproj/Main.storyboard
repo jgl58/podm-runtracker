@@ -58,18 +58,32 @@
         <!--Entreno-->
         <scene sceneID="gHY-C5-nOr">
             <objects>
-                <viewController id="6Vy-8E-tr8" sceneMemberID="viewController">
+                <viewController id="6Vy-8E-tr8" customClass="MapController" customModule="RunTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tZ0-Hj-MqI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VZN-F4-bdb">
+                                <rect key="frame" x="0.0" y="326" width="414" height="473"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="VZN-F4-bdb" firstAttribute="centerX" secondItem="tZ0-Hj-MqI" secondAttribute="centerX" id="BcF-lq-iLt"/>
+                            <constraint firstItem="VZN-F4-bdb" firstAttribute="top" secondItem="spJ-wT-ahr" secondAttribute="top" constant="282" id="DLc-iH-t3T"/>
+                            <constraint firstItem="VZN-F4-bdb" firstAttribute="leading" secondItem="spJ-wT-ahr" secondAttribute="leading" id="GBD-AB-vxq"/>
+                            <constraint firstItem="spJ-wT-ahr" firstAttribute="bottom" secondItem="VZN-F4-bdb" secondAttribute="bottom" constant="14" id="nxz-VF-MkU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="spJ-wT-ahr"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Entreno" id="9l3-vF-bCg"/>
+                    <connections>
+                        <outlet property="bigMap" destination="VZN-F4-bdb" id="EeX-zb-fXH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cts-p8-IwG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="625" y="-574"/>
+            <point key="canvasLocation" x="624.63768115942037" y="-574.55357142857144"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="OBb-1O-K4w">
