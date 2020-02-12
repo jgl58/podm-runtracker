@@ -58,18 +58,41 @@
         <!--Entreno-->
         <scene sceneID="gHY-C5-nOr">
             <objects>
-                <viewController id="6Vy-8E-tr8" sceneMemberID="viewController">
+                <viewController id="6Vy-8E-tr8" customClass="MapController" customModule="RunTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tZ0-Hj-MqI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VZN-F4-bdb">
+                                <rect key="frame" x="0.0" y="326" width="414" height="473"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8V-UL-sLE">
+                                <rect key="frame" x="168" y="712" width="79" height="71"/>
+                                <state key="normal" title="Play"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="VZN-F4-bdb" firstAttribute="leading" secondItem="spJ-wT-ahr" secondAttribute="leading" id="6AL-1A-Kbc"/>
+                            <constraint firstItem="VZN-F4-bdb" firstAttribute="centerX" secondItem="tZ0-Hj-MqI" secondAttribute="centerX" id="6CI-7d-iPO"/>
+                            <constraint firstItem="VZN-F4-bdb" firstAttribute="top" secondItem="spJ-wT-ahr" secondAttribute="top" constant="282" id="6Cg-AJ-nMd"/>
+                            <constraint firstItem="spJ-wT-ahr" firstAttribute="bottom" secondItem="B8V-UL-sLE" secondAttribute="bottom" constant="30" id="D8P-dr-cGe"/>
+                            <constraint firstItem="spJ-wT-ahr" firstAttribute="bottom" secondItem="VZN-F4-bdb" secondAttribute="bottom" constant="14" id="ITP-Y0-5xc"/>
+                            <constraint firstItem="B8V-UL-sLE" firstAttribute="top" secondItem="spJ-wT-ahr" secondAttribute="top" constant="668" id="JkB-Ur-5jh"/>
+                            <constraint firstItem="B8V-UL-sLE" firstAttribute="leading" secondItem="spJ-wT-ahr" secondAttribute="leading" constant="168" id="ghU-2l-QeC"/>
+                            <constraint firstItem="VZN-F4-bdb" firstAttribute="centerX" secondItem="B8V-UL-sLE" secondAttribute="centerX" id="okT-fX-CCd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="spJ-wT-ahr"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Entreno" id="9l3-vF-bCg"/>
+                    <connections>
+                        <outlet property="bigMap" destination="VZN-F4-bdb" id="EeX-zb-fXH"/>
+                        <outlet property="btn" destination="B8V-UL-sLE" id="ew6-Of-IV6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cts-p8-IwG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="625" y="-574"/>
+            <point key="canvasLocation" x="624.63768115942037" y="-574.55357142857144"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="OBb-1O-K4w">
