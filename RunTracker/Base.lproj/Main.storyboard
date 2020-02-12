@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="taw-2o-vrY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="taw-2o-vrY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -63,6 +63,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yKr-E6-rXY">
+                                <rect key="frame" x="20" y="44" width="374" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="jTw-FB-vE7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VZN-F4-bdb">
                                 <rect key="frame" x="0.0" y="326" width="414" height="473"/>
                             </mapView>
@@ -79,7 +88,10 @@
                             <constraint firstItem="spJ-wT-ahr" firstAttribute="bottom" secondItem="B8V-UL-sLE" secondAttribute="bottom" constant="30" id="D8P-dr-cGe"/>
                             <constraint firstItem="spJ-wT-ahr" firstAttribute="bottom" secondItem="VZN-F4-bdb" secondAttribute="bottom" constant="14" id="ITP-Y0-5xc"/>
                             <constraint firstItem="B8V-UL-sLE" firstAttribute="top" secondItem="spJ-wT-ahr" secondAttribute="top" constant="668" id="JkB-Ur-5jh"/>
+                            <constraint firstItem="yKr-E6-rXY" firstAttribute="top" secondItem="spJ-wT-ahr" secondAttribute="top" id="Zy7-xl-vsf"/>
+                            <constraint firstItem="yKr-E6-rXY" firstAttribute="centerX" secondItem="B8V-UL-sLE" secondAttribute="centerX" id="dNP-zF-s8c"/>
                             <constraint firstItem="B8V-UL-sLE" firstAttribute="leading" secondItem="spJ-wT-ahr" secondAttribute="leading" constant="168" id="ghU-2l-QeC"/>
+                            <constraint firstItem="yKr-E6-rXY" firstAttribute="leading" secondItem="tZ0-Hj-MqI" secondAttribute="leadingMargin" id="jqy-kX-s3B"/>
                             <constraint firstItem="VZN-F4-bdb" firstAttribute="centerX" secondItem="B8V-UL-sLE" secondAttribute="centerX" id="okT-fX-CCd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="spJ-wT-ahr"/>
@@ -88,6 +100,7 @@
                     <connections>
                         <outlet property="bigMap" destination="VZN-F4-bdb" id="EeX-zb-fXH"/>
                         <outlet property="btn" destination="B8V-UL-sLE" id="ew6-Of-IV6"/>
+                        <outlet property="timerLabel" destination="yKr-E6-rXY" id="DJO-96-JF9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cts-p8-IwG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -19,7 +19,11 @@
   {
       @IBOutlet weak var bigMap: MKMapView!
       @IBOutlet weak var btn: UIButton!
-
+    @IBOutlet weak var timerLabel: UILabel!
+    var timer = Timer()
+    var seconds = 0
+    var isTimerRunning = false
+    
       let locationManager = CLLocationManager()
       var pins = [mapPin]()
       
@@ -52,10 +56,20 @@
       
           
       }
-    
+    //Funcion para controlar el tap del botnon play
     @objc func tap() {
 
         print("Tap happend")
+        if self.isTimerRunning == true {
+            timer.invalidate()
+            self.btn.setTitle("Play", for: .normal)
+            self.isTimerRunning = false
+        } else {
+            runTimer()
+            self.btn.setTitle("Pause", for: .normal)
+
+            self.isTimerRunning = true
+        }
     }
 
     @objc func long() {
@@ -96,4 +110,23 @@
       func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
           print("Errors " + error.localizedDescription)
       }
+    
+    //Funcion de cronometro
+    func runTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
+            self.seconds += 1
+            self.timerLabel.text = self.timeString(time: TimeInterval(self.seconds)) //Actualizamos el label.
+            
+        }
+    }
+    
+    //Funcion que convierte los datos de tipo time a String
+    func timeString(time:TimeInterval) -> String {
+        let hours = Int(time) / 3600
+        let minutes = Int(time) / 60 % 60
+        let seconds = Int(time) % 60
+        return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
+    }
   }
+  
+  
