@@ -33,16 +33,14 @@
       
       override func viewDidLoad() {
           super.viewDidLoad()
-        
-          /// LA UBICACION POR DEFECTO DEL EMULADOR ES SAN FRANCISCO
-          //self.bigMap.showsUserLocation = true
+    
         bigMap.delegate = self
         bigMap.mapType = .standard
-          bigMap.userTrackingMode = .follow
+        bigMap.userTrackingMode = .follow
           
         self.locationManager.delegate = self
-                self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-                self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestWhenInUseAuthorization()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector (tap))  //Tap function will call when user tap on button
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(long))  //Long function will call when user long press on button.
@@ -61,16 +59,16 @@
             timer.invalidate()
             self.btn.setTitle("Play", for: .normal)
             self.isTimerRunning = false
+            locationManager.stopUpdatingLocation()
         } else {
             runTimer()
             self.btn.setTitle("Pause", for: .normal)
-
+            locationManager.startUpdatingLocation()
             self.isTimerRunning = true
         }
     }
 
     @objc func long() {
-
         print("Long press")
     }
       
@@ -96,7 +94,7 @@
            print("Authorization status changed to \(status.rawValue)")
            switch status {
            case .authorizedAlways, .authorizedWhenInUse:
-               locationManager.startUpdatingLocation()
+               locationManager.requestLocation()
                print("Empezamos a sondear la ubicación")
                bigMap.showsUserLocation = true
            default:
@@ -115,15 +113,16 @@
           
           
           for newLocation in locations {
-              if newLocation.horizontalAccuracy < 100 && newLocation.horizontalAccuracy >= 0 && newLocation.verticalAccuracy < 50 {
+              if newLocation.horizontalAccuracy < 10 && newLocation.horizontalAccuracy >= 0 && newLocation.verticalAccuracy < 50 {
                  
                   if let previousPoint = locationsHistory.last {
-                      print("movement distance: " + "\(newLocation.distance(from: previousPoint))")
-                      totalMovementDistance += newLocation.distance(from: previousPoint)
-                      
-                      var area = [previousPoint.coordinate, newLocation.coordinate]
-                      let polyline = MKPolyline(coordinates: &area, count: area.count)
-                      bigMap.addOverlay(polyline)
+                        print("movement distance: " + "\(newLocation.distance(from: previousPoint))")
+                    
+                            totalMovementDistance += newLocation.distance(from: previousPoint)
+                            var area = [previousPoint.coordinate, newLocation.coordinate]
+                            let polyline = MKPolyline(coordinates: &area, count: area.count)
+                            bigMap.addOverlay(polyline)
+                        
                   } else
                   {
                       let start = Place(title:"Inicio",
