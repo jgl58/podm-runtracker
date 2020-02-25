@@ -11,11 +11,13 @@
 		7D56BBE123F46EB400E1080A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56BBE023F46EB400E1080A /* SceneDelegate.swift */; };
 		7D56BBE323F46EB400E1080A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56BBE223F46EB400E1080A /* ViewController.swift */; };
 		7D56BBE623F46EB400E1080A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D56BBE423F46EB400E1080A /* Main.storyboard */; };
-		7D56BBE923F46EB400E1080A /* RunTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D56BBE723F46EB400E1080A /* RunTracker.xcdatamodeld */; };
 		7D56BBEB23F46EB500E1080A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D56BBEA23F46EB500E1080A /* Assets.xcassets */; };
 		7D56BBEE23F46EB500E1080A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D56BBEC23F46EB500E1080A /* LaunchScreen.storyboard */; };
 		7D56BBF623F477DE00E1080A /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56BBF523F477DE00E1080A /* MapController.swift */; };
 		7D81ACF023FD8DE5008DADF9 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81ACEF23FD8DE5008DADF9 /* Place.swift */; };
+		7D81ACF623FDAFC1008DADF9 /* Ruta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D81ACF423FDAFC1008DADF9 /* Ruta.xcdatamodeld */; };
+		7DBD07BB240542EB00B68FC4 /* LocationPoint+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBD07B9240542EB00B68FC4 /* LocationPoint+CoreDataClass.swift */; };
+		7DBD07BC240542EB00B68FC4 /* LocationPoint+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBD07BA240542EB00B68FC4 /* LocationPoint+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,12 +26,14 @@
 		7D56BBE023F46EB400E1080A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7D56BBE223F46EB400E1080A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7D56BBE523F46EB400E1080A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7D56BBE823F46EB400E1080A /* RunTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RunTracker.xcdatamodel; sourceTree = "<group>"; };
 		7D56BBEA23F46EB500E1080A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D56BBED23F46EB500E1080A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D56BBEF23F46EB500E1080A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D56BBF523F477DE00E1080A /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		7D81ACEF23FD8DE5008DADF9 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		7D81ACF523FDAFC1008DADF9 /* Ruta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ruta.xcdatamodel; sourceTree = "<group>"; };
+		7DBD07B9240542EB00B68FC4 /* LocationPoint+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationPoint+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7DBD07BA240542EB00B68FC4 /* LocationPoint+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationPoint+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +74,8 @@
 				7D56BBEA23F46EB500E1080A /* Assets.xcassets */,
 				7D56BBEC23F46EB500E1080A /* LaunchScreen.storyboard */,
 				7D56BBEF23F46EB500E1080A /* Info.plist */,
-				7D56BBE723F46EB400E1080A /* RunTracker.xcdatamodeld */,
 				7D56BBF523F477DE00E1080A /* MapController.swift */,
+				7D81ACF423FDAFC1008DADF9 /* Ruta.xcdatamodeld */,
 			);
 			path = RunTracker;
 			sourceTree = "<group>";
@@ -79,6 +83,8 @@
 		7D81ACEE23FD8D69008DADF9 /* Ubication */ = {
 			isa = PBXGroup;
 			children = (
+				7DBD07B9240542EB00B68FC4 /* LocationPoint+CoreDataClass.swift */,
+				7DBD07BA240542EB00B68FC4 /* LocationPoint+CoreDataProperties.swift */,
 				7D81ACEF23FD8DE5008DADF9 /* Place.swift */,
 			);
 			path = Ubication;
@@ -155,12 +161,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D56BBE923F46EB400E1080A /* RunTracker.xcdatamodeld in Sources */,
 				7D56BBE323F46EB400E1080A /* ViewController.swift in Sources */,
 				7D56BBDF23F46EB400E1080A /* AppDelegate.swift in Sources */,
+				7DBD07BB240542EB00B68FC4 /* LocationPoint+CoreDataClass.swift in Sources */,
 				7D81ACF023FD8DE5008DADF9 /* Place.swift in Sources */,
 				7D56BBF623F477DE00E1080A /* MapController.swift in Sources */,
 				7D56BBE123F46EB400E1080A /* SceneDelegate.swift in Sources */,
+				7D81ACF623FDAFC1008DADF9 /* Ruta.xcdatamodeld in Sources */,
+				7DBD07BC240542EB00B68FC4 /* LocationPoint+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,7 +315,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UFMUT72B35;
 				INFOPLIST_FILE = RunTracker/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -326,7 +334,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UFMUT72B35;
 				INFOPLIST_FILE = RunTracker/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -362,13 +370,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		7D56BBE723F46EB400E1080A /* RunTracker.xcdatamodeld */ = {
+		7D81ACF423FDAFC1008DADF9 /* Ruta.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				7D56BBE823F46EB400E1080A /* RunTracker.xcdatamodel */,
+				7D81ACF523FDAFC1008DADF9 /* Ruta.xcdatamodel */,
 			);
-			currentVersion = 7D56BBE823F46EB400E1080A /* RunTracker.xcdatamodel */;
-			path = RunTracker.xcdatamodeld;
+			currentVersion = 7D81ACF523FDAFC1008DADF9 /* Ruta.xcdatamodel */;
+			path = Ruta.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
