@@ -21,8 +21,23 @@ class ProfileController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.nombreLabel.text = self.defaults.string(forKey: "nombre")
+        self.pesoLabel.text = (self.defaults.string(forKey: "peso") ?? "00") + " Kg"
+        self.edadLabel.text = (self.defaults.string(forKey: "edad") ?? "00") + " años"
+        self.alturaLabel.text = (self.defaults.string(forKey: "altura") ?? "00") + " cm"
+        if (self.defaults.data(forKey: "imagen") != nil){
+            self.userImage.image = UIImage(data: self.defaults.data(forKey: "imagen")!)
+        }
+        if (self.defaults.string(forKey: "genero") == "Masculino"){
+            self.generoImage.image = UIImage(named: "maleIcon")
+        }else{
+            self.generoImage.image = UIImage(named: "femaleIcon")
+        }
     }
     
 
