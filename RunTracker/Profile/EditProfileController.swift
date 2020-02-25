@@ -22,6 +22,8 @@ class EditProfileController: UIViewController, UIPickerViewDelegate, UIPickerVie
     //controlador que nos permite seleccionar la imagen
     let imagePicker = UIImagePickerController()
     
+    let defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,9 +31,11 @@ class EditProfileController: UIViewController, UIPickerViewDelegate, UIPickerVie
         generoPicker.dataSource = self
         
         imagePicker.delegate = self
+        
 
         // Do any additional setup after loading the view.
     }
+    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -44,6 +48,7 @@ class EditProfileController: UIViewController, UIPickerViewDelegate, UIPickerVie
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return generos[row]
     }
+    
     @IBAction func seleccionarFotoGaleria(_ sender: Any) {
         //no aparecen las herramientas de edicion al elegir imagen
         imagePicker.allowsEditing = false
@@ -60,6 +65,13 @@ class EditProfileController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     @IBAction func guardar(_ sender: Any) {
+        defaults.set(nombreTextField.text, forKey: "nombre")
+        defaults.set(pesoTextField.text, forKey: "peso")
+        defaults.set(edadTextField.text, forKey: "edad")
+        defaults.set(alturaTextField.text, forKey: "altura")
+        defaults.set(generos[generoPicker.selectedRow(inComponent: 0)], forKey: "genero")
+        defaults.set(usuarioImage.image?.pngData(), forKey: "imagen")
+        self.navigationController?.popViewController(animated: true)
     }
     
     /*
