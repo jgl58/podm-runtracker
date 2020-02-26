@@ -11,13 +11,13 @@
         <scene sceneID="gCZ-Vz-4cW">
             <objects>
                 <tableViewController id="exo-W5-tBj" customClass="SettigsController" customModule="RunTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="lke-Dw-1zV">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="lke-Dw-1zV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Jr7-Rb-dY6">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="55.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jr7-Rb-dY6" id="Flx-pC-cvk">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -31,6 +31,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="m4b-xM-rv3"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="showDoneButton" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BrO-fj-hd2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -438,11 +441,11 @@
             </objects>
             <point key="canvasLocation" x="1534.7826086956522" y="736.60714285714278"/>
         </scene>
-        <!--Opciones-->
+        <!--Settings-->
         <scene sceneID="wF5-Ig-euM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Yjw-YN-TIX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Opciones" id="GNX-SD-qtp"/>
+                    <tabBarItem key="tabBarItem" title="Settings" id="GNX-SD-qtp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uWh-Uv-8rk">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
