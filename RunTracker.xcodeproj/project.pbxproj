@@ -16,8 +16,6 @@
 		7D56BBF623F477DE00E1080A /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56BBF523F477DE00E1080A /* MapController.swift */; };
 		7D81ACF023FD8DE5008DADF9 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81ACEF23FD8DE5008DADF9 /* Place.swift */; };
 		7D81ACF623FDAFC1008DADF9 /* Ruta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D81ACF423FDAFC1008DADF9 /* Ruta.xcdatamodeld */; };
-		7DBD07BB240542EB00B68FC4 /* LocationPoint+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBD07B9240542EB00B68FC4 /* LocationPoint+CoreDataClass.swift */; };
-		7DBD07BC240542EB00B68FC4 /* LocationPoint+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBD07BA240542EB00B68FC4 /* LocationPoint+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +30,6 @@
 		7D56BBF523F477DE00E1080A /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		7D81ACEF23FD8DE5008DADF9 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		7D81ACF523FDAFC1008DADF9 /* Ruta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ruta.xcdatamodel; sourceTree = "<group>"; };
-		7DBD07B9240542EB00B68FC4 /* LocationPoint+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationPoint+CoreDataClass.swift"; sourceTree = "<group>"; };
-		7DBD07BA240542EB00B68FC4 /* LocationPoint+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationPoint+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +79,6 @@
 		7D81ACEE23FD8D69008DADF9 /* Ubication */ = {
 			isa = PBXGroup;
 			children = (
-				7DBD07B9240542EB00B68FC4 /* LocationPoint+CoreDataClass.swift */,
-				7DBD07BA240542EB00B68FC4 /* LocationPoint+CoreDataProperties.swift */,
 				7D81ACEF23FD8DE5008DADF9 /* Place.swift */,
 			);
 			path = Ubication;
@@ -163,12 +157,10 @@
 			files = (
 				7D56BBE323F46EB400E1080A /* ViewController.swift in Sources */,
 				7D56BBDF23F46EB400E1080A /* AppDelegate.swift in Sources */,
-				7DBD07BB240542EB00B68FC4 /* LocationPoint+CoreDataClass.swift in Sources */,
 				7D81ACF023FD8DE5008DADF9 /* Place.swift in Sources */,
 				7D56BBF623F477DE00E1080A /* MapController.swift in Sources */,
 				7D56BBE123F46EB400E1080A /* SceneDelegate.swift in Sources */,
 				7D81ACF623FDAFC1008DADF9 /* Ruta.xcdatamodeld in Sources */,
-				7DBD07BC240542EB00B68FC4 /* LocationPoint+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

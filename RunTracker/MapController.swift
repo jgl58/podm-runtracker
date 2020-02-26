@@ -1,7 +1,8 @@
   import UIKit
   import MapKit
   import CoreLocation
-
+  import CoreData
+  
   class mapPin {
       let title : String
       let subtitle : String
@@ -14,7 +15,7 @@
       }
   }
 
-  class MapController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
+  class MapController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate,  NSFetchedResultsControllerDelegate
   {
       @IBOutlet weak var bigMap: MKMapView!
       @IBOutlet weak var btn: UIButton!
@@ -28,6 +29,8 @@
     var timer = Timer()
     var seconds = 0
     var isTimerRunning = false
+    
+    var frc : NSFetchedResultsController<LocationPoint>!
     
       var pins = [mapPin]()
       
@@ -48,8 +51,7 @@
           btn.addGestureRecognizer(tapGesture)
           btn.addGestureRecognizer(longGesture)
           
-      
-          
+   
       }
     //Funcion para controlar el tap del botnon play
     @objc func tap() {
@@ -60,6 +62,8 @@
             self.btn.setTitle("Play", for: .normal)
             self.isTimerRunning = false
             locationManager.stopUpdatingLocation()
+            saveLocation(locations: locationsHistory)
+            
         } else {
             runTimer()
             self.btn.setTitle("Pause", for: .normal)
@@ -113,7 +117,7 @@
           
           
           for newLocation in locations {
-              if newLocation.horizontalAccuracy < 10 && newLocation.horizontalAccuracy >= 0 && newLocation.verticalAccuracy < 50 {
+              if newLocation.horizontalAccuracy < 20 && newLocation.horizontalAccuracy >= 0 && newLocation.verticalAccuracy < 50 {
                  
                   if let previousPoint = locationsHistory.last {
                         print("movement distance: " + "\(newLocation.distance(from: previousPoint))")
@@ -123,6 +127,7 @@
                             let polyline = MKPolyline(coordinates: &area, count: area.count)
                             bigMap.addOverlay(polyline)
                         
+                    
                   } else
                   {
                       let start = Place(title:"Inicio",
@@ -160,6 +165,41 @@
         let minutes = Int(time) / 60 % 60
         let seconds = Int(time) % 60
         return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
+    }
+    
+    
+    func readLocation(){
+        let miDelegate = UIApplication.shared.delegate! as! AppDelegate
+        let miContexto = miDelegate.persistentContainer.viewContext
+
+        let request : NSFetchRequest<LocationPoint> = NSFetchRequest(entityName:"LocationPoint")
+        let credSort = NSSortDescriptor(key:"latitude", ascending:true)
+        request.sortDescriptors = [credSort]
+        self.frc = NSFetchedResultsController<LocationPoint>(fetchRequest: request, managedObjectContext: miContexto, sectionNameKeyPath: "", cacheName: "miCache")
+        
+        try! self.frc.performFetch()
+    }
+    
+    func saveLocation(locations: [CLLocation]){
+        let miDelegate = UIApplication.shared.delegate! as! AppDelegate
+        let miContexto = miDelegate.persistentContainer.viewContext
+
+        for location in locations {
+            let point = LocationPoint(context: miContexto)
+            
+            point.latitude = location.coordinate.latitude.binade
+            point.longitude = location.coordinate.longitude.binade
+            point.timestamp = location.timestamp
+            
+            do{
+                try miContexto.save()
+                print("Punto guardado")
+            }catch
+            {
+                print("Error al guardar el punto")
+            }
+        }
+        
     }
   }
   
