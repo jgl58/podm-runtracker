@@ -74,6 +74,14 @@ class HistorialViewController: UITableViewController, NSFetchedResultsController
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let indexPath = self.tableView.indexPathForSelectedRow{
+            let selectedRow = indexPath.row
+            let detailVC = segue.destination as! DetailViewController
+            detailVC.entrenamiento = self.historial[selectedRow]
+        }
+    }
+    
 
     /*
     // MARK: - Navigation
