@@ -21,7 +21,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U1Q-Ko-XUF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-605" y="476"/>
+            <point key="canvasLocation" x="-605.79710144927537" y="475.44642857142856"/>
         </scene>
         <!--Profile Controller-->
         <scene sceneID="tj9-Nx-qVF">
@@ -157,7 +157,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6fI-FM-5fy">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1041"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="979"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PHY-8s-Zkt">
                                                 <rect key="frame" x="135" y="283" width="259" height="34"/>
