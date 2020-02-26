@@ -26,6 +26,8 @@
     private var locationsHistory: [CLLocation] = []
     private var totalMovementDistance = CLLocationDistance(0)
     
+    var training = Training()
+    
     var timer = Timer()
     var seconds = 0
     var isTimerRunning = false
@@ -40,7 +42,8 @@
         bigMap.delegate = self
         bigMap.mapType = .standard
         bigMap.userTrackingMode = .follow
-          
+        
+        
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
@@ -62,7 +65,13 @@
             self.btn.setTitle("Play", for: .normal)
             self.isTimerRunning = false
             locationManager.stopUpdatingLocation()
-            saveLocation(locations: locationsHistory)
+            if(locationsHistory.count > 0){
+                training.distance = 200.0
+               training.finalPoint = locationsHistory.last!.coordinate
+               training.route = locationsHistory
+                saveTraining()
+            }
+           
             
         } else {
             runTimer()
@@ -74,6 +83,8 @@
 
     @objc func long() {
         print("Long press")
+        locationManager.stopUpdatingLocation()
+        
     }
       
      func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -101,23 +112,25 @@
                locationManager.requestLocation()
                print("Empezamos a sondear la ubicación")
                bigMap.showsUserLocation = true
+            
            default:
                locationManager.stopUpdatingLocation()
                print("Paramos el sondeo de la ubicación")
                bigMap.showsUserLocation = false
+                
            }
            
        }
     
       func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
           if let location = locations.last{
               let region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
               self.bigMap.setRegion(region, animated: true)
           }
           
-          
           for newLocation in locations {
-              if newLocation.horizontalAccuracy < 20 && newLocation.horizontalAccuracy >= 0 && newLocation.verticalAccuracy < 50 {
+              if newLocation.horizontalAccuracy < 20 && newLocation.horizontalAccuracy >= 0 {
                  
                   if let previousPoint = locationsHistory.last {
                         print("movement distance: " + "\(newLocation.distance(from: previousPoint))")
@@ -126,21 +139,15 @@
                             var area = [previousPoint.coordinate, newLocation.coordinate]
                             let polyline = MKPolyline(coordinates: &area, count: area.count)
                             bigMap.addOverlay(polyline)
-                        
-                    
                   } else
                   {
-                      let start = Place(title:"Inicio",
-                                        subtitle:"Este es el punto de inicio de la ruta",
-                                        coordinate:newLocation.coordinate)
-                      bigMap.addAnnotation(start)
+                    training.startPoint = newLocation.coordinate
                   }
                   self.locationsHistory.append(newLocation)
                   let distanceString = String(format:"%gm", totalMovementDistance)
                   distanceLabel.text = distanceString
               }
           }
-          
       }
       
       func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -172,32 +179,37 @@
         let miDelegate = UIApplication.shared.delegate! as! AppDelegate
         let miContexto = miDelegate.persistentContainer.viewContext
 
-        let request : NSFetchRequest<LocationPoint> = NSFetchRequest(entityName:"LocationPoint")
-        let credSort = NSSortDescriptor(key:"latitude", ascending:true)
-        request.sortDescriptors = [credSort]
-        self.frc = NSFetchedResultsController<LocationPoint>(fetchRequest: request, managedObjectContext: miContexto, sectionNameKeyPath: "", cacheName: "miCache")
-        
-        try! self.frc.performFetch()
+        do{
+        let point = try miContexto.fetch(LocationPoint.fetchRequest() as NSFetchRequest<LocationPoint>)
+        print(point.count)
+        }catch{
+            print("Error al leer los puntos")
+        }
     }
     
-    func saveLocation(locations: [CLLocation]){
+    func saveTraining(){
         let miDelegate = UIApplication.shared.delegate! as! AppDelegate
         let miContexto = miDelegate.persistentContainer.viewContext
+        
+        let train = Entrenamiento(context: miContexto)
+        train.timestamp = Date()
+        train.distancia = (distanceLabel.text! as NSString).doubleValue
 
-        for location in locations {
+        for location in locationsHistory {
             let point = LocationPoint(context: miContexto)
             
             point.latitude = location.coordinate.latitude.binade
             point.longitude = location.coordinate.longitude.binade
             point.timestamp = location.timestamp
-            
-            do{
-                try miContexto.save()
-                print("Punto guardado")
-            }catch
-            {
-                print("Error al guardar el punto")
-            }
+            train.addToPuntos(point)
+        }
+        
+        do{
+            try miContexto.save()
+            print("Punto guardado")
+        }catch
+        {
+            print("Error al guardar el punto")
         }
         
     }
