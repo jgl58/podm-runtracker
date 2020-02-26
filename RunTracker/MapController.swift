@@ -1,6 +1,7 @@
   import UIKit
   import MapKit
   import CoreLocation
+  import CoreMotion
 
   class mapPin {
       let title : String
@@ -21,6 +22,10 @@
     @IBOutlet weak var timerLabel: UILabel!
     
     @IBOutlet weak var distanceLabel: UILabel!
+    
+    @IBOutlet weak var ritmoLabel: UILabel!
+    @IBOutlet weak var cadenciaLabel: UILabel!
+    
     private let locationManager = CLLocationManager()
     private var locationsHistory: [CLLocation] = []
     private var totalMovementDistance = CLLocationDistance(0)
@@ -30,6 +35,8 @@
     var isTimerRunning = false
     
       var pins = [mapPin]()
+    
+    let pedometer = CMPedometer()
       
       override func viewDidLoad() {
           super.viewDidLoad()
@@ -60,10 +67,12 @@
             self.btn.setTitle("Play", for: .normal)
             self.isTimerRunning = false
             locationManager.stopUpdatingLocation()
+            pararPodometro()
         } else {
             runTimer()
             self.btn.setTitle("Pause", for: .normal)
             locationManager.startUpdatingLocation()
+            iniciarPodometro()
             self.isTimerRunning = true
         }
     }
@@ -160,6 +169,33 @@
         let minutes = Int(time) / 60 % 60
         let seconds = Int(time) % 60
         return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
+    }
+    
+    func iniciarPodometro(){
+        if CMPedometer.isPedometerEventTrackingAvailable(){
+            self.ritmoLabel.text = "0,00"
+            self.cadenciaLabel.text = "0,00"
+            self.pedometer.startUpdates(from: Date()) { (data, error) in
+                DispatchQueue.main.async {
+                    let formatter = NumberFormatter()
+                    formatter.maximumFractionDigits = 2
+                    formatter.minimumFractionDigits = 2
+                    
+                    let currentPaceTrunc = data?.currentPace ?? 0
+                    self.ritmoLabel.text = formatter.string(from: currentPaceTrunc)
+                
+                    let currentCadenceTrunc = data?.currentCadence ?? 0
+                    self.cadenciaLabel.text = formatter.string(from: currentCadenceTrunc)
+                    print("Ritmo: " + (data?.currentPace?.stringValue ?? "Nada"))
+                    print("Cadencia: " + (data?.currentCadence?.stringValue ?? "Nada"))
+                }
+            }
+        }
+        
+    }
+    
+    func pararPodometro(){
+        self.pedometer.stopUpdates()
     }
   }
   
