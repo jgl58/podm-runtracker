@@ -1,6 +1,7 @@
   import UIKit
   import MapKit
   import CoreLocation
+  import CoreMotion
   import CoreData
   
   class mapPin {
@@ -22,6 +23,10 @@
     @IBOutlet weak var timerLabel: UILabel!
     
     @IBOutlet weak var distanceLabel: UILabel!
+    
+    @IBOutlet weak var ritmoLabel: UILabel!
+    @IBOutlet weak var cadenciaLabel: UILabel!
+    
     private let locationManager = CLLocationManager()
     private var locationsHistory: [CLLocation] = []
     private var totalMovementDistance = CLLocationDistance(0)
@@ -31,6 +36,11 @@
     var timer = Timer()
     var seconds = 0
     var isTimerRunning = false
+    
+    var pins = [mapPin]()
+    
+    let pedometer = CMPedometer()
+    var averagePace: Double = 0
     
     var frc : NSFetchedResultsController<LocationPoint>!
     
@@ -65,6 +75,8 @@
             self.btn.setTitle("Play", for: .normal)
             self.isTimerRunning = false
             locationManager.stopUpdatingLocation()
+            pararPodometro()
+          
             if(locationsHistory.count > 0){
                 training.distance = 200.0
                training.finalPoint = locationsHistory.last!.coordinate
@@ -77,6 +89,7 @@
             runTimer()
             self.btn.setTitle("Pause", for: .normal)
             locationManager.startUpdatingLocation()
+            iniciarPodometro()
             self.isTimerRunning = true
         }
     }
@@ -174,6 +187,49 @@
         return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
     }
     
+    func iniciarPodometro(){
+        if CMPedometer.isPedometerEventTrackingAvailable() || CMPedometer.isStepCountingAvailable(){
+            self.ritmoLabel.text = "0.00"
+            self.cadenciaLabel.text = "0.00"
+            self.pedometer.startUpdates(from: Date()) { (data, error) in
+                DispatchQueue.main.async {
+                    let formatter = NumberFormatter()
+                    formatter.maximumFractionDigits = 2
+                    formatter.minimumFractionDigits = 2
+                    
+                    let currentPace = data?.currentPace
+                    let averagePace = data?.averageActivePace
+                    if currentPace != nil{
+                        let conversedCurrentPace = Double(truncating: currentPace!) * (1000/60)
+                        let conversedAveragePace = Double(truncating: averagePace!) * (1000/60)
+                        self.averagePace = conversedAveragePace
+                        self.ritmoLabel.text = String(format: "%.2f", conversedCurrentPace)
+                        
+                    }else{
+                        self.ritmoLabel.text = "0.00"
+                    }
+                    
+                    let currentCadence = data?.currentCadence
+                    if currentCadence != nil{
+                        let conversedCurrentCadence = Double(truncating: currentCadence!) * (1000/60)
+                        self.cadenciaLabel.text = String(format: "%.2f", conversedCurrentCadence)
+                        
+                    }else{
+                        self.cadenciaLabel.text = "0.00"
+                    }
+                
+                    print("Ritmo: " + (data?.currentPace?.stringValue ?? "Nada"))
+                    print("Cadencia: " + (data?.currentCadence?.stringValue ?? "Nada"))
+                }
+            }
+        }else{
+            print("Podómetro no disponible")
+        }
+        
+    }
+    
+    func pararPodometro(){
+        self.pedometer.stopUpdates()
     
     func readLocation(){
         let miDelegate = UIApplication.shared.delegate! as! AppDelegate

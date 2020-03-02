@@ -157,7 +157,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6fI-FM-5fy">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1041"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="979"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PHY-8s-Zkt">
                                                 <rect key="frame" x="135" y="283" width="259" height="34"/>
@@ -356,6 +356,40 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="b1v-61-nk2">
+                                <rect key="frame" x="38" y="223" width="44.5" height="61"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="ritmoLabel" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVy-os-U7u">
+                                        <rect key="frame" x="0.0" y="0.0" width="44.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ritmo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Zm-DD-5SW">
+                                        <rect key="frame" x="0.0" y="40.5" width="44.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="8MX-6R-tGq">
+                                <rect key="frame" x="322" y="224" width="72" height="58"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="Cadencia Label" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBe-1f-O0J">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cadencia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqW-gh-sTd">
+                                        <rect key="frame" x="0.0" y="37.5" width="72" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -363,13 +397,17 @@
                             <constraint firstItem="VZN-F4-bdb" firstAttribute="leading" secondItem="spJ-wT-ahr" secondAttribute="leading" id="JJj-Nr-vXG"/>
                             <constraint firstItem="VZN-F4-bdb" firstAttribute="bottom" secondItem="spJ-wT-ahr" secondAttribute="bottom" id="NAp-nO-tWz"/>
                             <constraint firstItem="npF-Em-9yB" firstAttribute="centerX" secondItem="B8V-UL-sLE" secondAttribute="centerX" id="Nlz-HP-9tQ"/>
+                            <constraint firstItem="b1v-61-nk2" firstAttribute="leading" secondItem="spJ-wT-ahr" secondAttribute="leading" constant="38" id="OqJ-ae-f6f"/>
                             <constraint firstItem="yKr-E6-rXY" firstAttribute="trailing" secondItem="tZ0-Hj-MqI" secondAttribute="trailingMargin" id="QdA-mz-EEt"/>
                             <constraint firstItem="spJ-wT-ahr" firstAttribute="bottom" secondItem="B8V-UL-sLE" secondAttribute="bottom" constant="30" id="Rge-ZK-bDE"/>
                             <constraint firstItem="B8V-UL-sLE" firstAttribute="leading" secondItem="spJ-wT-ahr" secondAttribute="leading" constant="168" id="VLm-6V-uro"/>
+                            <constraint firstItem="8MX-6R-tGq" firstAttribute="top" secondItem="yKr-E6-rXY" secondAttribute="bottom" constant="-20" id="YWH-Fy-85x"/>
                             <constraint firstItem="yKr-E6-rXY" firstAttribute="leading" secondItem="tZ0-Hj-MqI" secondAttribute="leadingMargin" id="Yb1-5m-Ah9"/>
                             <constraint firstItem="VZN-F4-bdb" firstAttribute="centerX" secondItem="B8V-UL-sLE" secondAttribute="centerX" id="aCG-PF-R2R"/>
                             <constraint firstItem="yKr-E6-rXY" firstAttribute="top" secondItem="spJ-wT-ahr" secondAttribute="top" id="at3-23-gUX"/>
+                            <constraint firstItem="b1v-61-nk2" firstAttribute="top" secondItem="yKr-E6-rXY" secondAttribute="bottom" constant="-21" id="dhP-rj-P6t"/>
                             <constraint firstItem="yKr-E6-rXY" firstAttribute="centerX" secondItem="npF-Em-9yB" secondAttribute="centerX" id="fQA-cw-bag"/>
+                            <constraint firstItem="spJ-wT-ahr" firstAttribute="trailing" secondItem="8MX-6R-tGq" secondAttribute="trailing" constant="20" id="o0x-QE-GiW"/>
                             <constraint firstItem="VZN-F4-bdb" firstAttribute="top" secondItem="npF-Em-9yB" secondAttribute="bottom" constant="40" id="w8b-J2-ule"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="spJ-wT-ahr"/>
@@ -378,7 +416,9 @@
                     <connections>
                         <outlet property="bigMap" destination="VZN-F4-bdb" id="EeX-zb-fXH"/>
                         <outlet property="btn" destination="B8V-UL-sLE" id="ew6-Of-IV6"/>
+                        <outlet property="cadenciaLabel" destination="fBe-1f-O0J" id="OLB-41-KvC"/>
                         <outlet property="distanceLabel" destination="npF-Em-9yB" id="CKY-Be-N0T"/>
+                        <outlet property="ritmoLabel" destination="ZVy-os-U7u" id="MhO-K1-NZo"/>
                         <outlet property="timerLabel" destination="yKr-E6-rXY" id="DJO-96-JF9"/>
                     </connections>
                 </viewController>
