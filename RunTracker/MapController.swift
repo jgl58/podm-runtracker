@@ -34,9 +34,10 @@
     var seconds = 0
     var isTimerRunning = false
     
-      var pins = [mapPin]()
+    var pins = [mapPin]()
     
     let pedometer = CMPedometer()
+    var averagePace: Double = 0
       
       override func viewDidLoad() {
           super.viewDidLoad()
@@ -172,24 +173,42 @@
     }
     
     func iniciarPodometro(){
-        if CMPedometer.isPedometerEventTrackingAvailable(){
-            self.ritmoLabel.text = "0,00"
-            self.cadenciaLabel.text = "0,00"
+        if CMPedometer.isPedometerEventTrackingAvailable() || CMPedometer.isStepCountingAvailable(){
+            self.ritmoLabel.text = "0.00"
+            self.cadenciaLabel.text = "0.00"
             self.pedometer.startUpdates(from: Date()) { (data, error) in
                 DispatchQueue.main.async {
                     let formatter = NumberFormatter()
                     formatter.maximumFractionDigits = 2
                     formatter.minimumFractionDigits = 2
                     
-                    let currentPaceTrunc = data?.currentPace ?? 0
-                    self.ritmoLabel.text = formatter.string(from: currentPaceTrunc)
+                    let currentPace = data?.currentPace
+                    let averagePace = data?.averageActivePace
+                    if currentPace != nil{
+                        let conversedCurrentPace = Double(truncating: currentPace!) * (1000/60)
+                        let conversedAveragePace = Double(truncating: averagePace!) * (1000/60)
+                        self.averagePace = conversedAveragePace
+                        self.ritmoLabel.text = String(format: "%.2f", conversedCurrentPace)
+                        
+                    }else{
+                        self.ritmoLabel.text = "0.00"
+                    }
+                    
+                    let currentCadence = data?.currentCadence
+                    if currentCadence != nil{
+                        let conversedCurrentCadence = Double(truncating: currentCadence!) * (1000/60)
+                        self.cadenciaLabel.text = String(format: "%.2f", conversedCurrentCadence)
+                        
+                    }else{
+                        self.cadenciaLabel.text = "0.00"
+                    }
                 
-                    let currentCadenceTrunc = data?.currentCadence ?? 0
-                    self.cadenciaLabel.text = formatter.string(from: currentCadenceTrunc)
                     print("Ritmo: " + (data?.currentPace?.stringValue ?? "Nada"))
                     print("Cadencia: " + (data?.currentCadence?.stringValue ?? "Nada"))
                 }
             }
+        }else{
+            print("Podómetro no disponible")
         }
         
     }
