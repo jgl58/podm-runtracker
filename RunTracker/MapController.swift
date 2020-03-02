@@ -43,9 +43,7 @@
     var averagePace: Double = 0
     
     var frc : NSFetchedResultsController<LocationPoint>!
-    
-      var pins = [mapPin]()
-      
+          
       override func viewDidLoad() {
           super.viewDidLoad()
     
@@ -230,6 +228,7 @@
     
     func pararPodometro(){
         self.pedometer.stopUpdates()
+    }
     
     func readLocation(){
         let miDelegate = UIApplication.shared.delegate! as! AppDelegate
