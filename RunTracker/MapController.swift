@@ -2,7 +2,8 @@
   import MapKit
   import CoreLocation
   import CoreMotion
-
+  import CoreData
+  
   class mapPin {
       let title : String
       let subtitle : String
@@ -15,7 +16,7 @@
       }
   }
 
-  class MapController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
+  class MapController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate,  NSFetchedResultsControllerDelegate
   {
       @IBOutlet weak var bigMap: MKMapView!
       @IBOutlet weak var btn: UIButton!
@@ -30,6 +31,8 @@
     private var locationsHistory: [CLLocation] = []
     private var totalMovementDistance = CLLocationDistance(0)
     
+    var training = Training()
+    
     var timer = Timer()
     var seconds = 0
     var isTimerRunning = false
@@ -38,6 +41,10 @@
     
     let pedometer = CMPedometer()
     var averagePace: Double = 0
+    
+    var frc : NSFetchedResultsController<LocationPoint>!
+    
+      var pins = [mapPin]()
       
       override func viewDidLoad() {
           super.viewDidLoad()
@@ -45,7 +52,8 @@
         bigMap.delegate = self
         bigMap.mapType = .standard
         bigMap.userTrackingMode = .follow
-          
+        
+        
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
@@ -56,8 +64,7 @@
           btn.addGestureRecognizer(tapGesture)
           btn.addGestureRecognizer(longGesture)
           
-      
-          
+   
       }
     //Funcion para controlar el tap del botnon play
     @objc func tap() {
@@ -69,6 +76,15 @@
             self.isTimerRunning = false
             locationManager.stopUpdatingLocation()
             pararPodometro()
+          
+            if(locationsHistory.count > 0){
+                training.distance = 200.0
+               training.finalPoint = locationsHistory.last!.coordinate
+               training.route = locationsHistory
+                saveTraining()
+            }
+           
+            
         } else {
             runTimer()
             self.btn.setTitle("Pause", for: .normal)
@@ -80,6 +96,8 @@
 
     @objc func long() {
         print("Long press")
+        locationManager.stopUpdatingLocation()
+        
     }
       
      func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -107,23 +125,25 @@
                locationManager.requestLocation()
                print("Empezamos a sondear la ubicación")
                bigMap.showsUserLocation = true
+            
            default:
                locationManager.stopUpdatingLocation()
                print("Paramos el sondeo de la ubicación")
                bigMap.showsUserLocation = false
+                
            }
            
        }
     
       func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
           if let location = locations.last{
               let region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
               self.bigMap.setRegion(region, animated: true)
           }
           
-          
           for newLocation in locations {
-              if newLocation.horizontalAccuracy < 10 && newLocation.horizontalAccuracy >= 0 && newLocation.verticalAccuracy < 50 {
+              if newLocation.horizontalAccuracy < 20 && newLocation.horizontalAccuracy >= 0 {
                  
                   if let previousPoint = locationsHistory.last {
                         print("movement distance: " + "\(newLocation.distance(from: previousPoint))")
@@ -132,20 +152,15 @@
                             var area = [previousPoint.coordinate, newLocation.coordinate]
                             let polyline = MKPolyline(coordinates: &area, count: area.count)
                             bigMap.addOverlay(polyline)
-                        
                   } else
                   {
-                      let start = Place(title:"Inicio",
-                                        subtitle:"Este es el punto de inicio de la ruta",
-                                        coordinate:newLocation.coordinate)
-                      bigMap.addAnnotation(start)
+                    training.startPoint = newLocation.coordinate
                   }
                   self.locationsHistory.append(newLocation)
                   let distanceString = String(format:"%gm", totalMovementDistance)
                   distanceLabel.text = distanceString
               }
           }
-          
       }
       
       func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -215,6 +230,44 @@
     
     func pararPodometro(){
         self.pedometer.stopUpdates()
+    
+    func readLocation(){
+        let miDelegate = UIApplication.shared.delegate! as! AppDelegate
+        let miContexto = miDelegate.persistentContainer.viewContext
+
+        do{
+        let point = try miContexto.fetch(LocationPoint.fetchRequest() as NSFetchRequest<LocationPoint>)
+        print(point.count)
+        }catch{
+            print("Error al leer los puntos")
+        }
+    }
+    
+    func saveTraining(){
+        let miDelegate = UIApplication.shared.delegate! as! AppDelegate
+        let miContexto = miDelegate.persistentContainer.viewContext
+        
+        let train = Entrenamiento(context: miContexto)
+        train.timestamp = Date()
+        train.distancia = (distanceLabel.text! as NSString).doubleValue
+
+        for location in locationsHistory {
+            let point = LocationPoint(context: miContexto)
+            
+            point.latitude = location.coordinate.latitude.binade
+            point.longitude = location.coordinate.longitude.binade
+            point.timestamp = location.timestamp
+            train.addToPuntos(point)
+        }
+        
+        do{
+            try miContexto.save()
+            print("Punto guardado")
+        }catch
+        {
+            print("Error al guardar el punto")
+        }
+        
     }
   }
   

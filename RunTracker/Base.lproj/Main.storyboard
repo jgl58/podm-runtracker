@@ -310,7 +310,7 @@
         <!--Historial-->
         <scene sceneID="C5S-sp-edw">
             <objects>
-                <viewController id="x8O-M4-83V" sceneMemberID="viewController">
+                <viewController id="x8O-M4-83V" customClass="HistorialViewController" customModule="RunTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6X8-q5-Alf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
