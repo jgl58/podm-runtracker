@@ -3,322 +3,140 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02AD1ABA7C5E72BB05A8A16FA17ABB7A /* IASKSettingsStoreFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AE0BA6CCBD2268A36A6E7B550A991FF /* IASKSettingsStoreFile.m */; };
-		036DA4790F2E3D08E3C4F3B6C8104479 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144A53FDC58FFA8FFF1B994C3E866B77 /* MessageUI.framework */; };
-		0676CBF907A56645E51C9404E2C02A77 /* fr.lproj in Resources */ = {isa = PBXBuildFile; fileRef = C94BCB5FEC74CDD9076F515E0F1EA90B /* fr.lproj */; };
-		073DCF228E001F8867F22C4BA01DBCF6 /* Pods-RunTracker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E279242069E7CA46DEBCCA50E9900812 /* Pods-RunTracker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		08E5C23DCE94E38BFBC567B61B0FC41E /* it.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 159808DBE4D791077ABE7DEED7D9F37D /* it.lproj */; };
-		0B2B43E430F983EBF58D72045C9AA9D6 /* IASKSettingsStore.h in Headers */ = {isa = PBXBuildFile; fileRef = E169DB472F5DE473EF0CB63D58CFF271 /* IASKSettingsStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1164351F484188598961103D5A0433C7 /* pl.lproj in Resources */ = {isa = PBXBuildFile; fileRef = EB0A78A9188C0457E2B5AF3F902E6621 /* pl.lproj */; };
-		119A8199812214BC8FE9645E49A62F5F /* IASKTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78C8C83DAF7A19C335112CDD5302CF60 /* IASKTextViewCell.m */; };
-		21775E74F340A8CF1144AE4F1B4572E8 /* hu.lproj in Resources */ = {isa = PBXBuildFile; fileRef = D7FB3016BF3A4F62A5176CD75BF277A5 /* hu.lproj */; };
-		23392D4CF1DCFE0A4B7119B77B7F0733 /* tr.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 723B5EF8F0FB878692D1C49341ED8FB5 /* tr.lproj */; };
-		28AF5182BAC367D50B8E8736E9E46FDA /* IASKSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A87E9CAE4EAA826F1EBB994FC8406D /* IASKSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		28FF588834A825DC5E5EBD82A34EA09E /* IASKPSTextFieldSpecifierViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BA88E474020CE57E736DCE24D17F84 /* IASKPSTextFieldSpecifierViewCell.m */; };
-		2B121F7B59A1CC98C077B81956BB84B2 /* IASKViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B809717CA032FC99C28A911891FC894 /* IASKViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		306AE1CD3841EE0E202D5711586BA3D4 /* IASKSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 80F60F4422C742B4FC24AFB9E0CAAC44 /* IASKSwitch.m */; };
-		31290E5BFFF46D1B04CFB5717DD20B43 /* IASKSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1A2CF5A4F030B0A7A6080E7B5A04E4 /* IASKSlider.m */; };
-		31966DCC10CED29B086452BA4BBC0026 /* IASKSettingsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9E658B0DD7F8C59996F70D2EDFD0EC /* IASKSettingsStore.m */; };
-		3CE2DD5A6C392855129B71BEBB00A033 /* pt.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 4AAA79D5F78D952AC05FEDF29BB19412 /* pt.lproj */; };
-		48CD1E06450F2446BBED64D19FB94F6F /* InAppSettingsKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F796E581B88F861D7FB3F4FF2A17C9B5 /* InAppSettingsKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4DD93EF84153122D45AA24CE6C81C7B9 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 0186A40282425A1CCBE8700E4C6C23A3 /* Base.lproj */; };
-		4DE6FCCF1ADDD7CDBD1E10AF17BE7910 /* IASKAppSettingsWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D057FB22C38B04FE1F461051C4EDA67 /* IASKAppSettingsWebViewController.m */; };
-		5015ACBC208C533EA1F312DD2D766D72 /* IASKPSTextFieldSpecifierViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A22102E8A7C2DDD604D4C08F959F77C /* IASKPSTextFieldSpecifierViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5B0910CFB61F57603E4F5D1ED449B4D8 /* IASKAppSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F061A9C356A5DB850F37A809B0958875 /* IASKAppSettingsViewController.m */; };
-		5BCEDA760A81E490DAA68A8589A2222D /* Pods-RunTracker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B731ACAF7D989DB185D9C25DD4FED63 /* Pods-RunTracker-dummy.m */; };
-		636120EC8218426EE9569524C722F0EC /* IASKSwitch.h in Headers */ = {isa = PBXBuildFile; fileRef = DE95FFD0AF344D70E431D4A9A93193A1 /* IASKSwitch.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		65DC139B59C64CBD28ADD7D07C427ACA /* hr.lproj in Resources */ = {isa = PBXBuildFile; fileRef = BD071EF460F64296E5BB83667FFD9F70 /* hr.lproj */; };
-		660E9B50BF5D8BD950232B0830970935 /* IASKTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 1025DC330A54D1A8C8635108EA713949 /* IASKTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		692E9292006B19ABB31EB52E511CBEB6 /* IASKMultipleValueSelection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F20BE8EB6799F54C71C5DCCE699CA58 /* IASKMultipleValueSelection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		69E38A7D460BB3663F33F71E471E46E2 /* IASKSettingsReader.m in Sources */ = {isa = PBXBuildFile; fileRef = B00235B4FDE2FE5ED90BDC6F17205D81 /* IASKSettingsReader.m */; };
-		6D801A20F85AEB6C093DCEEE36CFB780 /* uk.lproj in Resources */ = {isa = PBXBuildFile; fileRef = C506C199CC637FFBF2DBCB6E19171FF2 /* uk.lproj */; };
-		76E43FFEF3A17D95C21798B317F4A9EB /* pt-PT.lproj in Resources */ = {isa = PBXBuildFile; fileRef = EC9AC1119C5F8BD471A19BCC7807C28F /* pt-PT.lproj */; };
-		7E7503567B4C7FDA1A3CDEA1B44C32F8 /* IASKMultipleValueSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A6F20ADFC9FF32C7E01D5B4854D63 /* IASKMultipleValueSelection.m */; };
-		7F31145A0F2A8386E2FE114E77BC0658 /* el.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 29865E9333E966A358E258CFD47180A9 /* el.lproj */; };
-		7FE5D0374CA6E7314435288F77447A1F /* IASKSpecifier.m in Sources */ = {isa = PBXBuildFile; fileRef = AA924E60F37E6967774672544ADF0292 /* IASKSpecifier.m */; };
-		858AC7A5BA72236454E6E83ABACA1ED2 /* nl.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 38F80A059FA5D2F16FDEA74F0CD43F4E /* nl.lproj */; };
-		87602E6B10EF82BB99EF0E6F652B8EE6 /* IASKColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EBBB708FAFF8B53D977D5FACBAA3FF /* IASKColor.m */; };
-		895A9C194D85EC68DC25C20B0ABCE865 /* es.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 3F14B463AA4A39664B905151745B2AD5 /* es.lproj */; };
-		8AF75BAF49BB591C00D8E2417EA753AD /* ja.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 67AAB13F46A2AF30560531F69870C3AC /* ja.lproj */; };
-		8CD7A546C7A883AEB3F9A64EF96C8354 /* IASKSettingsReader.h in Headers */ = {isa = PBXBuildFile; fileRef = C6855E97A4A30CE0035C6BBE5125B200 /* IASKSettingsReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8F975EF8F071268A7D18EBDA649ED70C /* IASKColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 6431B288A1BB1CE73994EE68D4D97707 /* IASKColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		93F4FF7ABA1DCCA355C250FC95AF059C /* IASKTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B69B2602C42549269CDAD9061395D362 /* IASKTextView.m */; };
-		97523C83EE018A60EA11981BA9C2B376 /* IASKSpecifier.h in Headers */ = {isa = PBXBuildFile; fileRef = AA35C148FC8C7A84CA3FCB1CC81839F6 /* IASKSpecifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9C4B76E78A91CDE0AB3B9B5E8C6DD9AE /* IASKPSSliderSpecifierViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B2C69CDD602C4E3907788ADB8D1A25 /* IASKPSSliderSpecifierViewCell.m */; };
-		9C5BA1B98CAB7CD657CF70CC02E8B103 /* ru.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 0F55BCD1D959C2BCEC2394A3647AF423 /* ru.lproj */; };
-		A03E9A1292C539C6BD8B36693EB11EE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC1D574A2F3239D89F533C8D0BE07C /* Foundation.framework */; };
-		A06B66846122FC7B7A7A5C32BA299CCB /* IASKSettingsStoreUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9F5DF4431365DCC76CA17DEA3C148E /* IASKSettingsStoreUserDefaults.m */; };
-		A43A5A39A96CFC9DB0C964A82E638233 /* IASKTextViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CC64E7D756A827CAE4711C34B289EBD2 /* IASKTextViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A870F3AD24D7A9FAA485538FF1B0CC6A /* InAppSettingsKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E5705709465590F2C5A051D901ED13AA /* InAppSettingsKit-dummy.m */; };
-		AD7004DFB4B84D59D20E312AA1E61D67 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9D1DCF06681788BA852BDC475398A32 /* UIKit.framework */; };
-		B62F5C08A10C926E87625928539C07F5 /* th.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 0637697204F123FA047DE10B089FC9CA /* th.lproj */; };
-		B711A4586CCB29F99CE531F82A290CAF /* IASKPSSliderSpecifierViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BA5A8029CF4B5220CA49D50F6C843E /* IASKPSSliderSpecifierViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BFC56E34062C26BF7A1BF48A4AFB4A77 /* nb.lproj in Resources */ = {isa = PBXBuildFile; fileRef = AC64E2D1EBD9C0A09060E6892EEA3C23 /* nb.lproj */; };
-		C0C04042E55BD42F777C7E57C7F23E6F /* ca.lproj in Resources */ = {isa = PBXBuildFile; fileRef = CDC86C15A9C72341CF93DE0D9FC81820 /* ca.lproj */; };
-		C13BE682CA623F4083A6E178C1544E3D /* IASKTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDC8BCD4707FA7A5D7F3873343211EE /* IASKTextField.m */; };
-		C334FD7D8CE171A6004CFEB4863F57FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC1D574A2F3239D89F533C8D0BE07C /* Foundation.framework */; };
-		C808D28BCF2C57EBF9A9270F31759336 /* IASKSettingsStoreUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = DB0F5BAA1406397ED1150F0D2CE4B6B1 /* IASKSettingsStoreUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C8CE86F1F19D677C478E4EE9A0932AEF /* IASKTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AB308A6B2B8C8B2BFFCEAD5C12E7C2D /* IASKTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CA6C916AD201BC664F374180E53B7E33 /* InAppSettingsKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 325E862631E06444E4504511C87F1E9C /* InAppSettingsKit.bundle */; };
-		D5B8FB2C804B163D4FA074C670DBA25F /* IASKSpecifierValuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23E3C992D2AB7233D4C6DF66EDC79643 /* IASKSpecifierValuesViewController.m */; };
-		DEF9F52E7821E21CFB9B3773B9AEB30D /* IASKAppSettingsWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = FA37187DF9471F2FBAF6591EA083AD60 /* IASKAppSettingsWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DFFDE681E6A2D311C12DE72ADAED6399 /* IASKSettingsStoreFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CFCAD89EB3E14859C84F6030CBF5193 /* IASKSettingsStoreFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E3AE664A5AB40110761CC6984B56F227 /* de.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 69BFFA1B0E1AF09F4C46B1A6854830C9 /* de.lproj */; };
-		EA906ED7065501C39473542549DB2D32 /* IASKAppSettingsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AA5DBB6102693BF8FC1FB507575302FF /* IASKAppSettingsViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EE755BE27CB438A867DB29C508FBE697 /* IASKSpecifierValuesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 812E1AEAD46A5FDEE89FE2635323C04F /* IASKSpecifierValuesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F445DE4E33E69DAB4E3E69D7AD03D3C3 /* zh-Hans.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 3BAFCBFB3FFB3A56B513F9EE05C507A3 /* zh-Hans.lproj */; };
-		F67F030CC582FB921105A33DB328AF84 /* es-MX.lproj in Resources */ = {isa = PBXBuildFile; fileRef = EC49EF99376983A9D4CAFA9E923EE577 /* es-MX.lproj */; };
-		FC78AC6BB2F0558A8AB4084B5DC1B864 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = EE5E4F2659C048332C77D5FDD4E4133C /* en.lproj */; };
-		FD8AFE79AE23DF631F0F06E82652174C /* zh-Hant.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B218DD36EF49C1BADFDAF4BEE35678B2 /* zh-Hant.lproj */; };
-		FF950086B1C88868C078ECCD1E5C7647 /* sv.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 90DC27FA9E8E8218430F3EF3B76012CE /* sv.lproj */; };
+		07898C802008C513800D7160086D59AC /* Subtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0D5DD33F05449B9E78DD98B9160BAA /* Subtitle.swift */; };
+		105AB6387C76D40EB21ABF22657F19F0 /* Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7443FC75802BE2F8DA1C43550C90FC3 /* Deprecated.swift */; };
+		23090B6E3B50A20A4CDA177F88306361 /* TapActionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8358363139641BECA8CE3104D8A934 /* TapActionRow.swift */; };
+		23C08E79767B3469BAFDC3A05EA7708E /* QuickTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD5146BF516A04F766BFBF3F6CFB7AB /* QuickTableViewController.swift */; };
+		2A7668C904625BD7143905BCB94A95EF /* DetailText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0BB06A2AD902EA3C2054ECADE39F3A /* DetailText.swift */; };
+		2E6D23173201FD8696A04F11A012F541 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73015ED9C40B101834C2C99F8197931E /* Configurable.swift */; };
+		30D7F3BF1038D22E5B03E4EE7F3C2482 /* RadioSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDF0EF4F6E1F6896D89ED83A9325FC1 /* RadioSection.swift */; };
+		36C5B65CE92BD69F2A614B83F47A9065 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6DBC3F5DAE556103CA85B260807340 /* Row.swift */; };
+		36C5D6BD146967C86B630B9169159FC3 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB29A97F64495280774A2EDA99D37F /* Icon.swift */; };
+		381CEF1FBD3A743539F3D7BE3C59E5A7 /* QuickTableViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 40DAEA21490F28C4863225B791888FCF /* QuickTableViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4C380826EDFF41E4D8D21196AE1CEB06 /* Pods-RunTracker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B731ACAF7D989DB185D9C25DD4FED63 /* Pods-RunTracker-dummy.m */; };
+		5DC0E68954C8AE1378E91A9F8DEC1E8A /* OptionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB998A39704A035C2D2CE6093EDE16D3 /* OptionRow.swift */; };
+		6D01609D8B2BEBDE3CA89D8858432C83 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		9817C03A7C30D2160B17482798330CE6 /* RowCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D56F69AC2A92830936BFDB360CC5F /* RowCompatible.swift */; };
+		9B13BF9D901FC55A9D2D9362333F6DB7 /* RowStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F256CA4E922F3BF3C257D01CA07885E8 /* RowStyle.swift */; };
+		B7C974C99AFE6B8C24C413D9A2ADF0FF /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BBF69471E9B20AC4546233C68EA2A3 /* Reusable.swift */; };
+		C3D5809932973831E875B8DCFD5C3FC7 /* TapActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C73C7AD66A531A88BF3284E2ECDED /* TapActionCell.swift */; };
+		C8F5E9C6B499170CE116C3F3010DD611 /* NavigationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C6E7097085A872BB6270CC8779C653 /* NavigationRow.swift */; };
+		CAC3028A6F088B5DB5FE9CEB637159FC /* Pods-RunTracker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E279242069E7CA46DEBCCA50E9900812 /* Pods-RunTracker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2BE414742211AFA83FC9E43546147FB /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67197BAF5865E4AFE6B95270C331F1B8 /* SwitchCell.swift */; };
+		E2EDB7A3C5B1EE901D282005DDA2BC51 /* SwitchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3A424CE03AB5A45A5CCD279075C9C7 /* SwitchRow.swift */; };
+		E3266C1899A6363E8D72293C59E643B5 /* QuickTableViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6182789F8980A92869ABBFE5CE074515 /* QuickTableViewController-dummy.m */; };
+		F3754258FE6F52FF2DA0DD5899A16242 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E1EFB45338FD698B44E549D821457 /* Section.swift */; };
+		FB5BCBBA79D1AE3AFCEFFA4F0B07B5D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		48C2A69D762B9886BD1DB926051D1245 /* PBXContainerItemProxy */ = {
+		F4EC3896C54CC1040203E09403CEDA8D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8A996938DFC560C0A3EF0DD6CA6B032A;
-			remoteInfo = "InAppSettingsKit-InAppSettingsKit";
-		};
-		BF5D9AEDE9A9C44840BCD76970AC61D8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5B4848122435F4C22D574A5DA6D2EFB3;
-			remoteInfo = InAppSettingsKit;
+			remoteGlobalIDString = E7D16F6260A6FAB7F88EB5ACC56D911D;
+			remoteInfo = QuickTableViewController;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0186A40282425A1CCBE8700E4C6C23A3 /* Base.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = Base.lproj; path = InAppSettingsKit/Resources/Base.lproj; sourceTree = "<group>"; };
 		02806F33E13CA423040315664ED960C2 /* Pods_RunTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RunTracker.framework; path = "Pods-RunTracker.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0637697204F123FA047DE10B089FC9CA /* th.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = th.lproj; path = InAppSettingsKit/Resources/th.lproj; sourceTree = "<group>"; };
-		0C9E658B0DD7F8C59996F70D2EDFD0EC /* IASKSettingsStore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IASKSettingsStore.m; path = InAppSettingsKit/Models/IASKSettingsStore.m; sourceTree = "<group>"; };
-		0F55BCD1D959C2BCEC2394A3647AF423 /* ru.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ru.lproj; path = InAppSettingsKit/Resources/ru.lproj; sourceTree = "<group>"; };
-		1025DC330A54D1A8C8635108EA713949 /* IASKTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IASKTextField.h; path = InAppSettingsKit/Views/IASKTextField.h; sourceTree = "<group>"; };
-		144A53FDC58FFA8FFF1B994C3E866B77 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
-		159808DBE4D791077ABE7DEED7D9F37D /* it.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = it.lproj; path = InAppSettingsKit/Resources/it.lproj; sourceTree = "<group>"; };
-		19A87E9CAE4EAA826F1EBB994FC8406D /* IASKSlider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IASKSlider.h; path = InAppSettingsKit/Views/IASKSlider.h; sourceTree = "<group>"; };
+		029D56F69AC2A92830936BFDB360CC5F /* RowCompatible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RowCompatible.swift; path = Source/Protocol/RowCompatible.swift; sourceTree = "<group>"; };
 		1B731ACAF7D989DB185D9C25DD4FED63 /* Pods-RunTracker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RunTracker-dummy.m"; sourceTree = "<group>"; };
-		1CFCAD89EB3E14859C84F6030CBF5193 /* IASKSettingsStoreFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IASKSettingsStoreFile.h; path = InAppSettingsKit/Models/IASKSettingsStoreFile.h; sourceTree = "<group>"; };
-		1E8C0FA59288ACF04904F865978EE7FA /* InAppSettingsKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = InAppSettingsKit.modulemap; sourceTree = "<group>"; };
-		23E3C992D2AB7233D4C6DF66EDC79643 /* IASKSpecifierValuesViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IASKSpecifierValuesViewController.m; path = InAppSettingsKit/Controllers/IASKSpecifierValuesViewController.m; sourceTree = "<group>"; };
+		1BEE2F18C2CD56EDA7C6CD8BFA2CFC8E /* QuickTableViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QuickTableViewController-prefix.pch"; sourceTree = "<group>"; };
+		1FA89163971C9751850A2C3EFD313884 /* QuickTableViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = QuickTableViewController.framework; path = QuickTableViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24560EB9393F8BD4ABCFDB6637AC254F /* QuickTableViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = QuickTableViewController.modulemap; sourceTree = "<group>"; };
 		266EAE5CED0E4EF42CD00FB514F261C7 /* Pods-RunTracker-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RunTracker-frameworks.sh"; sourceTree = "<group>"; };
-		29865E9333E966A358E258CFD47180A9 /* el.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = el.lproj; path = InAppSettingsKit/Resources/el.lproj; sourceTree = "<group>"; };
-		2AB308A6B2B8C8B2BFFCEAD5C12E7C2D /* IASKTextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IASKTextView.h; path = InAppSettingsKit/Views/IASKTextView.h; sourceTree = "<group>"; };
-		325E862631E06444E4504511C87F1E9C /* InAppSettingsKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = InAppSettingsKit.bundle; path = "InAppSettingsKit-InAppSettingsKit.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3735C3306C526F363C4128BA04D5FA3D /* InAppSettingsKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "InAppSettingsKit-prefix.pch"; sourceTree = "<group>"; };
-		38F80A059FA5D2F16FDEA74F0CD43F4E /* nl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = nl.lproj; path = InAppSettingsKit/Resources/nl.lproj; sourceTree = "<group>"; };
-		3BAFCBFB3FFB3A56B513F9EE05C507A3 /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "zh-Hans.lproj"; path = "InAppSettingsKit/Resources/zh-Hans.lproj"; sourceTree = "<group>"; };
+		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		3A0BB06A2AD902EA3C2054ECADE39F3A /* DetailText.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DetailText.swift; path = Source/Model/DetailText.swift; sourceTree = "<group>"; };
+		3C3A424CE03AB5A45A5CCD279075C9C7 /* SwitchRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwitchRow.swift; path = Source/Rows/SwitchRow.swift; sourceTree = "<group>"; };
 		3CECD9155739C321901796D48DDA26DC /* Pods-RunTracker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RunTracker.modulemap"; sourceTree = "<group>"; };
-		3F14B463AA4A39664B905151745B2AD5 /* es.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = es.lproj; path = InAppSettingsKit/Resources/es.lproj; sourceTree = "<group>"; };
-		470F9FAEDCB468811CAE2C602D146BB5 /* InAppSettingsKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "InAppSettingsKit-Info.plist"; sourceTree = "<group>"; };
-		49FC1D574A2F3239D89F533C8D0BE07C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		4AAA79D5F78D952AC05FEDF29BB19412 /* pt.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = pt.lproj; path = InAppSettingsKit/Resources/pt.lproj; sourceTree = "<group>"; };
-		4F20BE8EB6799F54C71C5DCCE699CA58 /* IASKMultipleValueSelection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IASKMultipleValueSelection.h; path = InAppSettingsKit/Controllers/IASKMultipleValueSelection.h; sourceTree = "<group>"; };
-		5B809717CA032FC99C28A911891FC894 /* IASKViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IASKViewController.h; path = InAppSettingsKit/Controllers/IASKViewController.h; sourceTree = "<group>"; };
+		40DAEA21490F28C4863225B791888FCF /* QuickTableViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QuickTableViewController-umbrella.h"; sourceTree = "<group>"; };
 		5B89FE15E17BDD60DF7EE8D15300CD61 /* Pods-RunTracker-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RunTracker-acknowledgements.plist"; sourceTree = "<group>"; };
-		5CDC8BCD4707FA7A5D7F3873343211EE /* IASKTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IASKTextField.m; path = InAppSettingsKit/Views/IASKTextField.m; sourceTree = "<group>"; };
 		61562409B1F6804F2B65FBC1D1DACE92 /* Pods-RunTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RunTracker.debug.xcconfig"; sourceTree = "<group>"; };
-		6431B288A1BB1CE73994EE68D4D97707 /* IASKColor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IASKColor.h; path = InAppSettingsKit/Views/IASKColor.h; sourceTree = "<group>"; };
-		67AAB13F46A2AF30560531F69870C3AC /* ja.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ja.lproj; path = InAppSettingsKit/Resources/ja.lproj; sourceTree = "<group>"; };
-		67BA5A8029CF4B5220CA49D50F6C843E /* IASKPSSliderSpecifierViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IASKPSSliderSpecifierViewCell.h; path = InAppSettingsKit/Views/IASKPSSliderSpecifierViewCell.h; sourceTree = "<group>"; };
-		687ECD4931B1BA12BC7A3A85A4824DF6 /* ResourceBundle-InAppSettingsKit-InAppSettingsKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-InAppSettingsKit-InAppSettingsKit-Info.plist"; sourceTree = "<group>"; };
-		69BFFA1B0E1AF09F4C46B1A6854830C9 /* de.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = de.lproj; path = InAppSettingsKit/Resources/de.lproj; sourceTree = "<group>"; };
-		6A22102E8A7C2DDD604D4C08F959F77C /* IASKPSTextFieldSpecifierViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IASKPSTextFieldSpecifierViewCell.h; path = InAppSettingsKit/Views/IASKPSTextFieldSpecifierViewCell.h; sourceTree = "<group>"; };
+		6182789F8980A92869ABBFE5CE074515 /* QuickTableViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "QuickTableViewController-dummy.m"; sourceTree = "<group>"; };
+		668CA859423E62B92C822420D83574D2 /* QuickTableViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = QuickTableViewController.release.xcconfig; sourceTree = "<group>"; };
+		67197BAF5865E4AFE6B95270C331F1B8 /* SwitchCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwitchCell.swift; path = Source/Views/SwitchCell.swift; sourceTree = "<group>"; };
 		6E281A1A467CE14ED5B68F56C80D7549 /* Pods-RunTracker-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RunTracker-Info.plist"; sourceTree = "<group>"; };
-		723B5EF8F0FB878692D1C49341ED8FB5 /* tr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = tr.lproj; path = InAppSettingsKit/Resources/tr.lproj; sourceTree = "<group>"; };
-		73BA88E474020CE57E736DCE24D17F84 /* IASKPSTextFieldSpecifierViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IASKPSTextFieldSpecifierViewCell.m; path = InAppSettingsKit/Views/IASKPSTextFieldSpecifierViewCell.m; sourceTree = "<group>"; };
+		73015ED9C40B101834C2C99F8197931E /* Configurable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Configurable.swift; path = Source/Protocol/Configurable.swift; sourceTree = "<group>"; };
 		777682ED71ECA23FEBC6E3136E097B0A /* Pods-RunTracker-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RunTracker-acknowledgements.markdown"; sourceTree = "<group>"; };
-		78C8C83DAF7A19C335112CDD5302CF60 /* IASKTextViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IASKTextViewCell.m; path = InAppSettingsKit/Views/IASKTextViewCell.m; sourceTree = "<group>"; };
-		80F60F4422C742B4FC24AFB9E0CAAC44 /* IASKSwitch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IASKSwitch.m; path = InAppSettingsKit/Views/IASKSwitch.m; sourceTree = "<group>"; };
-		812E1AEAD46A5FDEE89FE2635323C04F /* IASKSpecifierValuesViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IASKSpecifierValuesViewController.h; path = InAppSettingsKit/Controllers/IASKSpecifierValuesViewController.h; sourceTree = "<group>"; };
-		8AE0BA6CCBD2268A36A6E7B550A991FF /* IASKSettingsStoreFile.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IASKSettingsStoreFile.m; path = InAppSettingsKit/Models/IASKSettingsStoreFile.m; sourceTree = "<group>"; };
-		8D057FB22C38B04FE1F461051C4EDA67 /* IASKAppSettingsWebViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IASKAppSettingsWebViewController.m; path = InAppSettingsKit/Controllers/IASKAppSettingsWebViewController.m; sourceTree = "<group>"; };
-		90DC27FA9E8E8218430F3EF3B76012CE /* sv.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = sv.lproj; path = InAppSettingsKit/Resources/sv.lproj; sourceTree = "<group>"; };
-		948A6F20ADFC9FF32C7E01D5B4854D63 /* IASKMultipleValueSelection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IASKMultipleValueSelection.m; path = InAppSettingsKit/Controllers/IASKMultipleValueSelection.m; sourceTree = "<group>"; };
+		7A6DBC3F5DAE556103CA85B260807340 /* Row.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Row.swift; path = Source/Protocol/Row.swift; sourceTree = "<group>"; };
+		7AD5146BF516A04F766BFBF3F6CFB7AB /* QuickTableViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuickTableViewController.swift; path = Source/QuickTableViewController.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		AA35C148FC8C7A84CA3FCB1CC81839F6 /* IASKSpecifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IASKSpecifier.h; path = InAppSettingsKit/Models/IASKSpecifier.h; sourceTree = "<group>"; };
-		AA5DBB6102693BF8FC1FB507575302FF /* IASKAppSettingsViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IASKAppSettingsViewController.h; path = InAppSettingsKit/Controllers/IASKAppSettingsViewController.h; sourceTree = "<group>"; };
-		AA924E60F37E6967774672544ADF0292 /* IASKSpecifier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IASKSpecifier.m; path = InAppSettingsKit/Models/IASKSpecifier.m; sourceTree = "<group>"; };
-		AC64E2D1EBD9C0A09060E6892EEA3C23 /* nb.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = nb.lproj; path = InAppSettingsKit/Resources/nb.lproj; sourceTree = "<group>"; };
-		AE553335CEC801A127FC777D824F94CF /* InAppSettingsKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = InAppSettingsKit.release.xcconfig; sourceTree = "<group>"; };
-		B00235B4FDE2FE5ED90BDC6F17205D81 /* IASKSettingsReader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IASKSettingsReader.m; path = InAppSettingsKit/Models/IASKSettingsReader.m; sourceTree = "<group>"; };
-		B218DD36EF49C1BADFDAF4BEE35678B2 /* zh-Hant.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "zh-Hant.lproj"; path = "InAppSettingsKit/Resources/zh-Hant.lproj"; sourceTree = "<group>"; };
-		B69B2602C42549269CDAD9061395D362 /* IASKTextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IASKTextView.m; path = InAppSettingsKit/Views/IASKTextView.m; sourceTree = "<group>"; };
-		BD071EF460F64296E5BB83667FFD9F70 /* hr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = hr.lproj; path = InAppSettingsKit/Resources/hr.lproj; sourceTree = "<group>"; };
-		C082AE78A2C795A7CD50CE6E5575AB9C /* InAppSettingsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = InAppSettingsKit.framework; path = InAppSettingsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C506C199CC637FFBF2DBCB6E19171FF2 /* uk.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = uk.lproj; path = InAppSettingsKit/Resources/uk.lproj; sourceTree = "<group>"; };
-		C6855E97A4A30CE0035C6BBE5125B200 /* IASKSettingsReader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IASKSettingsReader.h; path = InAppSettingsKit/Models/IASKSettingsReader.h; sourceTree = "<group>"; };
-		C94BCB5FEC74CDD9076F515E0F1EA90B /* fr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = fr.lproj; path = InAppSettingsKit/Resources/fr.lproj; sourceTree = "<group>"; };
-		CC64E7D756A827CAE4711C34B289EBD2 /* IASKTextViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IASKTextViewCell.h; path = InAppSettingsKit/Views/IASKTextViewCell.h; sourceTree = "<group>"; };
-		CDC86C15A9C72341CF93DE0D9FC81820 /* ca.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ca.lproj; path = InAppSettingsKit/Resources/ca.lproj; sourceTree = "<group>"; };
-		D4EBBB708FAFF8B53D977D5FACBAA3FF /* IASKColor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IASKColor.m; path = InAppSettingsKit/Views/IASKColor.m; sourceTree = "<group>"; };
+		AA0D5DD33F05449B9E78DD98B9160BAA /* Subtitle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Subtitle.swift; path = Source/Model/Subtitle.swift; sourceTree = "<group>"; };
+		AB998A39704A035C2D2CE6093EDE16D3 /* OptionRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OptionRow.swift; path = Source/Rows/OptionRow.swift; sourceTree = "<group>"; };
+		AEFB29A97F64495280774A2EDA99D37F /* Icon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Icon.swift; path = Source/Model/Icon.swift; sourceTree = "<group>"; };
+		B4BBF69471E9B20AC4546233C68EA2A3 /* Reusable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Reusable.swift; path = Source/Protocol/Reusable.swift; sourceTree = "<group>"; };
+		C42A444FB5E48DE3268FC14E7DCAEB9B /* QuickTableViewController-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "QuickTableViewController-Info.plist"; sourceTree = "<group>"; };
+		C4B4C2F7C58B3D84BFBC2098E87D1F83 /* QuickTableViewController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = QuickTableViewController.debug.xcconfig; sourceTree = "<group>"; };
+		C7443FC75802BE2F8DA1C43550C90FC3 /* Deprecated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Deprecated.swift; path = Source/Model/Deprecated.swift; sourceTree = "<group>"; };
+		C75C73C7AD66A531A88BF3284E2ECDED /* TapActionCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapActionCell.swift; path = Source/Views/TapActionCell.swift; sourceTree = "<group>"; };
 		D518A77BAFB8C11DDFE0E5411B4DC02F /* Pods-RunTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RunTracker.release.xcconfig"; sourceTree = "<group>"; };
-		D7FB3016BF3A4F62A5176CD75BF277A5 /* hu.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = hu.lproj; path = InAppSettingsKit/Resources/hu.lproj; sourceTree = "<group>"; };
-		DB0F5BAA1406397ED1150F0D2CE4B6B1 /* IASKSettingsStoreUserDefaults.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IASKSettingsStoreUserDefaults.h; path = InAppSettingsKit/Models/IASKSettingsStoreUserDefaults.h; sourceTree = "<group>"; };
-		DE95FFD0AF344D70E431D4A9A93193A1 /* IASKSwitch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IASKSwitch.h; path = InAppSettingsKit/Views/IASKSwitch.h; sourceTree = "<group>"; };
-		DF1A2CF5A4F030B0A7A6080E7B5A04E4 /* IASKSlider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IASKSlider.m; path = InAppSettingsKit/Views/IASKSlider.m; sourceTree = "<group>"; };
-		E169DB472F5DE473EF0CB63D58CFF271 /* IASKSettingsStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IASKSettingsStore.h; path = InAppSettingsKit/Models/IASKSettingsStore.h; sourceTree = "<group>"; };
+		DD3E1EFB45338FD698B44E549D821457 /* Section.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Section.swift; path = Source/Model/Section.swift; sourceTree = "<group>"; };
 		E279242069E7CA46DEBCCA50E9900812 /* Pods-RunTracker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RunTracker-umbrella.h"; sourceTree = "<group>"; };
-		E5705709465590F2C5A051D901ED13AA /* InAppSettingsKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "InAppSettingsKit-dummy.m"; sourceTree = "<group>"; };
-		E6FE334E4133D0A419536CAFCCD830A8 /* InAppSettingsKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = InAppSettingsKit.debug.xcconfig; sourceTree = "<group>"; };
-		E9B2C69CDD602C4E3907788ADB8D1A25 /* IASKPSSliderSpecifierViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IASKPSSliderSpecifierViewCell.m; path = InAppSettingsKit/Views/IASKPSSliderSpecifierViewCell.m; sourceTree = "<group>"; };
-		EB0A78A9188C0457E2B5AF3F902E6621 /* pl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = pl.lproj; path = InAppSettingsKit/Resources/pl.lproj; sourceTree = "<group>"; };
-		EC49EF99376983A9D4CAFA9E923EE577 /* es-MX.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "es-MX.lproj"; path = "InAppSettingsKit/Resources/es-MX.lproj"; sourceTree = "<group>"; };
-		EC9AC1119C5F8BD471A19BCC7807C28F /* pt-PT.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "pt-PT.lproj"; path = "InAppSettingsKit/Resources/pt-PT.lproj"; sourceTree = "<group>"; };
-		EE5E4F2659C048332C77D5FDD4E4133C /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = en.lproj; path = InAppSettingsKit/Resources/en.lproj; sourceTree = "<group>"; };
-		F061A9C356A5DB850F37A809B0958875 /* IASKAppSettingsViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IASKAppSettingsViewController.m; path = InAppSettingsKit/Controllers/IASKAppSettingsViewController.m; sourceTree = "<group>"; };
-		F796E581B88F861D7FB3F4FF2A17C9B5 /* InAppSettingsKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "InAppSettingsKit-umbrella.h"; sourceTree = "<group>"; };
-		F9D1DCF06681788BA852BDC475398A32 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		FA37187DF9471F2FBAF6591EA083AD60 /* IASKAppSettingsWebViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IASKAppSettingsWebViewController.h; path = InAppSettingsKit/Controllers/IASKAppSettingsWebViewController.h; sourceTree = "<group>"; };
-		FC9F5DF4431365DCC76CA17DEA3C148E /* IASKSettingsStoreUserDefaults.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IASKSettingsStoreUserDefaults.m; path = InAppSettingsKit/Models/IASKSettingsStoreUserDefaults.m; sourceTree = "<group>"; };
+		E7C6E7097085A872BB6270CC8779C653 /* NavigationRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NavigationRow.swift; path = Source/Rows/NavigationRow.swift; sourceTree = "<group>"; };
+		ECDF0EF4F6E1F6896D89ED83A9325FC1 /* RadioSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RadioSection.swift; path = Source/Model/RadioSection.swift; sourceTree = "<group>"; };
+		F256CA4E922F3BF3C257D01CA07885E8 /* RowStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RowStyle.swift; path = Source/Protocol/RowStyle.swift; sourceTree = "<group>"; };
+		FE8358363139641BECA8CE3104D8A934 /* TapActionRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapActionRow.swift; path = Source/Rows/TapActionRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		129C19A010EF180B1101D6B5C4C6FFAB /* Frameworks */ = {
+		3B74A25AA688653C3DA5DE60FADF98A4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A03E9A1292C539C6BD8B36693EB11EE6 /* Foundation.framework in Frameworks */,
+				FB5BCBBA79D1AE3AFCEFFA4F0B07B5D6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7B2AC70202741F32CA0F8B70F22473B4 /* Frameworks */ = {
+		F5E92942E3DBC7E26A37EE62175A9CBA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9AEBD12AD3EA20571F90DA6289767B71 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C334FD7D8CE171A6004CFEB4863F57FE /* Foundation.framework in Frameworks */,
-				036DA4790F2E3D08E3C4F3B6C8104479 /* MessageUI.framework in Frameworks */,
-				AD7004DFB4B84D59D20E312AA1E61D67 /* UIKit.framework in Frameworks */,
+				6D01609D8B2BEBDE3CA89D8858432C83 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		03C5C200A0787E300053CFA8F53CA094 /* Frameworks */ = {
+		2BF65E787C9F5A9A0F09B9393CC85330 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A7F017F6C2D3B79FB97CE448310F3937 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		099CED3EA275FDC8A4610358383CB4D7 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5AF62CF1C819E9A21FAFC09DDE1AF34B /* InAppSettingsKit */,
+				4B420FC0A3874F396C93B4A15DF50386 /* QuickTableViewController */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		24AC4E6220837F8B03D797FCFE6D6997 /* Products */ = {
+		4B420FC0A3874F396C93B4A15DF50386 /* QuickTableViewController */ = {
 			isa = PBXGroup;
 			children = (
-				325E862631E06444E4504511C87F1E9C /* InAppSettingsKit.bundle */,
-				C082AE78A2C795A7CD50CE6E5575AB9C /* InAppSettingsKit.framework */,
-				02806F33E13CA423040315664ED960C2 /* Pods_RunTracker.framework */,
+				73015ED9C40B101834C2C99F8197931E /* Configurable.swift */,
+				C7443FC75802BE2F8DA1C43550C90FC3 /* Deprecated.swift */,
+				3A0BB06A2AD902EA3C2054ECADE39F3A /* DetailText.swift */,
+				AEFB29A97F64495280774A2EDA99D37F /* Icon.swift */,
+				E7C6E7097085A872BB6270CC8779C653 /* NavigationRow.swift */,
+				AB998A39704A035C2D2CE6093EDE16D3 /* OptionRow.swift */,
+				7AD5146BF516A04F766BFBF3F6CFB7AB /* QuickTableViewController.swift */,
+				ECDF0EF4F6E1F6896D89ED83A9325FC1 /* RadioSection.swift */,
+				B4BBF69471E9B20AC4546233C68EA2A3 /* Reusable.swift */,
+				7A6DBC3F5DAE556103CA85B260807340 /* Row.swift */,
+				029D56F69AC2A92830936BFDB360CC5F /* RowCompatible.swift */,
+				F256CA4E922F3BF3C257D01CA07885E8 /* RowStyle.swift */,
+				DD3E1EFB45338FD698B44E549D821457 /* Section.swift */,
+				AA0D5DD33F05449B9E78DD98B9160BAA /* Subtitle.swift */,
+				67197BAF5865E4AFE6B95270C331F1B8 /* SwitchCell.swift */,
+				3C3A424CE03AB5A45A5CCD279075C9C7 /* SwitchRow.swift */,
+				C75C73C7AD66A531A88BF3284E2ECDED /* TapActionCell.swift */,
+				FE8358363139641BECA8CE3104D8A934 /* TapActionRow.swift */,
+				D7FBFCFC2D4B96D34DDB329D341E765B /* Support Files */,
 			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		5AF62CF1C819E9A21FAFC09DDE1AF34B /* InAppSettingsKit */ = {
-			isa = PBXGroup;
-			children = (
-				AA5DBB6102693BF8FC1FB507575302FF /* IASKAppSettingsViewController.h */,
-				F061A9C356A5DB850F37A809B0958875 /* IASKAppSettingsViewController.m */,
-				FA37187DF9471F2FBAF6591EA083AD60 /* IASKAppSettingsWebViewController.h */,
-				8D057FB22C38B04FE1F461051C4EDA67 /* IASKAppSettingsWebViewController.m */,
-				6431B288A1BB1CE73994EE68D4D97707 /* IASKColor.h */,
-				D4EBBB708FAFF8B53D977D5FACBAA3FF /* IASKColor.m */,
-				4F20BE8EB6799F54C71C5DCCE699CA58 /* IASKMultipleValueSelection.h */,
-				948A6F20ADFC9FF32C7E01D5B4854D63 /* IASKMultipleValueSelection.m */,
-				67BA5A8029CF4B5220CA49D50F6C843E /* IASKPSSliderSpecifierViewCell.h */,
-				E9B2C69CDD602C4E3907788ADB8D1A25 /* IASKPSSliderSpecifierViewCell.m */,
-				6A22102E8A7C2DDD604D4C08F959F77C /* IASKPSTextFieldSpecifierViewCell.h */,
-				73BA88E474020CE57E736DCE24D17F84 /* IASKPSTextFieldSpecifierViewCell.m */,
-				C6855E97A4A30CE0035C6BBE5125B200 /* IASKSettingsReader.h */,
-				B00235B4FDE2FE5ED90BDC6F17205D81 /* IASKSettingsReader.m */,
-				E169DB472F5DE473EF0CB63D58CFF271 /* IASKSettingsStore.h */,
-				0C9E658B0DD7F8C59996F70D2EDFD0EC /* IASKSettingsStore.m */,
-				1CFCAD89EB3E14859C84F6030CBF5193 /* IASKSettingsStoreFile.h */,
-				8AE0BA6CCBD2268A36A6E7B550A991FF /* IASKSettingsStoreFile.m */,
-				DB0F5BAA1406397ED1150F0D2CE4B6B1 /* IASKSettingsStoreUserDefaults.h */,
-				FC9F5DF4431365DCC76CA17DEA3C148E /* IASKSettingsStoreUserDefaults.m */,
-				19A87E9CAE4EAA826F1EBB994FC8406D /* IASKSlider.h */,
-				DF1A2CF5A4F030B0A7A6080E7B5A04E4 /* IASKSlider.m */,
-				AA35C148FC8C7A84CA3FCB1CC81839F6 /* IASKSpecifier.h */,
-				AA924E60F37E6967774672544ADF0292 /* IASKSpecifier.m */,
-				812E1AEAD46A5FDEE89FE2635323C04F /* IASKSpecifierValuesViewController.h */,
-				23E3C992D2AB7233D4C6DF66EDC79643 /* IASKSpecifierValuesViewController.m */,
-				DE95FFD0AF344D70E431D4A9A93193A1 /* IASKSwitch.h */,
-				80F60F4422C742B4FC24AFB9E0CAAC44 /* IASKSwitch.m */,
-				1025DC330A54D1A8C8635108EA713949 /* IASKTextField.h */,
-				5CDC8BCD4707FA7A5D7F3873343211EE /* IASKTextField.m */,
-				2AB308A6B2B8C8B2BFFCEAD5C12E7C2D /* IASKTextView.h */,
-				B69B2602C42549269CDAD9061395D362 /* IASKTextView.m */,
-				CC64E7D756A827CAE4711C34B289EBD2 /* IASKTextViewCell.h */,
-				78C8C83DAF7A19C335112CDD5302CF60 /* IASKTextViewCell.m */,
-				5B809717CA032FC99C28A911891FC894 /* IASKViewController.h */,
-				655855711A96AE3F6E4306E4CF0AD20A /* Resources */,
-				B6313152423619CF8C1A71B24F34C820 /* Support Files */,
-			);
-			name = InAppSettingsKit;
-			path = InAppSettingsKit;
-			sourceTree = "<group>";
-		};
-		655855711A96AE3F6E4306E4CF0AD20A /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				0186A40282425A1CCBE8700E4C6C23A3 /* Base.lproj */,
-				CDC86C15A9C72341CF93DE0D9FC81820 /* ca.lproj */,
-				69BFFA1B0E1AF09F4C46B1A6854830C9 /* de.lproj */,
-				29865E9333E966A358E258CFD47180A9 /* el.lproj */,
-				EE5E4F2659C048332C77D5FDD4E4133C /* en.lproj */,
-				3F14B463AA4A39664B905151745B2AD5 /* es.lproj */,
-				EC49EF99376983A9D4CAFA9E923EE577 /* es-MX.lproj */,
-				C94BCB5FEC74CDD9076F515E0F1EA90B /* fr.lproj */,
-				BD071EF460F64296E5BB83667FFD9F70 /* hr.lproj */,
-				D7FB3016BF3A4F62A5176CD75BF277A5 /* hu.lproj */,
-				159808DBE4D791077ABE7DEED7D9F37D /* it.lproj */,
-				67AAB13F46A2AF30560531F69870C3AC /* ja.lproj */,
-				AC64E2D1EBD9C0A09060E6892EEA3C23 /* nb.lproj */,
-				38F80A059FA5D2F16FDEA74F0CD43F4E /* nl.lproj */,
-				EB0A78A9188C0457E2B5AF3F902E6621 /* pl.lproj */,
-				4AAA79D5F78D952AC05FEDF29BB19412 /* pt.lproj */,
-				EC9AC1119C5F8BD471A19BCC7807C28F /* pt-PT.lproj */,
-				0F55BCD1D959C2BCEC2394A3647AF423 /* ru.lproj */,
-				90DC27FA9E8E8218430F3EF3B76012CE /* sv.lproj */,
-				0637697204F123FA047DE10B089FC9CA /* th.lproj */,
-				723B5EF8F0FB878692D1C49341ED8FB5 /* tr.lproj */,
-				C506C199CC637FFBF2DBCB6E19171FF2 /* uk.lproj */,
-				3BAFCBFB3FFB3A56B513F9EE05C507A3 /* zh-Hans.lproj */,
-				B218DD36EF49C1BADFDAF4BEE35678B2 /* zh-Hant.lproj */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		A7F017F6C2D3B79FB97CE448310F3937 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				49FC1D574A2F3239D89F533C8D0BE07C /* Foundation.framework */,
-				144A53FDC58FFA8FFF1B994C3E866B77 /* MessageUI.framework */,
-				F9D1DCF06681788BA852BDC475398A32 /* UIKit.framework */,
-			);
-			name = iOS;
+			name = QuickTableViewController;
+			path = QuickTableViewController;
 			sourceTree = "<group>";
 		};
 		AFC400FC2206F583E73818554375D612 /* Targets Support Files */ = {
@@ -346,126 +164,114 @@
 			path = "Target Support Files/Pods-RunTracker";
 			sourceTree = "<group>";
 		};
-		B6313152423619CF8C1A71B24F34C820 /* Support Files */ = {
+		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				1E8C0FA59288ACF04904F865978EE7FA /* InAppSettingsKit.modulemap */,
-				E5705709465590F2C5A051D901ED13AA /* InAppSettingsKit-dummy.m */,
-				470F9FAEDCB468811CAE2C602D146BB5 /* InAppSettingsKit-Info.plist */,
-				3735C3306C526F363C4128BA04D5FA3D /* InAppSettingsKit-prefix.pch */,
-				F796E581B88F861D7FB3F4FF2A17C9B5 /* InAppSettingsKit-umbrella.h */,
-				E6FE334E4133D0A419536CAFCCD830A8 /* InAppSettingsKit.debug.xcconfig */,
-				AE553335CEC801A127FC777D824F94CF /* InAppSettingsKit.release.xcconfig */,
-				687ECD4931B1BA12BC7A3A85A4824DF6 /* ResourceBundle-InAppSettingsKit-InAppSettingsKit-Info.plist */,
+				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/InAppSettingsKit";
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		CA654DE3DA0E915FF88B7435B348798E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				02806F33E13CA423040315664ED960C2 /* Pods_RunTracker.framework */,
+				1FA89163971C9751850A2C3EFD313884 /* QuickTableViewController.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
-				099CED3EA275FDC8A4610358383CB4D7 /* Pods */,
-				24AC4E6220837F8B03D797FCFE6D6997 /* Products */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				2BF65E787C9F5A9A0F09B9393CC85330 /* Pods */,
+				CA654DE3DA0E915FF88B7435B348798E /* Products */,
 				AFC400FC2206F583E73818554375D612 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D7FBFCFC2D4B96D34DDB329D341E765B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				24560EB9393F8BD4ABCFDB6637AC254F /* QuickTableViewController.modulemap */,
+				6182789F8980A92869ABBFE5CE074515 /* QuickTableViewController-dummy.m */,
+				C42A444FB5E48DE3268FC14E7DCAEB9B /* QuickTableViewController-Info.plist */,
+				1BEE2F18C2CD56EDA7C6CD8BFA2CFC8E /* QuickTableViewController-prefix.pch */,
+				40DAEA21490F28C4863225B791888FCF /* QuickTableViewController-umbrella.h */,
+				C4B4C2F7C58B3D84BFBC2098E87D1F83 /* QuickTableViewController.debug.xcconfig */,
+				668CA859423E62B92C822420D83574D2 /* QuickTableViewController.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/QuickTableViewController";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		3B8DEBB15CC6CFFBBDD927D7229EE2D0 /* Headers */ = {
+		B25E49AE9E25B0D201845024044CA074 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA906ED7065501C39473542549DB2D32 /* IASKAppSettingsViewController.h in Headers */,
-				DEF9F52E7821E21CFB9B3773B9AEB30D /* IASKAppSettingsWebViewController.h in Headers */,
-				8F975EF8F071268A7D18EBDA649ED70C /* IASKColor.h in Headers */,
-				692E9292006B19ABB31EB52E511CBEB6 /* IASKMultipleValueSelection.h in Headers */,
-				B711A4586CCB29F99CE531F82A290CAF /* IASKPSSliderSpecifierViewCell.h in Headers */,
-				5015ACBC208C533EA1F312DD2D766D72 /* IASKPSTextFieldSpecifierViewCell.h in Headers */,
-				8CD7A546C7A883AEB3F9A64EF96C8354 /* IASKSettingsReader.h in Headers */,
-				0B2B43E430F983EBF58D72045C9AA9D6 /* IASKSettingsStore.h in Headers */,
-				DFFDE681E6A2D311C12DE72ADAED6399 /* IASKSettingsStoreFile.h in Headers */,
-				C808D28BCF2C57EBF9A9270F31759336 /* IASKSettingsStoreUserDefaults.h in Headers */,
-				28AF5182BAC367D50B8E8736E9E46FDA /* IASKSlider.h in Headers */,
-				97523C83EE018A60EA11981BA9C2B376 /* IASKSpecifier.h in Headers */,
-				EE755BE27CB438A867DB29C508FBE697 /* IASKSpecifierValuesViewController.h in Headers */,
-				636120EC8218426EE9569524C722F0EC /* IASKSwitch.h in Headers */,
-				660E9B50BF5D8BD950232B0830970935 /* IASKTextField.h in Headers */,
-				C8CE86F1F19D677C478E4EE9A0932AEF /* IASKTextView.h in Headers */,
-				A43A5A39A96CFC9DB0C964A82E638233 /* IASKTextViewCell.h in Headers */,
-				2B121F7B59A1CC98C077B81956BB84B2 /* IASKViewController.h in Headers */,
-				48CD1E06450F2446BBED64D19FB94F6F /* InAppSettingsKit-umbrella.h in Headers */,
+				381CEF1FBD3A743539F3D7BE3C59E5A7 /* QuickTableViewController-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C5EFA0EBB92C0F91BE2BD5E7C0BCED05 /* Headers */ = {
+		B79F14FDA693CCFA5C809B744D63266B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				073DCF228E001F8867F22C4BA01DBCF6 /* Pods-RunTracker-umbrella.h in Headers */,
+				CAC3028A6F088B5DB5FE9CEB637159FC /* Pods-RunTracker-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5B4848122435F4C22D574A5DA6D2EFB3 /* InAppSettingsKit */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 64694CCD5941F8C3523FBC7428CB88AB /* Build configuration list for PBXNativeTarget "InAppSettingsKit" */;
-			buildPhases = (
-				3B8DEBB15CC6CFFBBDD927D7229EE2D0 /* Headers */,
-				CCC634313CEE805135524E86E78DF663 /* Sources */,
-				9AEBD12AD3EA20571F90DA6289767B71 /* Frameworks */,
-				260E8CD7CA137087FD322C3B07D92C01 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BFFB21F4015905B7FA3C8B2987DD4302 /* PBXTargetDependency */,
-			);
-			name = InAppSettingsKit;
-			productName = InAppSettingsKit;
-			productReference = C082AE78A2C795A7CD50CE6E5575AB9C /* InAppSettingsKit.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		8A996938DFC560C0A3EF0DD6CA6B032A /* InAppSettingsKit-InAppSettingsKit */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 27194E91800D4FF412F065AE1DBDF5C5 /* Build configuration list for PBXNativeTarget "InAppSettingsKit-InAppSettingsKit" */;
-			buildPhases = (
-				1FFD00B732856F36E43F18C55BBD557D /* Sources */,
-				7B2AC70202741F32CA0F8B70F22473B4 /* Frameworks */,
-				613A279545EFFDCE0148730E85B0929F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "InAppSettingsKit-InAppSettingsKit";
-			productName = "InAppSettingsKit-InAppSettingsKit";
-			productReference = 325E862631E06444E4504511C87F1E9C /* InAppSettingsKit.bundle */;
-			productType = "com.apple.product-type.bundle";
-		};
 		E6CA704C3ECF6D4832E8D656D6319926 /* Pods-RunTracker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4D408107248A319A65142853A099B4A0 /* Build configuration list for PBXNativeTarget "Pods-RunTracker" */;
+			buildConfigurationList = 46F8D1A10729241FEEB16B069C3119D9 /* Build configuration list for PBXNativeTarget "Pods-RunTracker" */;
 			buildPhases = (
-				C5EFA0EBB92C0F91BE2BD5E7C0BCED05 /* Headers */,
-				D2BD8B5CBA19F95F0E332BE403181DF6 /* Sources */,
-				129C19A010EF180B1101D6B5C4C6FFAB /* Frameworks */,
-				5A15917A5F644DFADEFA0D3FE6511416 /* Resources */,
+				B79F14FDA693CCFA5C809B744D63266B /* Headers */,
+				FCAF52EA6737F4844510E53E129A93F3 /* Sources */,
+				3B74A25AA688653C3DA5DE60FADF98A4 /* Frameworks */,
+				9FE00E27814575C767802BF45665D761 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BE5611D662AC50DCAF1329D2F0EDB97B /* PBXTargetDependency */,
+				8B3667549CD767824EB827962B97608B /* PBXTargetDependency */,
 			);
 			name = "Pods-RunTracker";
 			productName = "Pods-RunTracker";
 			productReference = 02806F33E13CA423040315664ED960C2 /* Pods_RunTracker.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E7D16F6260A6FAB7F88EB5ACC56D911D /* QuickTableViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F57C21105FD76A3321AE995685296404 /* Build configuration list for PBXNativeTarget "QuickTableViewController" */;
+			buildPhases = (
+				B25E49AE9E25B0D201845024044CA074 /* Headers */,
+				34676A869A63F434A97F71E3D003B985 /* Sources */,
+				F5E92942E3DBC7E26A37EE62175A9CBA /* Frameworks */,
+				7E7CEE97A86377B6A076621FDA2D79BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QuickTableViewController;
+			productName = QuickTableViewController;
+			productReference = 1FA89163971C9751850A2C3EFD313884 /* QuickTableViewController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -478,7 +284,7 @@
 				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -486,121 +292,76 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 24AC4E6220837F8B03D797FCFE6D6997 /* Products */;
+			productRefGroup = CA654DE3DA0E915FF88B7435B348798E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5B4848122435F4C22D574A5DA6D2EFB3 /* InAppSettingsKit */,
-				8A996938DFC560C0A3EF0DD6CA6B032A /* InAppSettingsKit-InAppSettingsKit */,
 				E6CA704C3ECF6D4832E8D656D6319926 /* Pods-RunTracker */,
+				E7D16F6260A6FAB7F88EB5ACC56D911D /* QuickTableViewController */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		260E8CD7CA137087FD322C3B07D92C01 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CA6C916AD201BC664F374180E53B7E33 /* InAppSettingsKit.bundle in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5A15917A5F644DFADEFA0D3FE6511416 /* Resources */ = {
+		7E7CEE97A86377B6A076621FDA2D79BB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		613A279545EFFDCE0148730E85B0929F /* Resources */ = {
+		9FE00E27814575C767802BF45665D761 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DD93EF84153122D45AA24CE6C81C7B9 /* Base.lproj in Resources */,
-				C0C04042E55BD42F777C7E57C7F23E6F /* ca.lproj in Resources */,
-				E3AE664A5AB40110761CC6984B56F227 /* de.lproj in Resources */,
-				7F31145A0F2A8386E2FE114E77BC0658 /* el.lproj in Resources */,
-				FC78AC6BB2F0558A8AB4084B5DC1B864 /* en.lproj in Resources */,
-				F67F030CC582FB921105A33DB328AF84 /* es-MX.lproj in Resources */,
-				895A9C194D85EC68DC25C20B0ABCE865 /* es.lproj in Resources */,
-				0676CBF907A56645E51C9404E2C02A77 /* fr.lproj in Resources */,
-				65DC139B59C64CBD28ADD7D07C427ACA /* hr.lproj in Resources */,
-				21775E74F340A8CF1144AE4F1B4572E8 /* hu.lproj in Resources */,
-				08E5C23DCE94E38BFBC567B61B0FC41E /* it.lproj in Resources */,
-				8AF75BAF49BB591C00D8E2417EA753AD /* ja.lproj in Resources */,
-				BFC56E34062C26BF7A1BF48A4AFB4A77 /* nb.lproj in Resources */,
-				858AC7A5BA72236454E6E83ABACA1ED2 /* nl.lproj in Resources */,
-				1164351F484188598961103D5A0433C7 /* pl.lproj in Resources */,
-				76E43FFEF3A17D95C21798B317F4A9EB /* pt-PT.lproj in Resources */,
-				3CE2DD5A6C392855129B71BEBB00A033 /* pt.lproj in Resources */,
-				9C5BA1B98CAB7CD657CF70CC02E8B103 /* ru.lproj in Resources */,
-				FF950086B1C88868C078ECCD1E5C7647 /* sv.lproj in Resources */,
-				B62F5C08A10C926E87625928539C07F5 /* th.lproj in Resources */,
-				23392D4CF1DCFE0A4B7119B77B7F0733 /* tr.lproj in Resources */,
-				6D801A20F85AEB6C093DCEEE36CFB780 /* uk.lproj in Resources */,
-				F445DE4E33E69DAB4E3E69D7AD03D3C3 /* zh-Hans.lproj in Resources */,
-				FD8AFE79AE23DF631F0F06E82652174C /* zh-Hant.lproj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1FFD00B732856F36E43F18C55BBD557D /* Sources */ = {
+		34676A869A63F434A97F71E3D003B985 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E6D23173201FD8696A04F11A012F541 /* Configurable.swift in Sources */,
+				105AB6387C76D40EB21ABF22657F19F0 /* Deprecated.swift in Sources */,
+				2A7668C904625BD7143905BCB94A95EF /* DetailText.swift in Sources */,
+				36C5D6BD146967C86B630B9169159FC3 /* Icon.swift in Sources */,
+				C8F5E9C6B499170CE116C3F3010DD611 /* NavigationRow.swift in Sources */,
+				5DC0E68954C8AE1378E91A9F8DEC1E8A /* OptionRow.swift in Sources */,
+				E3266C1899A6363E8D72293C59E643B5 /* QuickTableViewController-dummy.m in Sources */,
+				23C08E79767B3469BAFDC3A05EA7708E /* QuickTableViewController.swift in Sources */,
+				30D7F3BF1038D22E5B03E4EE7F3C2482 /* RadioSection.swift in Sources */,
+				B7C974C99AFE6B8C24C413D9A2ADF0FF /* Reusable.swift in Sources */,
+				36C5B65CE92BD69F2A614B83F47A9065 /* Row.swift in Sources */,
+				9817C03A7C30D2160B17482798330CE6 /* RowCompatible.swift in Sources */,
+				9B13BF9D901FC55A9D2D9362333F6DB7 /* RowStyle.swift in Sources */,
+				F3754258FE6F52FF2DA0DD5899A16242 /* Section.swift in Sources */,
+				07898C802008C513800D7160086D59AC /* Subtitle.swift in Sources */,
+				D2BE414742211AFA83FC9E43546147FB /* SwitchCell.swift in Sources */,
+				E2EDB7A3C5B1EE901D282005DDA2BC51 /* SwitchRow.swift in Sources */,
+				C3D5809932973831E875B8DCFD5C3FC7 /* TapActionCell.swift in Sources */,
+				23090B6E3B50A20A4CDA177F88306361 /* TapActionRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CCC634313CEE805135524E86E78DF663 /* Sources */ = {
+		FCAF52EA6737F4844510E53E129A93F3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B0910CFB61F57603E4F5D1ED449B4D8 /* IASKAppSettingsViewController.m in Sources */,
-				4DE6FCCF1ADDD7CDBD1E10AF17BE7910 /* IASKAppSettingsWebViewController.m in Sources */,
-				87602E6B10EF82BB99EF0E6F652B8EE6 /* IASKColor.m in Sources */,
-				7E7503567B4C7FDA1A3CDEA1B44C32F8 /* IASKMultipleValueSelection.m in Sources */,
-				9C4B76E78A91CDE0AB3B9B5E8C6DD9AE /* IASKPSSliderSpecifierViewCell.m in Sources */,
-				28FF588834A825DC5E5EBD82A34EA09E /* IASKPSTextFieldSpecifierViewCell.m in Sources */,
-				69E38A7D460BB3663F33F71E471E46E2 /* IASKSettingsReader.m in Sources */,
-				31966DCC10CED29B086452BA4BBC0026 /* IASKSettingsStore.m in Sources */,
-				02AD1ABA7C5E72BB05A8A16FA17ABB7A /* IASKSettingsStoreFile.m in Sources */,
-				A06B66846122FC7B7A7A5C32BA299CCB /* IASKSettingsStoreUserDefaults.m in Sources */,
-				31290E5BFFF46D1B04CFB5717DD20B43 /* IASKSlider.m in Sources */,
-				7FE5D0374CA6E7314435288F77447A1F /* IASKSpecifier.m in Sources */,
-				D5B8FB2C804B163D4FA074C670DBA25F /* IASKSpecifierValuesViewController.m in Sources */,
-				306AE1CD3841EE0E202D5711586BA3D4 /* IASKSwitch.m in Sources */,
-				C13BE682CA623F4083A6E178C1544E3D /* IASKTextField.m in Sources */,
-				93F4FF7ABA1DCCA355C250FC95AF059C /* IASKTextView.m in Sources */,
-				119A8199812214BC8FE9645E49A62F5F /* IASKTextViewCell.m in Sources */,
-				A870F3AD24D7A9FAA485538FF1B0CC6A /* InAppSettingsKit-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D2BD8B5CBA19F95F0E332BE403181DF6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5BCEDA760A81E490DAA68A8589A2222D /* Pods-RunTracker-dummy.m in Sources */,
+				4C380826EDFF41E4D8D21196AE1CEB06 /* Pods-RunTracker-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		BE5611D662AC50DCAF1329D2F0EDB97B /* PBXTargetDependency */ = {
+		8B3667549CD767824EB827962B97608B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = InAppSettingsKit;
-			target = 5B4848122435F4C22D574A5DA6D2EFB3 /* InAppSettingsKit */;
-			targetProxy = BF5D9AEDE9A9C44840BCD76970AC61D8 /* PBXContainerItemProxy */;
-		};
-		BFFB21F4015905B7FA3C8B2987DD4302 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "InAppSettingsKit-InAppSettingsKit";
-			target = 8A996938DFC560C0A3EF0DD6CA6B032A /* InAppSettingsKit-InAppSettingsKit */;
-			targetProxy = 48C2A69D762B9886BD1DB926051D1245 /* PBXContainerItemProxy */;
+			name = QuickTableViewController;
+			target = E7D16F6260A6FAB7F88EB5ACC56D911D /* QuickTableViewController */;
+			targetProxy = F4EC3896C54CC1040203E09403CEDA8D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -665,95 +426,7 @@
 			};
 			name = Release;
 		};
-		2BCB8990DEF017ACB3A0EDEA32A3204A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AE553335CEC801A127FC777D824F94CF /* InAppSettingsKit.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/InAppSettingsKit/InAppSettingsKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/InAppSettingsKit/InAppSettingsKit-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/InAppSettingsKit/InAppSettingsKit.modulemap";
-				PRODUCT_MODULE_NAME = InAppSettingsKit;
-				PRODUCT_NAME = InAppSettingsKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		47E0B59262CAF2F9619375A2F4088567 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AE553335CEC801A127FC777D824F94CF /* InAppSettingsKit.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/InAppSettingsKit";
-				IBSC_MODULE = InAppSettingsKit;
-				INFOPLIST_FILE = "Target Support Files/InAppSettingsKit/ResourceBundle-InAppSettingsKit-InAppSettingsKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_NAME = InAppSettingsKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
-		5806301DB4B9E872CD54D67D7D3C206E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6FE334E4133D0A419536CAFCCD830A8 /* InAppSettingsKit.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/InAppSettingsKit/InAppSettingsKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/InAppSettingsKit/InAppSettingsKit-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/InAppSettingsKit/InAppSettingsKit.modulemap";
-				PRODUCT_MODULE_NAME = InAppSettingsKit;
-				PRODUCT_NAME = InAppSettingsKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		B1861ECD2945BC4B01E55EBAD02F4901 /* Release */ = {
+		7124BBBFF096707C411E7FE796F59BCD /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D518A77BAFB8C11DDFE0E5411B4DC02F /* Pods-RunTracker.release.xcconfig */;
 			buildSettings = {
@@ -792,7 +465,78 @@
 			};
 			name = Release;
 		};
-		D51C9DAF818C04009B40926758DCD4AF /* Debug */ = {
+		7D566EA8267F827F810ED3D553CE0740 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4B4C2F7C58B3D84BFBC2098E87D1F83 /* QuickTableViewController.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/QuickTableViewController/QuickTableViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/QuickTableViewController/QuickTableViewController-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/QuickTableViewController/QuickTableViewController.modulemap";
+				PRODUCT_MODULE_NAME = QuickTableViewController;
+				PRODUCT_NAME = QuickTableViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		82E348B1AB3FB2C5E7396163C7D398CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 668CA859423E62B92C822420D83574D2 /* QuickTableViewController.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/QuickTableViewController/QuickTableViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/QuickTableViewController/QuickTableViewController-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/QuickTableViewController/QuickTableViewController.modulemap";
+				PRODUCT_MODULE_NAME = QuickTableViewController;
+				PRODUCT_NAME = QuickTableViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8BD49A695E685C86214833005A202C4A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 61562409B1F6804F2B65FBC1D1DACE92 /* Pods-RunTracker.debug.xcconfig */;
 			buildSettings = {
@@ -827,23 +571,6 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		E75D2A4BFEF5F5D5BF5274FB565810C1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6FE334E4133D0A419536CAFCCD830A8 /* InAppSettingsKit.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/InAppSettingsKit";
-				IBSC_MODULE = InAppSettingsKit;
-				INFOPLIST_FILE = "Target Support Files/InAppSettingsKit/ResourceBundle-InAppSettingsKit-InAppSettingsKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_NAME = InAppSettingsKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
 		};
@@ -914,11 +641,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		27194E91800D4FF412F065AE1DBDF5C5 /* Build configuration list for PBXNativeTarget "InAppSettingsKit-InAppSettingsKit" */ = {
+		46F8D1A10729241FEEB16B069C3119D9 /* Build configuration list for PBXNativeTarget "Pods-RunTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E75D2A4BFEF5F5D5BF5274FB565810C1 /* Debug */,
-				47E0B59262CAF2F9619375A2F4088567 /* Release */,
+				8BD49A695E685C86214833005A202C4A /* Debug */,
+				7124BBBFF096707C411E7FE796F59BCD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -932,20 +659,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4D408107248A319A65142853A099B4A0 /* Build configuration list for PBXNativeTarget "Pods-RunTracker" */ = {
+		F57C21105FD76A3321AE995685296404 /* Build configuration list for PBXNativeTarget "QuickTableViewController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D51C9DAF818C04009B40926758DCD4AF /* Debug */,
-				B1861ECD2945BC4B01E55EBAD02F4901 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		64694CCD5941F8C3523FBC7428CB88AB /* Build configuration list for PBXNativeTarget "InAppSettingsKit" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5806301DB4B9E872CD54D67D7D3C206E /* Debug */,
-				2BCB8990DEF017ACB3A0EDEA32A3204A /* Release */,
+				7D566EA8267F827F810ED3D553CE0740 /* Debug */,
+				82E348B1AB3FB2C5E7396163C7D398CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
