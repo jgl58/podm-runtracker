@@ -1,0 +1,6 @@
+framework module Pods_RunTracker {
+  umbrella header "Pods-RunTracker-umbrella.h"
+
+  export *
+  module * { export * }
+}
