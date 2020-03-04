@@ -17,15 +17,19 @@
 		7D56BBEE23F46EB500E1080A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D56BBEC23F46EB500E1080A /* LaunchScreen.storyboard */; };
 		7D56BBF623F477DE00E1080A /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56BBF523F477DE00E1080A /* MapController.swift */; };
 		7D81ACF023FD8DE5008DADF9 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81ACEF23FD8DE5008DADF9 /* Place.swift */; };
+		7D81ACF623FDAFC1008DADF9 /* Ruta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D81ACF423FDAFC1008DADF9 /* Ruta.xcdatamodeld */; };
+		7DBD07BE2406D38200B68FC4 /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBD07BD2406D38200B68FC4 /* Training.swift */; };
+		7DBD07C02406E88A00B68FC4 /* HistorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBD07BF2406E88A00B68FC4 /* HistorialViewController.swift */; };
 		B1531D8B823EA6FED5737726 /* Pods_RunTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA509914603862CC6D868233 /* Pods_RunTracker.framework */; };
+		C732EE90240FEE89006715A9 /* Sonidos.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732EE8F240FEE89006715A9 /* Sonidos.swift */; };
+		C732EE95240FEEF0006715A9 /* fast-action.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C732EE92240FEEF0006715A9 /* fast-action.mp3 */; };
+		C732EE96240FEEF0006715A9 /* iphone_notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C732EE93240FEEF0006715A9 /* iphone_notification.mp3 */; };
+		C732EE97240FEEF0006715A9 /* eventually.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C732EE94240FEEF0006715A9 /* eventually.mp3 */; };
 		C735205C2406C523001D313B /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C735205B2406C523001D313B /* SettingsController.swift */; };
 		C73520612406F035001D313B /* CadenciaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73520602406F035001D313B /* CadenciaController.swift */; };
 		C73520632406F4DB001D313B /* IntervalosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73520622406F4DB001D313B /* IntervalosController.swift */; };
 		C73520652406F52C001D313B /* PrecisionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73520642406F52C001D313B /* PrecisionController.swift */; };
 		C73520672406F693001D313B /* BandaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73520662406F693001D313B /* BandaController.swift */; };
-		7D81ACF623FDAFC1008DADF9 /* Ruta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D81ACF423FDAFC1008DADF9 /* Ruta.xcdatamodeld */; };
-		7DBD07BE2406D38200B68FC4 /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBD07BD2406D38200B68FC4 /* Training.swift */; };
-		7DBD07C02406E88A00B68FC4 /* HistorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBD07BF2406E88A00B68FC4 /* HistorialViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,17 +45,21 @@
 		7D56BBEF23F46EB500E1080A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D56BBF523F477DE00E1080A /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		7D81ACEF23FD8DE5008DADF9 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		7D81ACF523FDAFC1008DADF9 /* Ruta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ruta.xcdatamodel; sourceTree = "<group>"; };
+		7DBD07BD2406D38200B68FC4 /* Training.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
+		7DBD07BF2406E88A00B68FC4 /* HistorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorialViewController.swift; sourceTree = "<group>"; };
 		8C8C1D5831741C00B889804D /* Pods-RunTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunTracker.release.xcconfig"; path = "Target Support Files/Pods-RunTracker/Pods-RunTracker.release.xcconfig"; sourceTree = "<group>"; };
 		AA509914603862CC6D868233 /* Pods_RunTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5A5ADA0EC1D350BE627E853 /* Pods-RunTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunTracker.debug.xcconfig"; path = "Target Support Files/Pods-RunTracker/Pods-RunTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		C732EE8F240FEE89006715A9 /* Sonidos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sonidos.swift; sourceTree = "<group>"; };
+		C732EE92240FEEF0006715A9 /* fast-action.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fast-action.mp3"; sourceTree = "<group>"; };
+		C732EE93240FEEF0006715A9 /* iphone_notification.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = iphone_notification.mp3; sourceTree = "<group>"; };
+		C732EE94240FEEF0006715A9 /* eventually.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eventually.mp3; sourceTree = "<group>"; };
 		C735205B2406C523001D313B /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		C73520602406F035001D313B /* CadenciaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenciaController.swift; sourceTree = "<group>"; };
 		C73520622406F4DB001D313B /* IntervalosController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalosController.swift; sourceTree = "<group>"; };
 		C73520642406F52C001D313B /* PrecisionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecisionController.swift; sourceTree = "<group>"; };
 		C73520662406F693001D313B /* BandaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandaController.swift; sourceTree = "<group>"; };
-		7D81ACF523FDAFC1008DADF9 /* Ruta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ruta.xcdatamodel; sourceTree = "<group>"; };
-		7DBD07BD2406D38200B68FC4 /* Training.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
-		7DBD07BF2406E88A00B68FC4 /* HistorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorialViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +121,8 @@
 		7D56BBDD23F46EB400E1080A /* RunTracker */ = {
 			isa = PBXGroup;
 			children = (
+				C732EE91240FEEEF006715A9 /* Sonidos */,
+				C732EE8E240FEE70006715A9 /* Utils */,
 				C72AB1672406B09D0038B05F /* Opciones */,
 				424D6E1024045771007CB6C2 /* Profile */,
 				7D81ACEE23FD8D69008DADF9 /* Ubication */,
@@ -149,6 +159,25 @@
 				C73520662406F693001D313B /* BandaController.swift */,
 			);
 			path = Opciones;
+			sourceTree = "<group>";
+		};
+		C732EE8E240FEE70006715A9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C732EE8F240FEE89006715A9 /* Sonidos.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C732EE91240FEEEF006715A9 /* Sonidos */ = {
+			isa = PBXGroup;
+			children = (
+				C732EE92240FEEF0006715A9 /* fast-action.mp3 */,
+				C732EE93240FEEF0006715A9 /* iphone_notification.mp3 */,
+				C732EE94240FEEF0006715A9 /* eventually.mp3 */,
+			);
+			name = Sonidos;
+			path = ../../../../../Downloads/Sonidos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,8 +240,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C732EE96240FEEF0006715A9 /* iphone_notification.mp3 in Resources */,
 				7D56BBEE23F46EB500E1080A /* LaunchScreen.storyboard in Resources */,
 				7D56BBEB23F46EB500E1080A /* Assets.xcassets in Resources */,
+				C732EE97240FEEF0006715A9 /* eventually.mp3 in Resources */,
+				C732EE95240FEEF0006715A9 /* fast-action.mp3 in Resources */,
 				7D56BBE623F46EB400E1080A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,9 +303,9 @@
 				C735205C2406C523001D313B /* SettingsController.swift in Sources */,
 				424D6E122404593D007CB6C2 /* EditProfileController.swift in Sources */,
 				C73520612406F035001D313B /* CadenciaController.swift in Sources */,
-				7D56BBE923F46EB400E1080A /* RunTracker.xcdatamodeld in Sources */,
 				7D56BBE323F46EB400E1080A /* ViewController.swift in Sources */,
 				7D56BBDF23F46EB400E1080A /* AppDelegate.swift in Sources */,
+				C732EE90240FEE89006715A9 /* Sonidos.swift in Sources */,
 				C73520672406F693001D313B /* BandaController.swift in Sources */,
 				C73520632406F4DB001D313B /* IntervalosController.swift in Sources */,
 				C73520652406F52C001D313B /* PrecisionController.swift in Sources */,
