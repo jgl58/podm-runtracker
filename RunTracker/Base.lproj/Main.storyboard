@@ -440,7 +440,7 @@
         <scene sceneID="2lU-dn-dMf">
             <objects>
                 <navigationController id="aNO-B1-X1D" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Historial" id="wg3-QE-z6v"/>
+                    <tabBarItem key="tabBarItem" title="Historial" image="documento" id="wg3-QE-z6v"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bcc-xW-xTF">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
