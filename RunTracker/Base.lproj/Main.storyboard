@@ -387,21 +387,104 @@
             </objects>
             <point key="canvasLocation" x="3271.0144927536235" y="732.58928571428567"/>
         </scene>
-        <!--Historial-->
-        <scene sceneID="C5S-sp-edw">
+        <!--Entrenamientos-->
+        <scene sceneID="S0U-8I-2WB">
             <objects>
-                <viewController id="x8O-M4-83V" customClass="HistorialViewController" customModule="RunTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="6X8-q5-Alf">
+                <tableViewController id="8U3-eE-G6i" customClass="HistorialViewController" customModule="RunTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tQK-ON-i6y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="duW-wJ-nuw"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="miCelda" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="miCelda" textLabel="ny4-Eo-CH1" detailTextLabel="pzp-L4-zeL" style="IBUITableViewCellStyleValue1" id="Btd-Tj-fhW">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Btd-Tj-fhW" id="y0u-Sr-SqX">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ny4-Eo-CH1">
+                                            <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pzp-L4-zeL">
+                                            <rect key="frame" x="350" y="12" width="44" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="bjs-LQ-VBb" kind="show" identifier="detailSegue" id="QYa-oh-CUk"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8U3-eE-G6i" id="4JI-N2-pXJ"/>
+                            <outlet property="delegate" destination="8U3-eE-G6i" id="n7f-85-y0g"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Historial" id="XMT-2Y-bfE"/>
+                    <navigationItem key="navigationItem" title="Entrenamientos" id="oeY-jM-zA4"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vTw-De-dDL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1491" y="100"/>
+        </scene>
+        <!--Historial-->
+        <scene sceneID="2lU-dn-dMf">
+            <objects>
+                <navigationController id="aNO-B1-X1D" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Historial" id="wg3-QE-z6v"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bcc-xW-xTF">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="8U3-eE-G6i" kind="relationship" relationship="rootViewController" id="zIn-nJ-bAG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fcJ-io-P9Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="625" y="100"/>
+        </scene>
+        <!--Historial-->
+        <scene sceneID="TzK-1L-bx0">
+            <objects>
+                <viewController id="bjs-LQ-VBb" customClass="DetailViewController" customModule="RunTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jlq-Q4-2FU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oBV-N6-8hh">
+                                <rect key="frame" x="0.0" y="88" width="414" height="391"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpO-rk-bms">
+                                <rect key="frame" x="78" y="520" width="250" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="TF0-4Z-sQB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Historial" image="documento" id="oAY-hQ-mmI"/>
+                    <connections>
+                        <outlet property="labelDistancia" destination="hpO-rk-bms" id="b31-Tq-MhH"/>
+                        <outlet property="mapView" destination="oBV-N6-8hh" id="ZDG-rJ-bXQ"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UDS-2v-eQa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xzY-O1-cvb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1534.7826086956522" y="75"/>
+            <point key="canvasLocation" x="2575" y="86"/>
         </scene>
         <!--Iniciar Sesión-->
         <scene sceneID="hjx-oy-HMr">
@@ -863,7 +946,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="6Vy-8E-tr8" kind="relationship" relationship="viewControllers" id="C2m-tw-2CV"/>
-                        <segue destination="x8O-M4-83V" kind="relationship" relationship="viewControllers" id="WtA-SQ-fCi"/>
+                        <segue destination="aNO-B1-X1D" kind="relationship" relationship="viewControllers" id="Plz-iJ-65p"/>
                         <segue destination="Nvl-Vn-OMJ" kind="relationship" relationship="viewControllers" id="dp0-K4-qCp"/>
                         <segue destination="gXN-vl-vYp" kind="relationship" relationship="viewControllers" id="P0h-sc-C77"/>
                     </connections>

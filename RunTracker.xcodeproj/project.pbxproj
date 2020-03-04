@@ -24,6 +24,7 @@
 		7D81ACF623FDAFC1008DADF9 /* Ruta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D81ACF423FDAFC1008DADF9 /* Ruta.xcdatamodeld */; };
 		7DBD07BE2406D38200B68FC4 /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBD07BD2406D38200B68FC4 /* Training.swift */; };
 		7DBD07C02406E88A00B68FC4 /* HistorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBD07BF2406E88A00B68FC4 /* HistorialViewController.swift */; };
+		7DBD07C42406FD0500B68FC4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBD07C32406FD0500B68FC4 /* DetailViewController.swift */; };
 		B1531D8B823EA6FED5737726 /* Pods_RunTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA509914603862CC6D868233 /* Pods_RunTracker.framework */; };
 		C732EE90240FEE89006715A9 /* Sonidos.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732EE8F240FEE89006715A9 /* Sonidos.swift */; };
 		C735205C2406C523001D313B /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C735205B2406C523001D313B /* SettingsController.swift */; };
@@ -56,6 +57,7 @@
 		7D81ACF523FDAFC1008DADF9 /* Ruta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ruta.xcdatamodel; sourceTree = "<group>"; };
 		7DBD07BD2406D38200B68FC4 /* Training.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
 		7DBD07BF2406E88A00B68FC4 /* HistorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorialViewController.swift; sourceTree = "<group>"; };
+		7DBD07C32406FD0500B68FC4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8C8C1D5831741C00B889804D /* Pods-RunTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunTracker.release.xcconfig"; path = "Target Support Files/Pods-RunTracker/Pods-RunTracker.release.xcconfig"; sourceTree = "<group>"; };
 		AA509914603862CC6D868233 /* Pods_RunTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5A5ADA0EC1D350BE627E853 /* Pods-RunTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunTracker.debug.xcconfig"; path = "Target Support Files/Pods-RunTracker/Pods-RunTracker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 		7D56BBDD23F46EB400E1080A /* RunTracker */ = {
 			isa = PBXGroup;
 			children = (
+				7DBD07C22406F7A400B68FC4 /* Historial */,
 				C7F991BA240FFCDB000AB3AB /* Sonidos */,
 				C732EE8E240FEE70006715A9 /* Utils */,
 				C72AB1672406B09D0038B05F /* Opciones */,
@@ -141,11 +144,9 @@
 				7D56BBE023F46EB400E1080A /* SceneDelegate.swift */,
 				7D56BBE223F46EB400E1080A /* ViewController.swift */,
 				7D56BBE423F46EB400E1080A /* Main.storyboard */,
-				7DBD07BF2406E88A00B68FC4 /* HistorialViewController.swift */,
 				7D56BBEA23F46EB500E1080A /* Assets.xcassets */,
 				7D56BBEC23F46EB500E1080A /* LaunchScreen.storyboard */,
 				7D56BBEF23F46EB500E1080A /* Info.plist */,
-				7D56BBF523F477DE00E1080A /* MapController.swift */,
 				7D81ACF423FDAFC1008DADF9 /* Ruta.xcdatamodeld */,
 				424427DA240EC9A200876680 /* UIViewControllerExtension.swift */,
 			);
@@ -155,10 +156,20 @@
 		7D81ACEE23FD8D69008DADF9 /* Ubication */ = {
 			isa = PBXGroup;
 			children = (
+				7D56BBF523F477DE00E1080A /* MapController.swift */,
 				7D81ACEF23FD8DE5008DADF9 /* Place.swift */,
 				7DBD07BD2406D38200B68FC4 /* Training.swift */,
 			);
 			path = Ubication;
+			sourceTree = "<group>";
+		};
+		7DBD07C22406F7A400B68FC4 /* Historial */ = {
+			isa = PBXGroup;
+			children = (
+				7DBD07BF2406E88A00B68FC4 /* HistorialViewController.swift */,
+				7DBD07C32406FD0500B68FC4 /* DetailViewController.swift */,
+			);
+			path = Historial;
 			sourceTree = "<group>";
 		};
 		C72AB1672406B09D0038B05F /* Opciones */ = {
@@ -309,6 +320,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DBD07C42406FD0500B68FC4 /* DetailViewController.swift in Sources */,
 				424427DD240ED4E400876680 /* DatosFisicosViewController.swift in Sources */,
 				424427D9240EC88A00876680 /* SignInViewController.swift in Sources */,
 				7DBD07BE2406D38200B68FC4 /* Training.swift in Sources */,
