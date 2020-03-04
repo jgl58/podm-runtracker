@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		424427D9240EC88A00876680 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424427D8240EC88A00876680 /* SignInViewController.swift */; };
+		424427DB240EC9A200876680 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424427DA240EC9A200876680 /* UIViewControllerExtension.swift */; };
+		424427DD240ED4E400876680 /* DatosFisicosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424427DC240ED4E400876680 /* DatosFisicosViewController.swift */; };
+		424427DF240EDC8100876680 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424427DE240EDC8100876680 /* RegisterViewController.swift */; };
 		424D6E0F240432D4007CB6C2 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424D6E0E240432D4007CB6C2 /* ProfileController.swift */; };
 		424D6E122404593D007CB6C2 /* EditProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424D6E112404593D007CB6C2 /* EditProfileController.swift */; };
 		7D56BBDF23F46EB400E1080A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56BBDE23F46EB400E1080A /* AppDelegate.swift */; };
@@ -23,6 +27,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		424427D8240EC88A00876680 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		424427DA240EC9A200876680 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		424427DC240ED4E400876680 /* DatosFisicosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatosFisicosViewController.swift; sourceTree = "<group>"; };
+		424427DE240EDC8100876680 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		424D6E0E240432D4007CB6C2 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		424D6E112404593D007CB6C2 /* EditProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileController.swift; sourceTree = "<group>"; };
 		7D56BBDB23F46EB400E1080A /* RunTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +64,9 @@
 			children = (
 				424D6E0E240432D4007CB6C2 /* ProfileController.swift */,
 				424D6E112404593D007CB6C2 /* EditProfileController.swift */,
+				424427D8240EC88A00876680 /* SignInViewController.swift */,
+				424427DC240ED4E400876680 /* DatosFisicosViewController.swift */,
+				424427DE240EDC8100876680 /* RegisterViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -91,6 +102,7 @@
 				7D56BBEF23F46EB500E1080A /* Info.plist */,
 				7D56BBF523F477DE00E1080A /* MapController.swift */,
 				7D81ACF423FDAFC1008DADF9 /* Ruta.xcdatamodeld */,
+				424427DA240EC9A200876680 /* UIViewControllerExtension.swift */,
 			);
 			path = RunTracker;
 			sourceTree = "<group>";
@@ -175,6 +187,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				424427DD240ED4E400876680 /* DatosFisicosViewController.swift in Sources */,
+				424427D9240EC88A00876680 /* SignInViewController.swift in Sources */,
 				7DBD07BE2406D38200B68FC4 /* Training.swift in Sources */,
 				424D6E0F240432D4007CB6C2 /* ProfileController.swift in Sources */,
 				424D6E122404593D007CB6C2 /* EditProfileController.swift in Sources */,
@@ -182,6 +196,8 @@
 				7D56BBDF23F46EB400E1080A /* AppDelegate.swift in Sources */,
 				7D81ACF023FD8DE5008DADF9 /* Place.swift in Sources */,
 				7D56BBF623F477DE00E1080A /* MapController.swift in Sources */,
+				424427DF240EDC8100876680 /* RegisterViewController.swift in Sources */,
+				424427DB240EC9A200876680 /* UIViewControllerExtension.swift in Sources */,
 				7D56BBE123F46EB400E1080A /* SceneDelegate.swift in Sources */,
 				7DBD07C02406E88A00B68FC4 /* HistorialViewController.swift in Sources */,
 				7D81ACF623FDAFC1008DADF9 /* Ruta.xcdatamodeld in Sources */,
@@ -336,7 +352,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.master.RunTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sergio.RunTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -355,7 +371,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.master.RunTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sergio.RunTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

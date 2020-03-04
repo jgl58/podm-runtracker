@@ -38,9 +38,22 @@ class ProfileController: UIViewController {
         }else{
             self.generoImage.image = UIImage(named: "femaleIcon")
         }
+        
+        
     }
     
-
+    
+    @IBAction func cerrarSesion(_ sender: Any) {
+        let dictionary = defaults.dictionaryRepresentation()
+        dictionary.keys.forEach { key in
+            defaults.removeObject(forKey: key)
+        }
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "mainController") as UIViewController
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

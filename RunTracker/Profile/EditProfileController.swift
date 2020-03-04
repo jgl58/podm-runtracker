@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class EditProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -65,13 +66,29 @@ class EditProfileController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     @IBAction func guardar(_ sender: Any) {
-        defaults.set(nombreTextField.text, forKey: "nombre")
-        defaults.set(pesoTextField.text, forKey: "peso")
-        defaults.set(edadTextField.text, forKey: "edad")
-        defaults.set(alturaTextField.text, forKey: "altura")
-        defaults.set(generos[generoPicker.selectedRow(inComponent: 0)], forKey: "genero")
-        defaults.set(usuarioImage.image?.pngData(), forKey: "imagen")
-        self.navigationController?.popViewController(animated: true)
+        let miDelegate = UIApplication.shared.delegate as! AppDelegate
+        let miContexto = miDelegate.persistentContainer.viewContext
+        let u = Usuario(context: miContexto)
+        u.nombre = nombreTextField.text
+        u.edad = Int32(edadTextField?.text ?? self.defaults.string(forKey: "edad") ?? "0" )!
+        u.genero = edadTextField?.text
+        u.altura = Int32(alturaTextField.text ?? self.defaults.string(forKey: "altura") ?? "00")!
+        u.peso = Int32(pesoTextField.text ?? self.defaults.string(forKey: "peso") ?? "00")!
+        
+        do{
+            try miContexto.save()
+            
+            defaults.set(nombreTextField.text, forKey: "nombre")
+            defaults.set(Int(pesoTextField.text ?? "0") ?? 0, forKey: "peso")
+            defaults.set(Int(edadTextField?.text ?? "0") ?? 0, forKey: "edad")
+            defaults.set(Int(alturaTextField.text ?? "0") ?? 0, forKey: "altura")
+            defaults.set(generos[generoPicker.selectedRow(inComponent: 0)], forKey: "genero")
+            defaults.set(usuarioImage.image?.pngData(), forKey: "imagen")
+            self.navigationController?.popViewController(animated: true)
+        }catch{
+            print("Error al actualizar perfil")
+        }
+        
     }
     
     /*
