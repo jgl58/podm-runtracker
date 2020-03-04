@@ -15,6 +15,10 @@
           self.coordinates = coordinates
       }
   }
+  
+  enum estadoEntreno: String {
+    case play, pause, stop
+  }
 
   class MapController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate,  NSFetchedResultsControllerDelegate
   {
@@ -35,12 +39,16 @@
     
     var timer = Timer()
     var seconds = 0
-    var isTimerRunning = false
+
+    var isRunning : estadoEntreno = .stop
     
     var pins = [mapPin]()
     
     let pedometer = CMPedometer()
     var averagePace: Double = 0
+    
+    let prefs = UserDefaults()
+    var precision = 100
     
     var frc : NSFetchedResultsController<LocationPoint>!
           
@@ -64,38 +72,72 @@
           
    
       }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated) // No need for semicolon
+        switch self.prefs.integer(forKey:"precision") {
+        case 0:
+            self.precision = 100
+        case 1:
+            self.precision = 50
+        case 2:
+            self.precision = 20
+        default:
+            self.precision = 100
+        }
+    }
+    
+    
     //Funcion para controlar el tap del botnon play
     @objc func tap() {
-
-        print("Tap happend")
-        if self.isTimerRunning == true {
+        
+        switch self.isRunning {
+        case .play :
             timer.invalidate()
             self.btn.setTitle("Play", for: .normal)
-            self.isTimerRunning = false
             locationManager.stopUpdatingLocation()
             pararPodometro()
-          
-            if(locationsHistory.count > 0){
-                training.distance = 200.0
-               training.finalPoint = locationsHistory.last!.coordinate
-               training.route = locationsHistory
-                saveTraining()
-            }
-           
-            
-        } else {
+            self.isRunning = .pause
+        case .stop,
+            .pause:
             runTimer()
             self.btn.setTitle("Pause", for: .normal)
             locationManager.startUpdatingLocation()
             iniciarPodometro()
-            self.isTimerRunning = true
+            self.isRunning = .play
         }
+        print("Tap happend")
+        
     }
 
-    @objc func long() {
-        print("Long press")
-        locationManager.stopUpdatingLocation()
+    @objc func long(gesture: UILongPressGestureRecognizer) {
         
+        if self.isRunning != .stop {
+            if gesture.state == UIGestureRecognizer.State.began {
+                UIView.animate(withDuration: 0.6,
+                animations: {
+                    self.btn.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
+                },
+                completion: { _ in
+                    UIView.animate(withDuration: 0.6) {
+                        self.btn.transform = CGAffineTransform.identity
+                    }
+                })
+            }
+            self.timer = Timer()
+            self.seconds = 0
+            self.timerLabel.text = self.timeString(time: 0) //Actualizamos el label.
+            self.btn.setTitle("Play", for: .normal)
+            self.isRunning = .stop
+            locationManager.stopUpdatingLocation()
+            pararPodometro()
+            if(locationsHistory.count > 0){
+                training.distance = 200.0
+                training.finalPoint = locationsHistory.last!.coordinate
+                training.route = locationsHistory
+                saveTraining()
+            }
+        }
     }
       
      func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -141,7 +183,7 @@
           }
           
           for newLocation in locations {
-              if newLocation.horizontalAccuracy < 20 && newLocation.horizontalAccuracy >= 0 {
+            if Int(newLocation.horizontalAccuracy) < self.precision && newLocation.horizontalAccuracy >= 0 {
                  
                   if let previousPoint = locationsHistory.last {
                         print("movement distance: " + "\(newLocation.distance(from: previousPoint))")
