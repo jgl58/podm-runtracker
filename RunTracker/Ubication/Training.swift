@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreLocation
+import CoreData
 
 class Training {
     var distance : Double
@@ -21,4 +22,5 @@ class Training {
         self.finalPoint = CLLocationCoordinate2D()
         self.route = [CLLocation]()
     }
+    
 }
