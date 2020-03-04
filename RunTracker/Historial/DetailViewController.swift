@@ -28,9 +28,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
         self.mapView.mapType = .standard
         self.mapView.userTrackingMode = .follow
         
-        
-        
-
+    
         configureView()
     }
     
