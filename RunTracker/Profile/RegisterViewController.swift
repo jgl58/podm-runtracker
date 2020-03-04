@@ -78,6 +78,8 @@ class RegisterViewController: UIViewController {
                 }
                 
 
+            }else{
+                mostrarAlerta(title: "Error", message: "Contraseñas no coinciden")
             }
         }
     }
