@@ -52,15 +52,22 @@ class SignInViewController: UIViewController {
                 }
             }else{
                 print("No se ha encontrado usuario")
+                mostrarAlerta(title: "Error", message: "Usuario no encontrado")
             }
             
         }else{
             print("Error login")
+            mostrarAlerta(title: "Error", message: "Error login")
         }
         
     }
     
-    
+    func mostrarAlerta(title: String, message: String) {
+        let alertGuia = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertGuia.addAction(ok)
+        present(alertGuia, animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
