@@ -131,6 +131,7 @@
             self.isRunning = .stop
             locationManager.stopUpdatingLocation()
             pararPodometro()
+            self.bigMap.removeOverlays(bigMap.overlays)
             if(locationsHistory.count > 0){
                 training.distance = 200.0
                 training.finalPoint = locationsHistory.last!.coordinate
