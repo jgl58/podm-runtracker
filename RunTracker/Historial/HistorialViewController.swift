@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
 class HistorialViewController: UITableViewController, NSFetchedResultsControllerDelegate{
 
@@ -75,11 +76,24 @@ class HistorialViewController: UITableViewController, NSFetchedResultsController
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let indexPath = self.tableView.indexPathForSelectedRow{
-            let selectedRow = indexPath.row
-            let detailVC = segue.destination as! DetailViewController
-            detailVC.entrenamiento = self.historial[selectedRow]
+        if segue.identifier == "detailSegue"{
+            if let indexPath = self.tableView.indexPathForSelectedRow{
+               let detailVC = segue.destination as! DetailViewController
+    
+               let train = Training()
+                train.distance = self.frc.object(at: indexPath).distancia
+                
+                let arrayPuntos = self.frc.object(at: indexPath).puntos?.allObjects as! [LocationPoint]
+                for p in arrayPuntos {
+                    train.route.append(CLLocation(latitude: p.latitude, longitude: p.longitude))
+                }
+                train.startPoint = CLLocationCoordinate2D(latitude: arrayPuntos.first!.latitude, longitude: arrayPuntos.first!.longitude)
+                train.finalPoint = CLLocationCoordinate2D(latitude: arrayPuntos.last!.latitude, longitude: arrayPuntos.last!.longitude)
+                
+               detailVC.entrenamiento = train
+           }
         }
+       
     }
     
 

@@ -135,12 +135,14 @@
                   if let previousPoint = locationsHistory.last {
                         print("movement distance: " + "\(newLocation.distance(from: previousPoint))")
                     
+                    print(previousPoint.coordinate.latitude)
                             totalMovementDistance += newLocation.distance(from: previousPoint)
                             var area = [previousPoint.coordinate, newLocation.coordinate]
                             let polyline = MKPolyline(coordinates: &area, count: area.count)
                             bigMap.addOverlay(polyline)
                   } else
                   {
+                   
                     training.startPoint = newLocation.coordinate
                   }
                   self.locationsHistory.append(newLocation)
@@ -198,9 +200,10 @@
         for location in locationsHistory {
             let point = LocationPoint(context: miContexto)
             
-            point.latitude = location.coordinate.latitude.binade
-            point.longitude = location.coordinate.longitude.binade
+            point.latitude = location.coordinate.latitude
+            point.longitude = location.coordinate.longitude
             point.timestamp = location.timestamp
+            print(point)
             train.addToPuntos(point)
         }
         
