@@ -103,6 +103,7 @@
             runTimer()
             self.btn.setTitle("Pause", for: .normal)
             locationManager.startUpdatingLocation()
+            self.locationManager.allowsBackgroundLocationUpdates = true
             iniciarPodometro()
             self.isRunning = .play
         }
@@ -130,6 +131,7 @@
             self.btn.setTitle("Play", for: .normal)
             self.isRunning = .stop
             locationManager.stopUpdatingLocation()
+            self.locationManager.allowsBackgroundLocationUpdates = false
             pararPodometro()
             self.bigMap.removeOverlays(bigMap.overlays)
             if(locationsHistory.count > 0){
