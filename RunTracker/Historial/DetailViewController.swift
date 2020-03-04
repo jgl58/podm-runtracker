@@ -45,27 +45,20 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
             self.durationLabel.text = timeString(time: TimeInterval(entreno.duracion))*/
             
             var locationArray = [CLLocationCoordinate2D]()
+            
+            print(locationArray)
             for locationDict in entreno.route {
                 let location = CLLocationCoordinate2D(latitude: locationDict.coordinate.latitude, longitude: locationDict.coordinate.longitude)
                 print(String(location.latitude)+" "+String(location.longitude))
                 locationArray.append(location)
+                
+                let region = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+                self.mapView.setRegion(region, animated: true)
             }
             
-            if let inicio = locationArray.first {
-                let start = Place(title: "Inicio", subtitle: "Punto inicial de tu ruta", coordinate: entrenamiento!.startPoint)
-                // Añadimos la anotación.
-                self.mapView.addAnnotation(start)
-            }
-            
-            if let final = locationArray.last {
-                let end = Place(title: "Final", subtitle: "Punto final de tu ruta", coordinate: entrenamiento!.finalPoint)
-                // Añadimos la anotación.
-                self.mapView.addAnnotation(end)
-            }
-            
-            
-            let region = coordinateRegionForCoordinates(coords: locationArray)
-            self.mapView.setRegion(region, animated: true)
+        
+        
+           
             
             let polyline = MKPolyline(coordinates: locationArray, count: locationArray.count)
             self.mapView.addOverlay(polyline)
@@ -94,22 +87,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
             r = r.union(MKMapRect(x: p.x, y: p.y, width: 0, height: 0))
         }
         return MKCoordinateRegion(r)
-    }
-    
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard annotation is MKPointAnnotation else { return nil }
-
-        let identifier = "Annotation"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-
-        if annotationView == nil {
-            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            annotationView!.canShowCallout = true
-        } else {
-            annotationView!.annotation = annotation
-        }
-
-        return annotationView
     }
 
 }
