@@ -141,7 +141,7 @@
              let intervaloTiempo = UserDefaults().integer(forKey: "intervaloDistancia")
              switch intervaloTiempo {
              case 0:
-                self.distanciaIntervalo = 100.0
+                self.distanciaIntervalo = 1000.0
              case 1:
                 self.distanciaIntervalo = 2500.0
              case 2:
@@ -238,6 +238,7 @@
                     
                     print(previousPoint.coordinate.latitude)
                     totalMovementDistance += newLocation.distance(from: previousPoint)
+                    self.contadorDistanciaIntervalos += newLocation.distance(from: previousPoint)
                     var area = [previousPoint.coordinate, newLocation.coordinate]
                     let polyline = MKPolyline(coordinates: &area, count: area.count)
                     bigMap.addOverlay(polyline)
