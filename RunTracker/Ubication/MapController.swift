@@ -50,6 +50,11 @@
     let prefs = UserDefaults()
     var precision = 100
     
+    var tiempoIntervalo = 0
+    var distanciaIntervalo = 0.0
+    var contadorIntervalos = 0
+    var contadorDistanciaIntervalos = 0.0
+    
     var frc : NSFetchedResultsController<LocationPoint>!
           
       override func viewDidLoad() {
@@ -105,9 +110,49 @@
             locationManager.startUpdatingLocation()
             self.locationManager.allowsBackgroundLocationUpdates = true
             iniciarPodometro()
+            setIntervalos()
             self.isRunning = .play
         }
         print("Tap happend")
+        
+    }
+    
+    func setIntervalos(){
+        let intervaloTiempoActivado = UserDefaults().bool(forKey: "intervaloTiempoActivado")
+        let intervaloDistanciaActivada = UserDefaults().bool(forKey: "intervaloDistanciaActivada")
+        
+         if intervaloTiempoActivado == true {
+             let intervaloTiempo = UserDefaults().integer(forKey: "intervaloTiempo")
+             switch intervaloTiempo {
+             case 0:
+                self.tiempoIntervalo = 60
+             case 1:
+               self.tiempoIntervalo = 300
+             case 2:
+                self.tiempoIntervalo = 600
+             case 3:
+                self.tiempoIntervalo = 1800
+             default:
+                self.tiempoIntervalo = 3600
+            }
+             
+         }
+        if intervaloDistanciaActivada == true {
+             let intervaloTiempo = UserDefaults().integer(forKey: "intervaloDistancia")
+             switch intervaloTiempo {
+             case 0:
+                self.distanciaIntervalo = 100.0
+             case 1:
+                self.distanciaIntervalo = 2500.0
+             case 2:
+                self.distanciaIntervalo = 5000.0
+             case 3:
+                self.distanciaIntervalo = 10000.0
+             default:
+                self.distanciaIntervalo = 20000.0
+            }
+             
+         }
         
     }
 
@@ -192,13 +237,23 @@
                         print("movement distance: " + "\(newLocation.distance(from: previousPoint))")
                     
                     print(previousPoint.coordinate.latitude)
-                            totalMovementDistance += newLocation.distance(from: previousPoint)
-                            var area = [previousPoint.coordinate, newLocation.coordinate]
-                            let polyline = MKPolyline(coordinates: &area, count: area.count)
-                            bigMap.addOverlay(polyline)
+                    totalMovementDistance += newLocation.distance(from: previousPoint)
+                    var area = [previousPoint.coordinate, newLocation.coordinate]
+                    let polyline = MKPolyline(coordinates: &area, count: area.count)
+                    bigMap.addOverlay(polyline)
+                    
+                    if UserDefaults().bool(forKey: "intervaloTiempoActivado") == true && (self.contadorIntervalos == self.tiempoIntervalo) {
+                        self.contadorIntervalos = 0
+                        Sonidos.notificarIntervaloTiempo()
+                    }
+                    
+                    if UserDefaults().bool(forKey: "intervaloDistanciaActivada") == true && (self.contadorDistanciaIntervalos >= self.distanciaIntervalo) {
+                        self.contadorDistanciaIntervalos = 0.0
+                        Sonidos.notificarIntervaloDistancia()
+                    }
+                    
                   } else
                   {
-                   
                     training.startPoint = newLocation.coordinate
                   }
                   self.locationsHistory.append(newLocation)
@@ -219,6 +274,7 @@
     func runTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
             self.seconds += 1
+            self.contadorIntervalos += 1
             self.timerLabel.text = self.timeString(time: TimeInterval(self.seconds)) //Actualizamos el label.
             
         }
