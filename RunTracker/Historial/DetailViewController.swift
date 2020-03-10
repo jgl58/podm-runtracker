@@ -54,7 +54,17 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
                 self.mapView.setRegion(region, animated: true)
             }
             
-        
+            if let inicio = locationArray.first {
+                let start = Place(title: "Inicio", subtitle: "Punto inicial de tu ruta", coordinate: inicio)
+                // Añadimos la anotación.
+                self.mapView.addAnnotation(start)
+            }
+            
+            if let final = locationArray.last {
+                let end = Place(title: "Final", subtitle: "Punto final de tu ruta", coordinate: final)
+                // Añadimos la anotación.
+                self.mapView.addAnnotation(end)
+            }
         
            
             

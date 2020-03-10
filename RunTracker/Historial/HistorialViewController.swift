@@ -12,8 +12,8 @@ import CoreLocation
 
 class HistorialViewController: UITableViewController, NSFetchedResultsControllerDelegate{
 
-    var frc : NSFetchedResultsController<Entrenamiento>!
     var historial : [Entrenamiento] = [Entrenamiento]()
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -22,7 +22,7 @@ class HistorialViewController: UITableViewController, NSFetchedResultsController
     override func viewWillAppear(_ animated: Bool) {
         
       
-        guard let miDelegate = UIApplication.shared.delegate as? AppDelegate else {
+        guard (UIApplication.shared.delegate as? AppDelegate) != nil else {
             return
         }
        /*  let request : NSFetchRequest<Entrenamiento> = NSFetchRequest(entityName:"Entrenamiento")
@@ -36,34 +36,42 @@ class HistorialViewController: UITableViewController, NSFetchedResultsController
              self.historial = entrenamientos
          }
         */
-        let miContexto = miDelegate.persistentContainer.viewContext
-           let request : NSFetchRequest<Entrenamiento> = NSFetchRequest(entityName:"Entrenamiento")
+        
+//        let miContexto = miDelegate.persistentContainer.viewContext
+//        let request : NSFetchRequest<Entrenamiento> = NSFetchRequest(entityName:"Entrenamiento")
+//        let credSort = NSSortDescriptor(key:"distancia", ascending:true)
+//        request.sortDescriptors = [credSort]
+//        self.frc = NSFetchedResultsController<Entrenamiento>(fetchRequest: request, managedObjectContext: miContexto, sectionNameKeyPath: "distancia", cacheName: "miCache")
+//
+//        try! self.frc.performFetch()
+//
+//        self.frc.delegate = self
+        
+           
            let credSort = NSSortDescriptor(key:"distancia", ascending:true)
-           request.sortDescriptors = [credSort]
-           self.frc = NSFetchedResultsController<Entrenamiento>(fetchRequest: request, managedObjectContext: miContexto, sectionNameKeyPath: "distancia", cacheName: "miCache")
+        self.historial = StateSingleton.shared.usuarioActual.entrenamientos?.sortedArray(using: [credSort]) as! [Entrenamiento]
            
-           try! self.frc.performFetch()
            
-           self.frc.delegate = self
           self.tableView.reloadData()
            
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return self.frc.sections!.count
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.frc.sections![section].numberOfObjects
+        return self.historial.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "miCelda", for: indexPath)
 
-        let train = self.frc.object(at: indexPath)
+        let train = self.historial[indexPath.row]
+        
         
         cell.textLabel?.text = String(format: "%.2f", train.distancia)+" m"
         let dateFormatter = DateFormatter()
@@ -81,9 +89,11 @@ class HistorialViewController: UITableViewController, NSFetchedResultsController
                let detailVC = segue.destination as! DetailViewController
     
                let train = Training()
-                train.distance = self.frc.object(at: indexPath).distancia
+                train.distance = self.historial[indexPath.row].distancia
                 
-                let arrayPuntos = self.frc.object(at: indexPath).puntos?.allObjects as! [LocationPoint]
+                let credSort = NSSortDescriptor(key:"id", ascending:true)
+                let arrayPuntos = self.historial[indexPath.row].puntos?.sortedArray(using: [credSort]) as! [LocationPoint]
+                
                 for p in arrayPuntos {
                     train.route.append(CLLocation(latitude: p.latitude, longitude: p.longitude))
                 }

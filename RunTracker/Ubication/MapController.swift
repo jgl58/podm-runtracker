@@ -46,6 +46,7 @@
     
     let pedometer = CMPedometer()
     var averagePace: Double = 0
+    var totalSteps = 0
     
     let prefs = UserDefaults()
     var precision = 100
@@ -223,6 +224,7 @@
            
        }
     
+    
       func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
           if let location = locations.last{
@@ -318,6 +320,8 @@
                     }else{
                         self.cadenciaLabel.text = "0.00"
                     }
+                    
+                    self.totalSteps = data?.numberOfSteps as! Int
                 
                     print("Ritmo: " + (data?.currentPace?.stringValue ?? "Nada"))
                     print("Cadencia: " + (data?.currentCadence?.stringValue ?? "Nada"))
@@ -352,15 +356,23 @@
         let train = Entrenamiento(context: miContexto)
         train.timestamp = Date()
         train.distancia = (distanceLabel.text! as NSString).doubleValue
+        train.usuario = StateSingleton.shared.usuarioActual
+        train.ritmoMedio = self.averagePace
+        train.pasosTotales = Int16(self.totalSteps)
+        train.cadenciaMedia = Double(self.totalSteps / self.seconds)
 
+        var id = 1
         for location in locationsHistory {
             let point = LocationPoint(context: miContexto)
             
             point.latitude = location.coordinate.latitude
             point.longitude = location.coordinate.longitude
             point.timestamp = location.timestamp
+            point.id = Int16(id)
             print(point)
             train.addToPuntos(point)
+            
+            id+=1
         }
         
         do{

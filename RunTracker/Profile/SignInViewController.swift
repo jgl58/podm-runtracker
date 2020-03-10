@@ -45,6 +45,8 @@ class SignInViewController: UIViewController {
                     self.defaults.set(usuario.email, forKey: "email")
                     self.defaults.set(usuario.password, forKey: "password")
                     
+                    StateSingleton.shared.usuarioActual = usuario
+                    
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let vc = storyboard.instantiateViewController(identifier: "tabBarController") as UIViewController
                     vc.modalPresentationStyle = .fullScreen
