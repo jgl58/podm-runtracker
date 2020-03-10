@@ -68,7 +68,7 @@ class EditProfileController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBAction func guardar(_ sender: Any) {
         let miDelegate = UIApplication.shared.delegate as! AppDelegate
         let miContexto = miDelegate.persistentContainer.viewContext
-        let u = Usuario(context: miContexto)
+        let u = StateSingleton.shared.usuarioActual!
         u.nombre = nombreTextField.text
         u.edad = Int32(edadTextField?.text ?? self.defaults.string(forKey: "edad") ?? "0" )!
         u.genero = edadTextField?.text

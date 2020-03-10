@@ -19,6 +19,8 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var labelDistancia: UILabel!
     
+    var arrayLocationsIsPaused = [Bool]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -42,24 +44,49 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
             self.dateLabel.text = dateFormatter.string(from: entreno.fechaInicio)
             self.durationLabel.text = timeString(time: TimeInterval(entreno.duracion))*/
             
-            var locationArray = [CLLocationCoordinate2D]()
+//            var locationArray = [CLLocationCoordinate2D]()
             
-            print(locationArray)
-            for locationDict in entreno.route {
-                let location = CLLocationCoordinate2D(latitude: locationDict.coordinate.latitude, longitude: locationDict.coordinate.longitude)
-                print(String(location.latitude)+" "+String(location.longitude))
-                locationArray.append(location)
-                
-                let region = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-                self.mapView.setRegion(region, animated: true)
+//            print(locationArray)
+            if var previousLocation = entreno.route.first{
+                var contador = 0
+                for locationDict in entreno.route {
+                //                let location = CLLocationCoordinate2D(latitude: locationDict.coordinate.latitude, longitude: locationDict.coordinate.longitude)
+                //                print(String(location.latitude)+" "+String(location.longitude))
+                //                locationArray.append(location)
+                var area : [CLLocationCoordinate2D]
+                if self.arrayLocationsIsPaused[contador] == true {
+                    area = [locationDict.coordinate, locationDict.coordinate]
+                }else{
+                    area = [previousLocation.coordinate, locationDict.coordinate]
+                }
+                    
+                let polyline = MKPolyline(coordinates: &area, count: area.count)
+                self.mapView.addOverlay(polyline)
+                    
+                    previousLocation = locationDict
+
+                contador += 1
+            }
+            let region = MKCoordinateRegion(center: entreno.route.first!.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            self.mapView.setRegion(region, animated: true)
             }
             
-        
+            if let inicio = entreno.route.first {
+                let start = Place(title: "Inicio", subtitle: "Punto inicial de tu ruta", coordinate: inicio.coordinate)
+                // Añadimos la anotación.
+                self.mapView.addAnnotation(start)
+            }
+            
+            if let final = entreno.route.last {
+                let end = Place(title: "Final", subtitle: "Punto final de tu ruta", coordinate: final.coordinate)
+                // Añadimos la anotación.
+                self.mapView.addAnnotation(end)
+            }
         
            
             
-            let polyline = MKPolyline(coordinates: locationArray, count: locationArray.count)
-            self.mapView.addOverlay(polyline)
+//            let polyline = MKPolyline(coordinates: locationArray, count: locationArray.count)
+//            self.mapView.addOverlay(polyline)
         
         }
     }
