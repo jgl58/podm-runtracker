@@ -134,6 +134,7 @@
         let bottomFontSize = 15
         // TOP
         let label0 = getLabelbyValoresEntreno(value: valoresEntrenoPositions[0])
+        changeIcon(valoresEntrenoPositions[0])
         label0!.font = UIFont.systemFont(ofSize: 55)
         label0!.sizeToFit()
         self.icono.frame.size.width = 55
@@ -184,13 +185,27 @@
         }
     }
     
+    func changeIcon(_ value : valoresEntreno){
+        switch value {
+            case .tiempo:
+                self.icono.image = UIImage(named: "clock")
+            case .ritmo:
+                self.icono.image = UIImage(named: "pulse")
+            case .distancia:
+                self.icono.image = UIImage(named: "ruler")
+            case .cadencia:
+                self.icono.image = UIImage(named: "indicador")
+        }
+    }
+    
     func animateSwapValues(_ toTop : UILabel, _ position : Int) {
         let top = getLabelbyValoresEntreno(value: valoresEntrenoPositions[0])
         let auxToTop = toTop.center
         toTop.font = UIFont.systemFont(ofSize: 55)
         toTop.sizeToFit()
         anim {
-            // animation block
+            self.changeIcon(self.valoresEntrenoPositions[position])
+            
             self.changeLabelTextByPosition(position, top!)
             top!.center = auxToTop
             top!.font = UIFont.systemFont(ofSize: 15)
@@ -201,7 +216,6 @@
             self.icono.center = CGPoint(x: xIcono,y: 80)
             let xTimer = toTop.frame.size.width/2 + 20
             toTop.center = CGPoint(x: self.icono.center.x + self.icono.frame.size.width/2 +  xTimer,y: 80)
-            
         }
     }
     
