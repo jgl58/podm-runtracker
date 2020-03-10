@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Entrenamiento" representedClassName="Entrenamiento" syncable="YES" codeGenerationType="class">
+        <attribute name="cadenciaMedia" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
         <attribute name="distancia" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="pasosTotales" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="ritmoMedio" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="segundos" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="puntos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LocationPoint" inverseName="entrenamiento" inverseEntity="LocationPoint"/>
-        <relationship name="usuario" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Usuario" inverseName="entrenamientos" inverseEntity="Usuario"/>
+        <relationship name="usuario" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Usuario" inverseName="entrenamientos" inverseEntity="Usuario"/>
     </entity>
     <entity name="LocationPoint" representedClassName="LocationPoint" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -20,11 +25,11 @@
         <attribute name="nombre" optional="YES" attributeType="String"/>
         <attribute name="password" optional="YES" attributeType="String"/>
         <attribute name="peso" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="entrenamientos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Entrenamiento" inverseName="usuario" inverseEntity="Entrenamiento"/>
+        <relationship name="entrenamientos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Entrenamiento" inverseName="usuario" inverseEntity="Entrenamiento"/>
     </entity>
     <elements>
-        <element name="Entrenamiento" positionX="-63" positionY="9" width="128" height="103"/>
-        <element name="LocationPoint" positionX="-63" positionY="-18" width="128" height="103"/>
-        <element name="Usuario" positionX="-54" positionY="27" width="128" height="163"/>
+        <element name="Entrenamiento" positionX="132.21484375" positionY="-2.8671875" width="128" height="163"/>
+        <element name="LocationPoint" positionX="-95.27734375" positionY="-245.2421875" width="128" height="118"/>
+        <element name="Usuario" positionX="-103.640625" positionY="26.44140625" width="128" height="163"/>
     </elements>
 </model>

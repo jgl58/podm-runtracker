@@ -62,6 +62,7 @@ class RegisterViewController: UIViewController {
                             self.defaults.set(email, forKey: "email")
                             self.defaults.set(password, forKey: "password")
                             
+                            StateSingleton.shared.usuarioActual = u
                             
                             let storyboard = UIStoryboard(name: "Main", bundle: nil)
                             let vc = storyboard.instantiateViewController(identifier: "tabBarController") as UIViewController

@@ -49,6 +49,8 @@ class ProfileController: UIViewController {
             defaults.removeObject(forKey: key)
         }
         
+        StateSingleton.shared.usuarioActual = nil
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "mainController") as UIViewController
         vc.modalPresentationStyle = .fullScreen

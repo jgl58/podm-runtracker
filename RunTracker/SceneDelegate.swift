@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -21,16 +22,34 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         //Dependiendo si hay datos de usuario cargamos un controlador u otro
-        if (self.defaults.string(forKey: "nombre") != nil){
-            self.window = UIWindow(windowScene: windowScene)
+        let miDelegate = UIApplication.shared.delegate as! AppDelegate
+        let miContexto = miDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<Usuario>(entityName: "Usuario")
+        let pred = NSPredicate(format: "email CONTAINS %@", argumentArray: [self.defaults.string(forKey: "email") ?? "defaultEmail"])
+        request.predicate = pred
+        if let resultados = try? miContexto.fetch(request){
+            print("Hay \(resultados.count) resultados")
+            if resultados.count > 0{
+                for usuario in resultados {
+                    
+                    StateSingleton.shared.usuarioActual = usuario
+                    
+                    self.window = UIWindow(windowScene: windowScene)
 
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            guard let rootVC = storyboard.instantiateViewController(identifier: "tabBarController") as? UIViewController else {
-                print("ViewController not found")
-                return
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    guard let rootVC = storyboard.instantiateViewController(identifier: "tabBarController") as? UIViewController else {
+                        print("ViewController not found")
+                        return
+                    }
+                    self.window?.rootViewController = rootVC
+                    self.window?.makeKeyAndVisible()
+                }
+            }else{
+                print("No se ha encontrado usuario")
             }
-            self.window?.rootViewController = rootVC
-            self.window?.makeKeyAndVisible()
+            
+        }else{
+            print("Error login")
         }
         
     }
