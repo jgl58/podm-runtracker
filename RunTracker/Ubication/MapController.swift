@@ -41,12 +41,14 @@
     var seconds = 0
 
     var isRunning : estadoEntreno = .stop
+    var isPaused = false
     
     var pins = [mapPin]()
     
     let pedometer = CMPedometer()
     var averagePace: Double = 0
     var totalSteps = 0
+    var cadence : Double = 0
     
     let prefs = UserDefaults()
     var precision = 100
@@ -57,6 +59,9 @@
     var contadorDistanciaIntervalos = 0.0
     
     var frc : NSFetchedResultsController<LocationPoint>!
+    
+    var locationIsPaused: [Bool] = []
+    
           
       override func viewDidLoad() {
           super.viewDidLoad()
@@ -101,9 +106,10 @@
         case .play :
             timer.invalidate()
             self.btn.setTitle("Play", for: .normal)
-            locationManager.stopUpdatingLocation()
+            //locationManager.stopUpdatingLocation()
             pararPodometro()
             self.isRunning = .pause
+            self.isPaused = true
         case .stop,
             .pause:
             runTimer()
@@ -186,6 +192,12 @@
                 training.route = locationsHistory
                 saveTraining()
             }
+            self.locationsHistory = []
+            self.isPaused = false
+            self.locationIsPaused = []
+            self.totalMovementDistance = 0
+            self.averagePace = 0
+            self.totalSteps = 0
         }
     }
       
@@ -231,38 +243,51 @@
               let region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
               self.bigMap.setRegion(region, animated: true)
           }
+        
+        if self.isRunning == .play {
+            for newLocation in locations {
+              if Int(newLocation.horizontalAccuracy) < self.precision && newLocation.horizontalAccuracy >= 0 {
+                   
+                    if let previousPoint = locationsHistory.last {
+                          print("movement distance: " + "\(newLocation.distance(from: previousPoint))")
+                      
+                      print(previousPoint.coordinate.latitude)
+                        var area = [CLLocationCoordinate2D]()
+                        self.locationIsPaused.append(self.isPaused)
+                        if self.isPaused == true{
+                           area = [newLocation.coordinate, newLocation.coordinate]
+                            self.isPaused = false
+                        }else{
+                            area = [previousPoint.coordinate, newLocation.coordinate]
+                            totalMovementDistance += newLocation.distance(from: previousPoint)
+
+                        }
+                      
+                      let polyline = MKPolyline(coordinates: &area, count: area.count)
+                      bigMap.addOverlay(polyline)
+                      
+                      if UserDefaults().bool(forKey: "intervaloTiempoActivado") == true && (self.contadorIntervalos == self.tiempoIntervalo) {
+                          self.contadorIntervalos = 0
+                          Sonidos.notificarIntervaloTiempo()
+                      }
+                      
+                      if UserDefaults().bool(forKey: "intervaloDistanciaActivada") == true && (self.contadorDistanciaIntervalos >= self.distanciaIntervalo) {
+                          self.contadorDistanciaIntervalos = 0.0
+                          Sonidos.notificarIntervaloDistancia()
+                      }
+                      
+                    } else
+                    {
+                      training.startPoint = newLocation.coordinate
+                        self.locationIsPaused.append(self.isPaused)
+                    }
+                    self.locationsHistory.append(newLocation)
+                    let distanceString = String(format:"%gm", totalMovementDistance)
+                    distanceLabel.text = distanceString
+                }
+            }
+        }
           
-          for newLocation in locations {
-            if Int(newLocation.horizontalAccuracy) < self.precision && newLocation.horizontalAccuracy >= 0 {
-                 
-                  if let previousPoint = locationsHistory.last {
-                        print("movement distance: " + "\(newLocation.distance(from: previousPoint))")
-                    
-                    print(previousPoint.coordinate.latitude)
-                    totalMovementDistance += newLocation.distance(from: previousPoint)
-                    var area = [previousPoint.coordinate, newLocation.coordinate]
-                    let polyline = MKPolyline(coordinates: &area, count: area.count)
-                    bigMap.addOverlay(polyline)
-                    
-                    if UserDefaults().bool(forKey: "intervaloTiempoActivado") == true && (self.contadorIntervalos == self.tiempoIntervalo) {
-                        self.contadorIntervalos = 0
-                        Sonidos.notificarIntervaloTiempo()
-                    }
-                    
-                    if UserDefaults().bool(forKey: "intervaloDistanciaActivada") == true && (self.contadorDistanciaIntervalos >= self.distanciaIntervalo) {
-                        self.contadorDistanciaIntervalos = 0.0
-                        Sonidos.notificarIntervaloDistancia()
-                    }
-                    
-                  } else
-                  {
-                    training.startPoint = newLocation.coordinate
-                  }
-                  self.locationsHistory.append(newLocation)
-                  let distanceString = String(format:"%gm", totalMovementDistance)
-                  distanceLabel.text = distanceString
-              }
-          }
       }
       
       func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -301,10 +326,10 @@
                     formatter.minimumFractionDigits = 2
                     
                     let currentPace = data?.currentPace
-                    let averagePace = data?.averageActivePace
+                    let averageActivePace = data?.averageActivePace
                     if currentPace != nil{
                         let conversedCurrentPace = Double(truncating: currentPace!) * (1000/60)
-                        let conversedAveragePace = Double(truncating: averagePace!) * (1000/60)
+                        let conversedAveragePace = Double(truncating: averageActivePace!) * (1000/60)
                         self.averagePace = conversedAveragePace
                         self.ritmoLabel.text = String(format: "%.2f", conversedCurrentPace)
                         
@@ -315,6 +340,7 @@
                     let currentCadence = data?.currentCadence
                     if currentCadence != nil{
                         let conversedCurrentCadence = Double(truncating: currentCadence!) * (1000/60)
+                        self.cadence = conversedCurrentCadence
                         self.cadenciaLabel.text = String(format: "%.2f", conversedCurrentCadence)
                         
                     }else{
@@ -359,9 +385,9 @@
         train.usuario = StateSingleton.shared.usuarioActual
         train.ritmoMedio = self.averagePace
         train.pasosTotales = Int16(self.totalSteps)
-        train.cadenciaMedia = Double(self.totalSteps / self.seconds)
+//        train.cadenciaMedia =
 
-        var id = 1
+        var id = 0
         for location in locationsHistory {
             let point = LocationPoint(context: miContexto)
             
@@ -369,6 +395,7 @@
             point.longitude = location.coordinate.longitude
             point.timestamp = location.timestamp
             point.id = Int16(id)
+            point.isPaused = self.locationIsPaused[id]
             print(point)
             train.addToPuntos(point)
             
