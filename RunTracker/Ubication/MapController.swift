@@ -357,9 +357,9 @@
         train.timestamp = Date()
         train.distancia = (distanceLabel.text! as NSString).doubleValue
         train.usuario = StateSingleton.shared.usuarioActual
-        train.ritmoMedio = self.averagePace as? NSDecimalNumber
+        train.ritmoMedio = self.averagePace
         train.pasosTotales = Int16(self.totalSteps)
-        train.cadenciaMedia = self.totalSteps / self.seconds as? NSDecimalNumber 
+        train.cadenciaMedia = Double(self.totalSteps / self.seconds)
 
         var id = 1
         for location in locationsHistory {
