@@ -1,16 +1,20 @@
 PODS:
+  - anim (1.2.10)
   - QuickTableViewController (1.2.1)
 
 DEPENDENCIES:
+  - anim
   - QuickTableViewController
 
 SPEC REPOS:
   trunk:
+    - anim
     - QuickTableViewController
 
 SPEC CHECKSUMS:
+  anim: 8603b8aa9f20c26fb04bfc94967f0e942687938d
   QuickTableViewController: e633756f35ddaafc5997f71bab9b0e512439ed85
 
-PODFILE CHECKSUM: 81fbacac025d4c7631da9ffa5273d45184d8f773
+PODFILE CHECKSUM: 69edc2edfc80d93ed3e9af840dbe5eff13dfea6e
 
 COCOAPODS: 1.9.0

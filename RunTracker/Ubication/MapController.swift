@@ -3,6 +3,7 @@
   import CoreLocation
   import CoreMotion
   import CoreData
+  import anim
   
   class mapPin {
       let title : String
@@ -19,17 +20,26 @@
   enum estadoEntreno: String {
     case play, pause, stop
   }
+  
+  enum valoresEntreno: Int {
+    case tiempo = 0, ritmo = 1, distancia = 2, cadencia = 3
+  }
 
   class MapController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate,  NSFetchedResultsControllerDelegate
   {
-      @IBOutlet weak var bigMap: MKMapView!
-      @IBOutlet weak var btn: UIButton!
+    @IBOutlet weak var bigMap: MKMapView!
+    @IBOutlet weak var btn: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var rootView: UIView!
     
+    @IBOutlet weak var icono: UIImageView!
     @IBOutlet weak var distanceLabel: UILabel!
     
     @IBOutlet weak var ritmoLabel: UILabel!
     @IBOutlet weak var cadenciaLabel: UILabel!
+    @IBOutlet weak var firstText: UILabel!
+    @IBOutlet weak var middleText: UILabel!
+    @IBOutlet weak var lastText: UILabel!
     
     private let locationManager = CLLocationManager()
     private var locationsHistory: [CLLocation] = []
@@ -58,14 +68,188 @@
     var contadorIntervalos = 0
     var contadorDistanciaIntervalos = 0.0
     
+    var valoresEntrenoPositions : [valoresEntreno] = [.tiempo, .ritmo, .distancia, .cadencia]
+    
     var frc : NSFetchedResultsController<LocationPoint>!
     
     var locationIsPaused: [Bool] = []
     
-          
-      override func viewDidLoad() {
-          super.viewDidLoad()
+    func getValoresEntrenoByLabel(value : UILabel) -> valoresEntreno {
+        switch value {
+            case self.timerLabel:
+                return .tiempo
+            case self.ritmoLabel:
+                return .ritmo
+            case self.distanceLabel:
+                return .distancia
+            case self.cadenciaLabel:
+                return .cadencia
+        default:
+            return .tiempo
+        }
+    }
     
+    func getLabelbyValoresEntreno(value : valoresEntreno) -> UILabel! {
+        switch value {
+            case .tiempo:
+                return self.timerLabel
+            case .ritmo:
+                return self.ritmoLabel
+            case .distancia:
+                return self.distanceLabel
+            case .cadencia:
+                return self.cadenciaLabel
+        }
+    }
+    
+    func getLabelTextbyValoresEntreno(value : valoresEntreno) -> String {
+        switch value {
+            case .tiempo:
+                return "Tiempo"
+            case .ritmo:
+                return "Ritmo"
+            case .distancia:
+                return "Distancia"
+            case .cadencia:
+                return "Cadencia"
+        }
+    }
+    
+    func changeLabelTextByPosition(_ value : Int, _ label : UILabel) {
+        switch value {
+            case 1:
+                self.firstText.text = getLabelTextbyValoresEntreno(value: getValoresEntrenoByLabel(value: label))
+            case 2:
+                self.middleText.text = getLabelTextbyValoresEntreno(value: getValoresEntrenoByLabel(value: label))
+            case 3:
+                self.lastText.text = getLabelTextbyValoresEntreno(value: getValoresEntrenoByLabel(value: label))
+            default:
+                break
+        }
+    }
+    
+    func initValoresEntreno(){
+        let width = self.rootView.frame.size.width
+        let height = self.rootView.frame.size.height
+        let bottomFontSize = 15
+        // TOP
+        let label0 = getLabelbyValoresEntreno(value: valoresEntrenoPositions[0])
+        label0!.font = UIFont.systemFont(ofSize: 55)
+        label0!.sizeToFit()
+        self.icono.frame.size.width = 55
+        self.icono.frame.size.height = 55
+        let xTotal = label0!.frame.size.width + self.icono.frame.size.width + 20
+        let xIcono =  width/2 - xTotal/2 + self.icono.frame.size.width/2
+        self.icono.center = CGPoint(x: xIcono,y: 80)
+        let xTimer = label0!.frame.size.width/2 + 20
+        label0!.center = CGPoint(x: self.icono.center.x + self.icono.frame.size.width/2 +  xTimer,y: 80)
+        // LEFT
+        let label1 = getLabelbyValoresEntreno(value: valoresEntrenoPositions[1])
+        label1!.font = UIFont.systemFont(ofSize: CGFloat(bottomFontSize))
+        label1!.sizeToFit()
+        label1!.frame.size.width = 75
+        label1!.center = CGPoint(x: width*0.08 + label1!.frame.size.width/2,y: height-80)
+        self.firstText.text = getLabelTextbyValoresEntreno(value: valoresEntrenoPositions[1])
+        self.firstText.frame.size.width = 75
+        self.firstText.center = CGPoint(x: width*0.08 + self.firstText.frame.size.width/2,y: height-40)
+        //BOTTOM
+        let label2 = getLabelbyValoresEntreno(value: valoresEntrenoPositions[2])
+        label2!.font = UIFont.systemFont(ofSize: CGFloat(bottomFontSize))
+        label2!.sizeToFit()
+        label2!.frame.size.width = 75
+        label2!.center = CGPoint(x: width/2,y: height-80)
+        self.middleText.text = getLabelTextbyValoresEntreno(value: valoresEntrenoPositions[2])
+        self.middleText.frame.size.width = 75
+        self.middleText.center = CGPoint(x: width/2,y: height-40)
+        //RIGHT
+        let label3 = getLabelbyValoresEntreno(value: valoresEntrenoPositions[3])
+        label3!.font = UIFont.systemFont(ofSize: CGFloat(bottomFontSize))
+        label3!.sizeToFit()
+        label3!.frame.size.width = 75
+        label3!.center = CGPoint(x: width*0.92 - label3!.frame.size.width/2,y: height-80)
+        self.lastText.text = getLabelTextbyValoresEntreno(value: valoresEntrenoPositions[3])
+        self.lastText.frame.size.width = 75
+        self.lastText.center = CGPoint(x: width*0.92 - self.lastText.frame.size.width/2,y: height-40)
+    }
+    
+    func saveValoresEntreno(){
+        let auxIntArray : [Int] = [valoresEntrenoPositions[0].rawValue, valoresEntrenoPositions[1].rawValue, valoresEntrenoPositions[2].rawValue, valoresEntrenoPositions[3].rawValue]
+        prefs.set(auxIntArray, forKey: "valoresEntrenoPositions")
+    }
+    
+    func restoreValoresEntreno(){
+        if prefs.array(forKey: "valoresEntrenoPositions") != nil {
+            let auxIntArray = prefs.array(forKey: "valoresEntrenoPositions")  as? [Int] ?? [Int]()
+            valoresEntrenoPositions = [valoresEntreno.init(rawValue: auxIntArray[0])!, valoresEntreno.init(rawValue: auxIntArray[1])!, valoresEntreno.init(rawValue: auxIntArray[2])!, valoresEntreno.init(rawValue: auxIntArray[3])!]
+        }
+    }
+    
+    func animateSwapValues(_ toTop : UILabel, _ position : Int) {
+        let top = getLabelbyValoresEntreno(value: valoresEntrenoPositions[0])
+        let auxToTop = toTop.center
+        toTop.font = UIFont.systemFont(ofSize: 55)
+        toTop.sizeToFit()
+        anim {
+            // animation block
+            self.changeLabelTextByPosition(position, top!)
+            top!.center = auxToTop
+            top!.font = UIFont.systemFont(ofSize: 15)
+            
+            //toTop.center = auxTop
+            let xTotal = toTop.frame.size.width + self.icono.frame.size.width + 20
+            let xIcono =  self.rootView.frame.size.width/2 - xTotal/2 + self.icono.frame.size.width/2
+            self.icono.center = CGPoint(x: xIcono,y: 80)
+            let xTimer = toTop.frame.size.width/2 + 20
+            toTop.center = CGPoint(x: self.icono.center.x + self.icono.frame.size.width/2 +  xTimer,y: 80)
+            
+        }
+    }
+    
+    @objc func tapTiempo() {
+        if(valoresEntrenoPositions[0] != .tiempo){
+            let auxPos = valoresEntrenoPositions.firstIndex(of: .tiempo)!
+            animateSwapValues(getLabelbyValoresEntreno(value: .tiempo), auxPos)
+            valoresEntrenoPositions[auxPos] = valoresEntrenoPositions[0]
+            valoresEntrenoPositions[0] = .tiempo
+            saveValoresEntreno()
+        }
+    }
+    
+    @objc func tapRitmo() {
+        if(valoresEntrenoPositions[0] != .ritmo){
+            let auxPos = valoresEntrenoPositions.firstIndex(of: .ritmo)!
+            animateSwapValues(getLabelbyValoresEntreno(value: .ritmo), auxPos)
+            valoresEntrenoPositions[auxPos] = valoresEntrenoPositions[0]
+            valoresEntrenoPositions[0] = .ritmo
+            saveValoresEntreno()
+        }
+    }
+    
+    @objc func tapDistancia() {
+        if(valoresEntrenoPositions[0] != .distancia){
+            let auxPos = valoresEntrenoPositions.firstIndex(of: .distancia)!
+            animateSwapValues(getLabelbyValoresEntreno(value: .distancia), auxPos)
+            valoresEntrenoPositions[auxPos] = valoresEntrenoPositions[0]
+            valoresEntrenoPositions[0] = .distancia
+            saveValoresEntreno()
+        }
+    }
+    
+    @objc func tapCadencia() {
+        if(valoresEntrenoPositions[0] != .cadencia){
+            let auxPos = valoresEntrenoPositions.firstIndex(of: .cadencia)!
+            animateSwapValues(getLabelbyValoresEntreno(value: .cadencia), auxPos)
+            valoresEntrenoPositions[auxPos] = valoresEntrenoPositions[0]
+            valoresEntrenoPositions[0] = .cadencia
+            saveValoresEntreno()
+        }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        restoreValoresEntreno()
+        initValoresEntreno()
+        
         bigMap.delegate = self
         bigMap.mapType = .standard
         bigMap.userTrackingMode = .follow
@@ -77,11 +261,23 @@
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector (tap))  //Tap function will call when user tap on button
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(long))  //Long function will call when user long press on button.
-          tapGesture.numberOfTapsRequired = 1
-          btn.addGestureRecognizer(tapGesture)
-          btn.addGestureRecognizer(longGesture)
+        tapGesture.numberOfTapsRequired = 1
+        btn.addGestureRecognizer(tapGesture)
+        btn.addGestureRecognizer(longGesture)
           
-   
+        let tapGestureTiempo = UITapGestureRecognizer(target: self, action: #selector (tapTiempo))
+        tapGestureTiempo.numberOfTapsRequired = 1
+        self.timerLabel.addGestureRecognizer(tapGestureTiempo)
+        let tapGestureRitmo = UITapGestureRecognizer(target: self, action: #selector (tapRitmo))
+        tapGestureRitmo.numberOfTapsRequired = 1
+        self.ritmoLabel.addGestureRecognizer(tapGestureRitmo)
+        let tapGestureDistancia = UITapGestureRecognizer(target: self, action: #selector (tapDistancia))
+        tapGestureDistancia.numberOfTapsRequired = 1
+        self.distanceLabel.addGestureRecognizer(tapGestureDistancia)
+        let tapGestureCadencia = UITapGestureRecognizer(target: self, action: #selector (tapCadencia))
+        tapGestureCadencia.numberOfTapsRequired = 1
+        self.cadenciaLabel.addGestureRecognizer(tapGestureCadencia)
+        
       }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,10 +294,8 @@
         }
     }
     
-    
     //Funcion para controlar el tap del botnon play
     @objc func tap() {
-        
         switch self.isRunning {
         case .play :
             timer.invalidate()
