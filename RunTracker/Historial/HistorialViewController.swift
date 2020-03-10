@@ -94,8 +94,10 @@ class HistorialViewController: UITableViewController, NSFetchedResultsController
                 let credSort = NSSortDescriptor(key:"id", ascending:true)
                 let arrayPuntos = self.historial[indexPath.row].puntos?.sortedArray(using: [credSort]) as! [LocationPoint]
                 
+                
                 for p in arrayPuntos {
                     train.route.append(CLLocation(latitude: p.latitude, longitude: p.longitude))
+                    detailVC.arrayLocationsIsPaused.append(p.isPaused)
                 }
                 train.startPoint = CLLocationCoordinate2D(latitude: arrayPuntos.first!.latitude, longitude: arrayPuntos.first!.longitude)
                 train.finalPoint = CLLocationCoordinate2D(latitude: arrayPuntos.last!.latitude, longitude: arrayPuntos.last!.longitude)
