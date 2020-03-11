@@ -90,6 +90,12 @@ class HistorialViewController: UITableViewController, NSFetchedResultsController
     
                let train = Training()
                 train.distance = self.historial[indexPath.row].distancia
+                train.date = self.historial[indexPath.row].timestamp!
+                train.ritmoMedio = self.historial[indexPath.row].ritmoMedio
+                train.pasos = self.historial[indexPath.row].pasosTotales
+                train.cadenciaMedia = self.historial[indexPath.row].cadenciaMedia
+                print("Segundos "+String(self.historial[indexPath.row].segundos))
+                train.segundos = self.historial[indexPath.row].segundos
                 
                 let credSort = NSSortDescriptor(key:"id", ascending:true)
                 let arrayPuntos = self.historial[indexPath.row].puntos?.sortedArray(using: [credSort]) as! [LocationPoint]

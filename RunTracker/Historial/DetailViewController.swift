@@ -19,6 +19,9 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var labelDistancia: UILabel!
     
+    @IBOutlet weak var labelTiempo: UILabel!
+    @IBOutlet weak var labelRitmo: UILabel!
+    @IBOutlet weak var labelCadencia: UILabel!
     var arrayLocationsIsPaused = [Bool]()
     
     override func viewDidLoad() {
@@ -36,23 +39,10 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     
     func configureView() {
         if let entreno = self.entrenamiento {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd-MM-yyyy"
-            self.labelDistancia.text = String(format: "%.2f", entrenamiento!.distance)+" m"
-           /* self.paceLabel.text = String(format: "%.2f", entreno.ritmoMedio)
-            self.cadenceLabel.text = String(format: "%.2f", entreno.cadenciaMedia)
-            self.dateLabel.text = dateFormatter.string(from: entreno.fechaInicio)
-            self.durationLabel.text = timeString(time: TimeInterval(entreno.duracion))*/
             
-//            var locationArray = [CLLocationCoordinate2D]()
-            
-//            print(locationArray)
             if var previousLocation = entreno.route.first{
                 var contador = 0
                 for locationDict in entreno.route {
-                //                let location = CLLocationCoordinate2D(latitude: locationDict.coordinate.latitude, longitude: locationDict.coordinate.longitude)
-                //                print(String(location.latitude)+" "+String(location.longitude))
-                //                locationArray.append(location)
                 var area : [CLLocationCoordinate2D]
                 if self.arrayLocationsIsPaused[contador] == true {
                     area = [locationDict.coordinate, locationDict.coordinate]
@@ -83,12 +73,24 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
                 self.mapView.addAnnotation(end)
             }
         
-           
+//           Mostrar detalles entrenamiento
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd-MM-yyyy"
+            self.labelDistancia.text = String(format: "%.2f", entrenamiento!.distance)+" m"
             
-//            let polyline = MKPolyline(coordinates: locationArray, count: locationArray.count)
-//            self.mapView.addOverlay(polyline)
-        
+            self.labelTiempo.text = secondsToHoursMinutesSeconds(time: Int(self.entrenamiento!.segundos))
+            self.labelRitmo.text = String(self.entrenamiento!.ritmoMedio) + "km/min"
+            
+            self.labelCadencia.text = String(self.entrenamiento!.cadenciaMedia) + "pasos/min"
         }
+    }
+    
+    func secondsToHoursMinutesSeconds (time : Int) -> String{
+        
+        let hours = Int(time) / 3600
+        let minutes = Int(time) / 60 % 60
+        let seconds = Int(time) % 60
+        return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
     }
     
     // Método que actualiza la vista del mapa.

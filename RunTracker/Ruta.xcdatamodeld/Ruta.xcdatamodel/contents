@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Entrenamiento" representedClassName="Entrenamiento" syncable="YES" codeGenerationType="class">
         <attribute name="cadenciaMedia" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="calorias" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="distancia" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="pasosTotales" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="ritmoMedio" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -29,7 +30,7 @@
         <relationship name="entrenamientos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Entrenamiento" inverseName="usuario" inverseEntity="Entrenamiento"/>
     </entity>
     <elements>
-        <element name="Entrenamiento" positionX="132.21484375" positionY="-2.8671875" width="128" height="163"/>
+        <element name="Entrenamiento" positionX="132.21484375" positionY="-2.8671875" width="128" height="178"/>
         <element name="LocationPoint" positionX="-95.27734375" positionY="-245.2421875" width="128" height="133"/>
         <element name="Usuario" positionX="-103.640625" positionY="26.44140625" width="128" height="163"/>
     </elements>

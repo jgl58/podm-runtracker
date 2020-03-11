@@ -527,6 +527,47 @@
         }
         
     }
+
+    @objc func long(gesture: UILongPressGestureRecognizer) {
+        
+        if self.isRunning != .stop {
+            if gesture.state == UIGestureRecognizer.State.began {
+                UIView.animate(withDuration: 0.6,
+                animations: {
+                    self.btn.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
+                },
+                completion: { _ in
+                    UIView.animate(withDuration: 0.6) {
+                        self.btn.transform = CGAffineTransform.identity
+                    }
+                })
+            }
+            
+            if(locationsHistory.count > 0){
+               training.distance = 200.0
+               training.finalPoint = locationsHistory.last!.coordinate
+               training.route = locationsHistory
+               saveTraining()
+           }
+            
+            self.timer = Timer()
+            self.seconds = 0
+            self.timerLabel.text = self.timeString(time: 0) //Actualizamos el label.
+            self.btn.setTitle("Play", for: .normal)
+            self.isRunning = .stop
+            locationManager.stopUpdatingLocation()
+            self.locationManager.allowsBackgroundLocationUpdates = false
+            pararPodometro()
+            self.bigMap.removeOverlays(bigMap.overlays)
+           
+            self.locationsHistory = []
+            self.isPaused = false
+            self.locationIsPaused = []
+            self.totalMovementDistance = 0
+            self.averagePace = 0
+            self.totalSteps = 0
+        }
+    }
       
      func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
           if (overlay is MKPolyline) {
@@ -687,7 +728,7 @@
                     
                     let currentCadence = data?.currentCadence
                     if currentCadence != nil{
-                        let conversedCurrentCadence = Double(truncating: currentCadence!) * (1000/60)
+                        let conversedCurrentCadence = Double(truncating: currentCadence!) / 60
                         self.cadence = conversedCurrentCadence
                         self.cadenciaLabel.text = String(format: "%.2f", conversedCurrentCadence)
                         
@@ -736,8 +777,10 @@
         train.usuario = StateSingleton.shared.usuarioActual
         train.ritmoMedio = self.averagePace
         train.pasosTotales = Int16(self.totalSteps)
-//        train.cadenciaMedia =
-
+        train.cadenciaMedia = Double(self.totalSteps) / Double(self.seconds)
+        print(self.seconds)
+        train.segundos = Int16(self.seconds)
+        
         var id = 0
         for location in locationsHistory {
             let point = LocationPoint(context: miContexto)
