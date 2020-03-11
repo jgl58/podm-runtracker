@@ -198,7 +198,7 @@
     }
     
     func initValoresEntreno(){
-        let width = self.rootView.frame.size.width
+        let width = UIScreen.main.bounds.width//self.rootView.frame.size.width
         let height = self.rootView.frame.size.height
         let bottomFontSize = 15
         // TOP
@@ -268,6 +268,7 @@
     }
     
     var animatingSwap : Bool = false
+    var animationThrottle : Bool = false
     
     func animateSwapValues(_ toTop : UILabel, _ position : Int) {
         let top = getLabelbyValoresEntreno(value: valoresEntrenoPositions[0])
@@ -280,6 +281,7 @@
         //toTop.lineBreakMode = .byClipping
         
         self.animatingSwap = true
+        self.animationThrottle = true
         
         anim { (settings) -> (animClosure) in
         settings.duration = 0.7
@@ -311,7 +313,9 @@
             let xTimer = toTop.frame.size.width/2 + 20
             toTop.center = CGPoint(x: self.icono.center.x + self.icono.frame.size.width/2 +  xTimer,y: 80)
         }
-        
+        .callback {
+            self.animationThrottle = false
+        }
         /*anim {
             self.changeIcon(self.valoresEntrenoPositions[position])
             
@@ -343,7 +347,7 @@
     }
     
     @objc func tapTiempo() {
-        if(valoresEntrenoPositions[0] != .tiempo){
+        if(valoresEntrenoPositions[0] != .tiempo && !self.animationThrottle){
             let auxPos = valoresEntrenoPositions.firstIndex(of: .tiempo)!
             animateSwapValues(getLabelbyValoresEntreno(value: .tiempo), auxPos)
             valoresEntrenoPositions[auxPos] = valoresEntrenoPositions[0]
@@ -353,7 +357,7 @@
     }
     
     @objc func tapRitmo() {
-        if(valoresEntrenoPositions[0] != .ritmo){
+        if(valoresEntrenoPositions[0] != .ritmo && !self.animationThrottle){
             let auxPos = valoresEntrenoPositions.firstIndex(of: .ritmo)!
             animateSwapValues(getLabelbyValoresEntreno(value: .ritmo), auxPos)
             valoresEntrenoPositions[auxPos] = valoresEntrenoPositions[0]
@@ -363,7 +367,7 @@
     }
     
     @objc func tapDistancia() {
-        if(valoresEntrenoPositions[0] != .distancia){
+        if(valoresEntrenoPositions[0] != .distancia && !self.animationThrottle){
             let auxPos = valoresEntrenoPositions.firstIndex(of: .distancia)!
             animateSwapValues(getLabelbyValoresEntreno(value: .distancia), auxPos)
             valoresEntrenoPositions[auxPos] = valoresEntrenoPositions[0]
@@ -373,7 +377,7 @@
     }
     
     @objc func tapCadencia() {
-        if(valoresEntrenoPositions[0] != .cadencia){
+        if(valoresEntrenoPositions[0] != .cadencia && !self.animationThrottle){
             let auxPos = valoresEntrenoPositions.firstIndex(of: .cadencia)!
             animateSwapValues(getLabelbyValoresEntreno(value: .cadencia), auxPos)
             valoresEntrenoPositions[auxPos] = valoresEntrenoPositions[0]
@@ -639,20 +643,22 @@
     var currentDistancia : String = ""
     //Funcion Autopause
     func checkAutopause() {
-        contadorAutopause += 1
-        if self.currentDistancia != self.distanceLabel.text! {
-            contadorAutopause = 0
-            self.currentDistancia = self.distanceLabel.text!
-        }
-        if contadorAutopause > 28 {
-            contadorAutopause = 0
-            self.currentDistancia = ""
-            timer.invalidate()
-            self.btn.setTitle("Play", for: .normal)
-            //locationManager.stopUpdatingLocation()
-            pararPodometro()
-            self.isRunning = .pause
-            self.isPaused = true
+        if self.prefs.bool(forKey:"autopause") {
+            contadorAutopause += 1
+            if self.currentDistancia != self.distanceLabel.text! {
+                contadorAutopause = 0
+                self.currentDistancia = self.distanceLabel.text!
+            }
+            if contadorAutopause > 28 {
+                contadorAutopause = 0
+                self.currentDistancia = ""
+                timer.invalidate()
+                self.btn.setTitle("Play", for: .normal)
+                //locationManager.stopUpdatingLocation()
+                pararPodometro()
+                self.isRunning = .pause
+                self.isPaused = true
+            }
         }
     }
     //Funcion que convierte los datos de tipo time a String
