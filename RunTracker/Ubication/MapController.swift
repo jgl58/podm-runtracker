@@ -269,9 +269,39 @@
     func animateSwapValues(_ toTop : UILabel, _ position : Int) {
         let top = getLabelbyValoresEntreno(value: valoresEntrenoPositions[0])
         let auxToTop = toTop.center
+        
         toTop.font = UIFont.systemFont(ofSize: 55)
         toTop.sizeToFit()
-        anim {
+        toTop.font = UIFont.systemFont(ofSize: 15)
+        toTop.center = auxToTop
+        
+        anim { (settings) -> (animClosure) in
+        settings.duration = 0.7
+        settings.ease = .easeInOutBack
+            return {
+                self.changeIcon(self.valoresEntrenoPositions[position])
+                
+                self.changeLabelTextByPosition(position, top!)
+                top!.center = auxToTop
+                top!.font = UIFont.systemFont(ofSize: 15)
+                
+                //toTop.center = auxTop
+                let xTotal = toTop.frame.size.width + self.icono.frame.size.width + 20
+                let xIcono =  self.rootView.frame.size.width/2 - xTotal/2 + self.icono.frame.size.width/2
+                self.icono.center = CGPoint(x: xIcono,y: 80)
+                let xTimer = toTop.frame.size.width/2 + 20
+                toTop.center = CGPoint(x: self.icono.center.x + self.icono.frame.size.width/2 +  xTimer,y: 80)
+            }
+        }
+        .then{
+            toTop.font = UIFont.systemFont(ofSize: 55)
+            let xTotal = toTop.frame.size.width + self.icono.frame.size.width + 20
+            let xIcono =  self.rootView.frame.size.width/2 - xTotal/2 + self.icono.frame.size.width/2
+            self.icono.center = CGPoint(x: xIcono,y: 80)
+            let xTimer = toTop.frame.size.width/2 + 20
+            toTop.center = CGPoint(x: self.icono.center.x + self.icono.frame.size.width/2 +  xTimer,y: 80)
+        }
+        /*anim {
             self.changeIcon(self.valoresEntrenoPositions[position])
             
             self.changeLabelTextByPosition(position, top!)
@@ -284,7 +314,7 @@
             self.icono.center = CGPoint(x: xIcono,y: 80)
             let xTimer = toTop.frame.size.width/2 + 20
             toTop.center = CGPoint(x: self.icono.center.x + self.icono.frame.size.width/2 +  xTimer,y: 80)
-        }
+        }*/
     }
     
     @objc func tapTiempo() {
