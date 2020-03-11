@@ -528,46 +528,7 @@
         
     }
 
-    @objc func long(gesture: UILongPressGestureRecognizer) {
-        
-        if self.isRunning != .stop {
-            if gesture.state == UIGestureRecognizer.State.began {
-                UIView.animate(withDuration: 0.6,
-                animations: {
-                    self.btn.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
-                },
-                completion: { _ in
-                    UIView.animate(withDuration: 0.6) {
-                        self.btn.transform = CGAffineTransform.identity
-                    }
-                })
-            }
-            
-            if(locationsHistory.count > 0){
-               training.distance = 200.0
-               training.finalPoint = locationsHistory.last!.coordinate
-               training.route = locationsHistory
-               saveTraining()
-           }
-            
-            self.timer = Timer()
-            self.seconds = 0
-            self.timerLabel.text = self.timeString(time: 0) //Actualizamos el label.
-            self.btn.setTitle("Play", for: .normal)
-            self.isRunning = .stop
-            locationManager.stopUpdatingLocation()
-            self.locationManager.allowsBackgroundLocationUpdates = false
-            pararPodometro()
-            self.bigMap.removeOverlays(bigMap.overlays)
-           
-            self.locationsHistory = []
-            self.isPaused = false
-            self.locationIsPaused = []
-            self.totalMovementDistance = 0
-            self.averagePace = 0
-            self.totalSteps = 0
-        }
-    }
+   
       
      func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
           if (overlay is MKPolyline) {
