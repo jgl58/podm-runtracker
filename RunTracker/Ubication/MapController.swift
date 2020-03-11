@@ -449,6 +449,15 @@
                     }
                 }
             }
+            
+            if(locationsHistory.count > 0){
+                training.distance = 200.0
+                training.finalPoint = locationsHistory.last!.coordinate
+                training.route = locationsHistory
+                saveTraining()
+            }
+    
+            
             self.timer.invalidate()
             self.timer = Timer()
             self.seconds = 0
@@ -460,12 +469,7 @@
             self.locationManager.allowsBackgroundLocationUpdates = false
             pararPodometro()
             self.bigMap.removeOverlays(bigMap.overlays)
-            if(locationsHistory.count > 0){
-                training.distance = 200.0
-                training.finalPoint = locationsHistory.last!.coordinate
-                training.route = locationsHistory
-                saveTraining()
-            }
+            
             self.locationsHistory = []
             self.isPaused = false
             self.locationIsPaused = []
@@ -611,7 +615,7 @@
                         self.locationIsPaused.append(self.isPaused)
                     }
                     self.locationsHistory.append(newLocation)
-                    let distanceString = String(format:"%gm", totalMovementDistance)
+                    let distanceString = String(format:"%.2f", (totalMovementDistance / 1000))
                     distanceLabel.text = distanceString
                 }
             }
@@ -734,7 +738,7 @@
         
         let train = Entrenamiento(context: miContexto)
         train.timestamp = Date()
-        train.distancia = (distanceLabel.text! as NSString).doubleValue
+        train.distancia = self.totalMovementDistance
         train.usuario = StateSingleton.shared.usuarioActual
         train.ritmoMedio = self.averagePace
         train.pasosTotales = Int16(self.totalSteps)
