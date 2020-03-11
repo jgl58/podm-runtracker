@@ -33,6 +33,8 @@ class EditProfileController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         imagePicker.delegate = self
         
+        self.hideKeyboard()
+        
 
         // Do any additional setup after loading the view.
     }
