@@ -615,7 +615,7 @@
                         self.locationIsPaused.append(self.isPaused)
                     }
                     self.locationsHistory.append(newLocation)
-                    let distanceString = String(format:"%gm", totalMovementDistance)
+                    let distanceString = String(format:"%.2f", (totalMovementDistance / 1000))
                     distanceLabel.text = distanceString
                 }
             }
@@ -738,7 +738,7 @@
         
         let train = Entrenamiento(context: miContexto)
         train.timestamp = Date()
-        train.distancia = (distanceLabel.text! as NSString).doubleValue
+        train.distancia = self.totalMovementDistance
         train.usuario = StateSingleton.shared.usuarioActual
         train.ritmoMedio = self.averagePace
         train.pasosTotales = Int16(self.totalSteps)

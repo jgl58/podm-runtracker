@@ -76,7 +76,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
 //           Mostrar detalles entrenamiento
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd-MM-yyyy"
-            self.labelDistancia.text = String(format: "%.2f", entrenamiento!.distance)+" m"
+            self.labelDistancia.text = String(format: "%.2f", (entrenamiento!.distance / 1000))+" km"
             
             self.labelTiempo.text = secondsToHoursMinutesSeconds(time: Int(self.entrenamiento!.segundos))
             
