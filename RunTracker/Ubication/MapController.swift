@@ -57,6 +57,7 @@
     var distanciaIntervalo = 0.0
     var contadorIntervalos = 0
     var contadorDistanciaIntervalos = 0.0
+    var cadenciaIntervalo = 0.0
     
     var frc : NSFetchedResultsController<LocationPoint>!
     
@@ -127,6 +128,7 @@
     func setIntervalos(){
         let intervaloTiempoActivado = UserDefaults().bool(forKey: "intervaloTiempoActivado")
         let intervaloDistanciaActivada = UserDefaults().bool(forKey: "intervaloDistanciaActivada")
+        let intervaloCadenciaActivada = UserDefaults().bool(forKey: "cadenciaActivada")
         
          if intervaloTiempoActivado == true {
              let intervaloTiempo = UserDefaults().integer(forKey: "intervaloTiempo")
@@ -148,7 +150,7 @@
              let intervaloTiempo = UserDefaults().integer(forKey: "intervaloDistancia")
              switch intervaloTiempo {
              case 0:
-                self.distanciaIntervalo = 100.0
+                self.distanciaIntervalo = 1000.0
              case 1:
                 self.distanciaIntervalo = 2500.0
              case 2:
@@ -160,6 +162,19 @@
             }
              
          }
+        
+        if intervaloCadenciaActivada == true {
+            let intervaloTiempo = UserDefaults().integer(forKey: "cadencia")
+            switch intervaloTiempo {
+            case 0:
+               self.cadenciaIntervalo = 50.0
+            case 1:
+               self.cadenciaIntervalo = 500.0
+            default:
+               self.cadenciaIntervalo = 5000.0
+           }
+            
+        }
         
     }
 
@@ -343,6 +358,9 @@
                         self.cadence = conversedCurrentCadence
                         self.cadenciaLabel.text = String(format: "%.2f", conversedCurrentCadence)
                         
+                        if UserDefaults().bool(forKey: "cadenciaActivada") == true && (conversedCurrentCadence <= self.cadenciaIntervalo) {
+                            Sonidos.notificarCadencia()
+                        }
                     }else{
                         self.cadenciaLabel.text = "0.00"
                     }
