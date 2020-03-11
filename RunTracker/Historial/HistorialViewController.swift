@@ -25,30 +25,7 @@ class HistorialViewController: UITableViewController, NSFetchedResultsController
         guard (UIApplication.shared.delegate as? AppDelegate) != nil else {
             return
         }
-       /*  let request : NSFetchRequest<Entrenamiento> = NSFetchRequest(entityName:"Entrenamiento")
-         guard let miDelegate = UIApplication.shared.delegate as? AppDelegate else {
-             return
-         }
-         let credSort = NSSortDescriptor(key:"timestamp", ascending:false)
-         request.sortDescriptors = [credSort]
-         let miContexto = miDelegate.persistentContainer.viewContext
-         if let entrenamientos = try? miContexto.fetch(request){
-             self.historial = entrenamientos
-         }
-        */
-        
-//        let miContexto = miDelegate.persistentContainer.viewContext
-//        let request : NSFetchRequest<Entrenamiento> = NSFetchRequest(entityName:"Entrenamiento")
-//        let credSort = NSSortDescriptor(key:"distancia", ascending:true)
-//        request.sortDescriptors = [credSort]
-//        self.frc = NSFetchedResultsController<Entrenamiento>(fetchRequest: request, managedObjectContext: miContexto, sectionNameKeyPath: "distancia", cacheName: "miCache")
-//
-//        try! self.frc.performFetch()
-//
-//        self.frc.delegate = self
-        
-           
-           let credSort = NSSortDescriptor(key:"distancia", ascending:true)
+           let credSort = NSSortDescriptor(key:"timestamp", ascending:false)
         self.historial = StateSingleton.shared.usuarioActual.entrenamientos?.sortedArray(using: [credSort]) as! [Entrenamiento]
            
            
@@ -72,8 +49,8 @@ class HistorialViewController: UITableViewController, NSFetchedResultsController
 
         let train = self.historial[indexPath.row]
         
-        
-        cell.textLabel?.text = String(format: "%.2f", train.distancia)+" m"
+        print("Distancia: "+String(format: "%.2f", (self.historial[indexPath.row].distancia))+" km")
+        cell.textLabel?.text = String(format: "%.2f", (train.distancia / 1000))+" km"
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
         dateFormatter.locale = NSLocale.current
@@ -90,6 +67,12 @@ class HistorialViewController: UITableViewController, NSFetchedResultsController
     
                let train = Training()
                 train.distance = self.historial[indexPath.row].distancia
+                train.date = self.historial[indexPath.row].timestamp!
+                train.ritmoMedio = self.historial[indexPath.row].ritmoMedio
+                train.pasos = self.historial[indexPath.row].pasosTotales
+                train.cadenciaMedia = self.historial[indexPath.row].cadenciaMedia
+                print("Segundos "+String(self.historial[indexPath.row].segundos))
+                train.segundos = self.historial[indexPath.row].segundos
                 
                 let credSort = NSSortDescriptor(key:"id", ascending:true)
                 let arrayPuntos = self.historial[indexPath.row].puntos?.sortedArray(using: [credSort]) as! [LocationPoint]

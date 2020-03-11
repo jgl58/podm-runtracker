@@ -44,6 +44,7 @@ class SignInViewController: UIViewController {
                     self.defaults.set(usuario.genero, forKey: "genero")
                     self.defaults.set(usuario.email, forKey: "email")
                     self.defaults.set(usuario.password, forKey: "password")
+                    self.defaults.set(usuario.imagen, forKey: "imagen")
                     
                     StateSingleton.shared.usuarioActual = usuario
                     

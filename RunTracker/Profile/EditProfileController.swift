@@ -33,6 +33,8 @@ class EditProfileController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         imagePicker.delegate = self
         
+        self.hideKeyboard()
+        
 
         // Do any additional setup after loading the view.
     }
@@ -74,6 +76,7 @@ class EditProfileController: UIViewController, UIPickerViewDelegate, UIPickerVie
         u.genero = edadTextField?.text
         u.altura = Int32(alturaTextField.text ?? self.defaults.string(forKey: "altura") ?? "00")!
         u.peso = Int32(pesoTextField.text ?? self.defaults.string(forKey: "peso") ?? "00")!
+        u.imagen = self.usuarioImage.image?.pngData()
         
         do{
             try miContexto.save()
