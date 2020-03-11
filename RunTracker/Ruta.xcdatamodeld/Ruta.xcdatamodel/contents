@@ -23,6 +23,7 @@
         <attribute name="edad" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="email" attributeType="String"/>
         <attribute name="genero" optional="YES" attributeType="String"/>
+        <attribute name="imagen" optional="YES" attributeType="Binary"/>
         <attribute name="nombre" optional="YES" attributeType="String"/>
         <attribute name="password" optional="YES" attributeType="String"/>
         <attribute name="peso" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
@@ -31,6 +32,6 @@
     <elements>
         <element name="Entrenamiento" positionX="132.21484375" positionY="-2.8671875" width="128" height="163"/>
         <element name="LocationPoint" positionX="-95.27734375" positionY="-245.2421875" width="128" height="133"/>
-        <element name="Usuario" positionX="-103.640625" positionY="26.44140625" width="128" height="163"/>
+        <element name="Usuario" positionX="-103.640625" positionY="26.44140625" width="128" height="178"/>
     </elements>
 </model>
