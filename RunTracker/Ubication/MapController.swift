@@ -73,6 +73,74 @@
     var frc : NSFetchedResultsController<LocationPoint>!
     
     var locationIsPaused: [Bool] = []
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        restoreValoresEntreno()
+        initValoresEntreno()
+        
+        // Get the Graphics Context
+        let context = UIGraphicsGetCurrentContext()
+
+        // Set the rectangle outerline-width
+        context?.setLineWidth( 5.0)
+
+        // Set the rectangle outerline-colour
+        UIColor.red.set()
+
+        // Create Rectangle
+        context?.addRect( CGRect(x: 0, y: 0, width: 100, height: 100))
+
+        // Draw
+        context?.strokePath()
+        
+        bigMap.delegate = self
+        bigMap.mapType = .standard
+        bigMap.userTrackingMode = .follow
+        
+        
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(long))
+        longGesture.minimumPressDuration = 2.0
+        //btn.addGestureRecognizer(tapGesture)
+        btn.addGestureRecognizer(longGesture)
+        btn.addTarget(self, action:#selector(BtnPressed(_:)), for: .touchDown);
+
+        btn.addTarget(self, action:#selector(BtnReleased(_:)), for: .touchUpInside);
+        btn.addTarget(self, action:#selector(BtnReleased(_:)), for: .touchCancel);
+        btn.addTarget(self, action:#selector(BtnReleased(_:)), for: .touchUpOutside);
+          
+        let tapGestureTiempo = UITapGestureRecognizer(target: self, action: #selector (tapTiempo))
+        tapGestureTiempo.numberOfTapsRequired = 1
+        self.timerLabel.addGestureRecognizer(tapGestureTiempo)
+        let tapGestureRitmo = UITapGestureRecognizer(target: self, action: #selector (tapRitmo))
+        tapGestureRitmo.numberOfTapsRequired = 1
+        self.ritmoLabel.addGestureRecognizer(tapGestureRitmo)
+        let tapGestureDistancia = UITapGestureRecognizer(target: self, action: #selector (tapDistancia))
+        tapGestureDistancia.numberOfTapsRequired = 1
+        self.distanceLabel.addGestureRecognizer(tapGestureDistancia)
+        let tapGestureCadencia = UITapGestureRecognizer(target: self, action: #selector (tapCadencia))
+        tapGestureCadencia.numberOfTapsRequired = 1
+        self.cadenciaLabel.addGestureRecognizer(tapGestureCadencia)
+        
+      }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated) // No need for semicolon
+        switch self.prefs.integer(forKey:"precision") {
+        case 0:
+            self.precision = 100
+        case 1:
+            self.precision = 50
+        case 2:
+            self.precision = 20
+        default:
+            self.precision = 100
+        }
+    }
     
     func getValoresEntrenoByLabel(value : UILabel) -> valoresEntreno {
         switch value {
@@ -258,78 +326,97 @@
             saveValoresEntreno()
         }
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        restoreValoresEntreno()
-        initValoresEntreno()
-        
-        bigMap.delegate = self
-        bigMap.mapType = .standard
-        bigMap.userTrackingMode = .follow
-        
-        
-        self.locationManager.delegate = self
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        self.locationManager.requestWhenInUseAuthorization()
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector (tap))  //Tap function will call when user tap on button
-        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(long))  //Long function will call when user long press on button.
-        tapGesture.numberOfTapsRequired = 1
-        btn.addGestureRecognizer(tapGesture)
-        btn.addGestureRecognizer(longGesture)
-          
-        let tapGestureTiempo = UITapGestureRecognizer(target: self, action: #selector (tapTiempo))
-        tapGestureTiempo.numberOfTapsRequired = 1
-        self.timerLabel.addGestureRecognizer(tapGestureTiempo)
-        let tapGestureRitmo = UITapGestureRecognizer(target: self, action: #selector (tapRitmo))
-        tapGestureRitmo.numberOfTapsRequired = 1
-        self.ritmoLabel.addGestureRecognizer(tapGestureRitmo)
-        let tapGestureDistancia = UITapGestureRecognizer(target: self, action: #selector (tapDistancia))
-        tapGestureDistancia.numberOfTapsRequired = 1
-        self.distanceLabel.addGestureRecognizer(tapGestureDistancia)
-        let tapGestureCadencia = UITapGestureRecognizer(target: self, action: #selector (tapCadencia))
-        tapGestureCadencia.numberOfTapsRequired = 1
-        self.cadenciaLabel.addGestureRecognizer(tapGestureCadencia)
-        
-      }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated) // No need for semicolon
-        switch self.prefs.integer(forKey:"precision") {
-        case 0:
-            self.precision = 100
-        case 1:
-            self.precision = 50
-        case 2:
-            self.precision = 20
-        default:
-            self.precision = 100
+    var animation : anim? = nil
+    var isBtnLongPressed : Bool = false
+    
+    @objc func BtnPressed(_ sender: Any)
+    {
+        print("pressed")
+        self.isBtnLongPressed = false
+         self.animation = anim { (settings) -> (animClosure) in
+                 settings.duration = 2
+            settings.ease = .easeInOutCubic
+                 return {
+                     self.btn.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
+                 }
+         }
+        
+     }
+    @objc func BtnReleased(_ sender: Any)
+    {
+        print("released")
+         if self.animation != nil {
+            self.animation!.stop()
+            anim { (settings) -> (animClosure) in
+                settings.duration = 0.1
+                settings.ease = .easeInOutCubic
+                return {
+                    self.btn.transform = CGAffineTransform.identity
+                }
+            }
+         }
+        if(!isBtnLongPressed){
+            print("doThings")
+            switch self.isRunning {
+            case .play :
+                timer.invalidate()
+                self.btn.setTitle("Play", for: .normal)
+                //locationManager.stopUpdatingLocation()
+                pararPodometro()
+                self.isRunning = .pause
+                self.isPaused = true
+            case .stop,
+                .pause:
+                runTimer()
+                self.btn.setTitle("Pause", for: .normal)
+                locationManager.startUpdatingLocation()
+                self.locationManager.allowsBackgroundLocationUpdates = true
+                iniciarPodometro()
+                setIntervalos()
+                self.isRunning = .play
+            }
         }
     }
     
-    //Funcion para controlar el tap del botnon play
-    @objc func tap() {
-        switch self.isRunning {
-        case .play :
-            timer.invalidate()
+    @objc func long(gesture: UILongPressGestureRecognizer) {
+        print("looooong")
+        self.isBtnLongPressed = true
+        if self.isRunning != .stop {
+            if gesture.state == UIGestureRecognizer.State.began {
+                
+                self.animation!.stop()
+                anim { (settings) -> (animClosure) in
+                    settings.duration = 0.1
+                    settings.ease = .easeInOutCubic
+                    return {
+                        self.btn.transform = CGAffineTransform.identity
+                    }
+                }
+            }
+            self.timer.invalidate()
+            self.timer = Timer()
+            self.seconds = 0
+            self.timerLabel.text = self.timeString(time: 0) //Actualizamos el label.
             self.btn.setTitle("Play", for: .normal)
-            //locationManager.stopUpdatingLocation()
+            self.isRunning = .stop
+            locationManager.stopUpdatingLocation()
+            self.locationManager.allowsBackgroundLocationUpdates = false
             pararPodometro()
-            self.isRunning = .pause
-            self.isPaused = true
-        case .stop,
-            .pause:
-            runTimer()
-            self.btn.setTitle("Pause", for: .normal)
-            locationManager.startUpdatingLocation()
-            self.locationManager.allowsBackgroundLocationUpdates = true
-            iniciarPodometro()
-            setIntervalos()
-            self.isRunning = .play
+            self.bigMap.removeOverlays(bigMap.overlays)
+            if(locationsHistory.count > 0){
+                training.distance = 200.0
+                training.finalPoint = locationsHistory.last!.coordinate
+                training.route = locationsHistory
+                saveTraining()
+            }
+            self.locationsHistory = []
+            self.isPaused = false
+            self.locationIsPaused = []
+            self.totalMovementDistance = 0
+            self.averagePace = 0
+            self.totalSteps = 0
         }
-        print("Tap happend")
-        
     }
     
     func setIntervalos(){
@@ -369,44 +456,6 @@
              
          }
         
-    }
-
-    @objc func long(gesture: UILongPressGestureRecognizer) {
-        
-        if self.isRunning != .stop {
-            if gesture.state == UIGestureRecognizer.State.began {
-                UIView.animate(withDuration: 0.6,
-                animations: {
-                    self.btn.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
-                },
-                completion: { _ in
-                    UIView.animate(withDuration: 0.6) {
-                        self.btn.transform = CGAffineTransform.identity
-                    }
-                })
-            }
-            self.timer = Timer()
-            self.seconds = 0
-            self.timerLabel.text = self.timeString(time: 0) //Actualizamos el label.
-            self.btn.setTitle("Play", for: .normal)
-            self.isRunning = .stop
-            locationManager.stopUpdatingLocation()
-            self.locationManager.allowsBackgroundLocationUpdates = false
-            pararPodometro()
-            self.bigMap.removeOverlays(bigMap.overlays)
-            if(locationsHistory.count > 0){
-                training.distance = 200.0
-                training.finalPoint = locationsHistory.last!.coordinate
-                training.route = locationsHistory
-                saveTraining()
-            }
-            self.locationsHistory = []
-            self.isPaused = false
-            self.locationIsPaused = []
-            self.totalMovementDistance = 0
-            self.averagePace = 0
-            self.totalSteps = 0
-        }
     }
       
      func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -511,10 +560,30 @@
             self.seconds += 1
             self.contadorIntervalos += 1
             self.timerLabel.text = self.timeString(time: TimeInterval(self.seconds)) //Actualizamos el label.
-            
+            self.checkAutopause()
         }
     }
     
+    var contadorAutopause : Int = 0
+    var currentDistancia : String = ""
+    //Funcion Autopause
+    func checkAutopause() {
+        contadorAutopause += 1
+        if self.currentDistancia != self.distanceLabel.text! {
+            contadorAutopause = 0
+            self.currentDistancia = self.distanceLabel.text!
+        }
+        if contadorAutopause > 28 {
+            contadorAutopause = 0
+            self.currentDistancia = ""
+            timer.invalidate()
+            self.btn.setTitle("Play", for: .normal)
+            //locationManager.stopUpdatingLocation()
+            pararPodometro()
+            self.isRunning = .pause
+            self.isPaused = true
+        }
+    }
     //Funcion que convierte los datos de tipo time a String
     func timeString(time:TimeInterval) -> String {
         let hours = Int(time) / 3600
