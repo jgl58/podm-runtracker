@@ -79,9 +79,10 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
             self.labelDistancia.text = String(format: "%.2f", entrenamiento!.distance)+" m"
             
             self.labelTiempo.text = secondsToHoursMinutesSeconds(time: Int(self.entrenamiento!.segundos))
-            self.labelRitmo.text = String(self.entrenamiento!.ritmoMedio) + "km/min"
             
-            self.labelCadencia.text = String(self.entrenamiento!.cadenciaMedia) + "pasos/min"
+            self.labelRitmo.text = String(format: "%.2f",Double(self.entrenamiento!.ritmoMedio)) + "min/km"
+            
+            self.labelCadencia.text = String(format: "%.2f", self.entrenamiento!.cadenciaMedia) + "pasos/min"
         }
     }
     

@@ -449,6 +449,15 @@
                     }
                 }
             }
+            
+            if(locationsHistory.count > 0){
+                training.distance = 200.0
+                training.finalPoint = locationsHistory.last!.coordinate
+                training.route = locationsHistory
+                saveTraining()
+            }
+    
+            
             self.timer.invalidate()
             self.timer = Timer()
             self.seconds = 0
@@ -460,12 +469,7 @@
             self.locationManager.allowsBackgroundLocationUpdates = false
             pararPodometro()
             self.bigMap.removeOverlays(bigMap.overlays)
-            if(locationsHistory.count > 0){
-                training.distance = 200.0
-                training.finalPoint = locationsHistory.last!.coordinate
-                training.route = locationsHistory
-                saveTraining()
-            }
+            
             self.locationsHistory = []
             self.isPaused = false
             self.locationIsPaused = []
