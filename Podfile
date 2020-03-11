@@ -5,5 +5,6 @@ use_frameworks!
 
 target 'RunTracker' do
   pod 'QuickTableViewController'
+  pod 'anim'
 end
 
