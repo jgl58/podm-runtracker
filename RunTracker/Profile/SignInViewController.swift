@@ -31,7 +31,7 @@ class SignInViewController: UIViewController {
         let miDelegate = UIApplication.shared.delegate as! AppDelegate
         let miContexto = miDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<Usuario>(entityName: "Usuario")
-        let pred = NSPredicate(format: "email CONTAINS %@ AND password CONTAINS %@", argumentArray: [email, password])
+        let pred = NSPredicate(format: "email = %@ AND password = %@", argumentArray: [email, password])
         request.predicate = pred
         if let resultados = try? miContexto.fetch(request){
             print("Hay \(resultados.count) resultados")

@@ -37,7 +37,7 @@ class RegisterViewController: UIViewController {
                 let miContexto = miDelegate.persistentContainer.viewContext
                 
                 let request = NSFetchRequest<Usuario>(entityName: "Usuario")
-                let pred = NSPredicate(format: "email CONTAINS %@", argumentArray: [email])
+                let pred = NSPredicate(format: "email = %@", argumentArray: [email])
                 request.predicate = pred
                 if let resultados = try? miContexto.fetch(request){
                     if resultados.count > 0{

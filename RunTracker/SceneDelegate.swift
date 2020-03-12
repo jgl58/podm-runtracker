@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let miDelegate = UIApplication.shared.delegate as! AppDelegate
         let miContexto = miDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<Usuario>(entityName: "Usuario")
-        let pred = NSPredicate(format: "email CONTAINS %@", argumentArray: [self.defaults.string(forKey: "email") ?? "defaultEmail"])
+        let pred = NSPredicate(format: "email = %@", argumentArray: [self.defaults.string(forKey: "email") ?? "defaultEmail"])
         request.predicate = pred
         if let resultados = try? miContexto.fetch(request){
             print("Hay \(resultados.count) resultados")
