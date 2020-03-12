@@ -143,6 +143,12 @@
         }
     }
     
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+      if keyPath == "text" {
+        self.adjustAnimateTopValue()
+      }
+    }
+    
     func getValoresEntrenoByLabel(value : UILabel) -> valoresEntreno {
         switch value {
             case self.timerLabel:
@@ -174,13 +180,13 @@
     func getLabelTextbyValoresEntreno(value : valoresEntreno) -> String {
         switch value {
             case .tiempo:
-                return "Tiempo"
+                return "Tiempo (s)"
             case .ritmo:
-                return "Ritmo"
+                return "Ritmo (s/m)"
             case .distancia:
-                return "Distancia"
+                return "Distancia (Km)"
             case .cadencia:
-                return "Cadencia"
+                return "Cadencia (p/s)"
         }
     }
     
@@ -206,6 +212,7 @@
         changeIcon(valoresEntrenoPositions[0])
         label0!.font = UIFont.systemFont(ofSize: 55)
         label0!.sizeToFit()
+        label0!.addObserver(self, forKeyPath: "text", options: [], context: nil)
         self.icono.frame.size.width = 55
         self.icono.frame.size.height = 55
         let xTotal = label0!.frame.size.width + self.icono.frame.size.width + 20
@@ -220,8 +227,11 @@
         label1!.frame.size.width = 75
         label1!.center = CGPoint(x: width*0.08 + label1!.frame.size.width/2,y: height-80)
         self.firstText.text = getLabelTextbyValoresEntreno(value: valoresEntrenoPositions[1])
+        self.firstText.lineBreakMode = .byWordWrapping
+        self.firstText.numberOfLines = 2
+        self.firstText.sizeToFit()
         self.firstText.frame.size.width = 75
-        self.firstText.center = CGPoint(x: width*0.08 + self.firstText.frame.size.width/2,y: height-40)
+        self.firstText.center = CGPoint(x: width*0.08 + self.firstText.frame.size.width/2,y: height-45)
         //BOTTOM
         let label2 = getLabelbyValoresEntreno(value: valoresEntrenoPositions[2])
         label2!.font = UIFont.systemFont(ofSize: CGFloat(bottomFontSize))
@@ -229,8 +239,11 @@
         label2!.frame.size.width = 75
         label2!.center = CGPoint(x: width/2,y: height-80)
         self.middleText.text = getLabelTextbyValoresEntreno(value: valoresEntrenoPositions[2])
+        self.middleText.lineBreakMode = .byWordWrapping
+        self.middleText.numberOfLines = 2
+        self.middleText.sizeToFit()
         self.middleText.frame.size.width = 75
-        self.middleText.center = CGPoint(x: width/2,y: height-40)
+        self.middleText.center = CGPoint(x: width/2,y: height-45)
         //RIGHT
         let label3 = getLabelbyValoresEntreno(value: valoresEntrenoPositions[3])
         label3!.font = UIFont.systemFont(ofSize: CGFloat(bottomFontSize))
@@ -238,13 +251,17 @@
         label3!.frame.size.width = 75
         label3!.center = CGPoint(x: width*0.92 - label3!.frame.size.width/2,y: height-80)
         self.lastText.text = getLabelTextbyValoresEntreno(value: valoresEntrenoPositions[3])
+        self.lastText.lineBreakMode = .byWordWrapping
+        self.lastText.numberOfLines = 2
+        self.lastText.sizeToFit()
         self.lastText.frame.size.width = 75
-        self.lastText.center = CGPoint(x: width*0.92 - self.lastText.frame.size.width/2,y: height-40)
+        self.lastText.center = CGPoint(x: width*0.92 - self.lastText.frame.size.width/2,y: height-45)
     }
     
     func saveValoresEntreno(){
         let auxIntArray : [Int] = [valoresEntrenoPositions[0].rawValue, valoresEntrenoPositions[1].rawValue, valoresEntrenoPositions[2].rawValue, valoresEntrenoPositions[3].rawValue]
         prefs.set(auxIntArray, forKey: "valoresEntrenoPositions")
+        UserDefaults().synchronize()
     }
     
     func restoreValoresEntreno(){
@@ -303,6 +320,8 @@
         }
         .callback {
             self.animatingSwap = false
+            toTop.addObserver(self, forKeyPath: "text", options: [], context: nil)
+            top!.removeObserver(self, forKeyPath: "text")
         }
         .then{
             toTop.font = UIFont.systemFont(ofSize: 55)
@@ -316,20 +335,6 @@
         .callback {
             self.animationThrottle = false
         }
-        /*anim {
-            self.changeIcon(self.valoresEntrenoPositions[position])
-            
-            self.changeLabelTextByPosition(position, top!)
-            top!.center = auxToTop
-            top!.font = UIFont.systemFont(ofSize: 15)
-            
-            //toTop.center = auxTop
-            let xTotal = toTop.frame.size.width + self.icono.frame.size.width + 20
-            let xIcono =  self.rootView.frame.size.width/2 - xTotal/2 + self.icono.frame.size.width/2
-            self.icono.center = CGPoint(x: xIcono,y: 80)
-            let xTimer = toTop.frame.size.width/2 + 20
-            toTop.center = CGPoint(x: self.icono.center.x + self.icono.frame.size.width/2 +  xTimer,y: 80)
-        }*/
     }
     
     func adjustAnimateTopValue(){
@@ -460,6 +465,10 @@
                 training.route = locationsHistory
                 saveTraining()
             }
+            
+            self.ritmoLabel.text = "0.00"
+            self.distanceLabel.text = "0.00"
+            self.cadenciaLabel.text = "0.00"
     
             
             self.timer.invalidate()
@@ -641,23 +650,22 @@
             self.contadorIntervalos += 1
             self.timerLabel.text = self.timeString(time: TimeInterval(self.seconds)) //Actualizamos el label.
             self.checkAutopause()
-            self.adjustAnimateTopValue()
         }
     }
     
     var contadorAutopause : Int = 0
-    var currentDistancia : String = ""
+    var currentRitmo : String = "0.00"
     //Funcion Autopause
     func checkAutopause() {
         if self.prefs.bool(forKey:"autopause") {
             contadorAutopause += 1
-            if self.currentDistancia != self.distanceLabel.text! {
+            if self.currentRitmo != self.ritmoLabel.text! {
                 contadorAutopause = 0
-                self.currentDistancia = self.distanceLabel.text!
+                self.currentRitmo = self.ritmoLabel.text!
             }
             if contadorAutopause > 28 {
                 contadorAutopause = 0
-                self.currentDistancia = ""
+                self.currentRitmo = "0.00"
                 timer.invalidate()
                 self.btn.setTitle("Play", for: .normal)
                 //locationManager.stopUpdatingLocation()

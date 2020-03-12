@@ -107,8 +107,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EFQ-Iy-C3z">
-                                <rect key="frame" x="47" y="148" width="140" height="100"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="EFQ-Iy-C3z">
+                                <rect key="frame" x="47" y="149.5" width="140" height="97.5"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="B7J-QF-n1l"/>
                                     <constraint firstAttribute="height" constant="100" id="kVr-YC-pOU"/>
@@ -193,10 +194,8 @@
                             <constraint firstItem="GwQ-PC-cID" firstAttribute="top" secondItem="EFQ-Iy-C3z" secondAttribute="bottom" constant="49" id="JHz-3U-LgV"/>
                             <constraint firstItem="3VG-yk-a23" firstAttribute="top" secondItem="933-8u-qD3" secondAttribute="bottom" constant="38" id="LeU-Gb-aBL"/>
                             <constraint firstItem="p1B-U6-PRl" firstAttribute="trailing" secondItem="KkN-DN-AVk" secondAttribute="trailing" constant="20" id="MVF-sI-GoW"/>
-                            <constraint firstItem="Glm-4z-jEz" firstAttribute="leading" secondItem="p1B-U6-PRl" secondAttribute="leading" constant="160" id="PwB-wZ-TM2"/>
                             <constraint firstItem="Wg2-ZT-0jH" firstAttribute="top" secondItem="3VG-yk-a23" secondAttribute="bottom" constant="36" id="RIx-ak-IRl"/>
                             <constraint firstItem="9gF-hM-RLw" firstAttribute="top" secondItem="GwQ-PC-cID" secondAttribute="bottom" constant="38" id="SEK-c1-CFA"/>
-                            <constraint firstItem="p1B-U6-PRl" firstAttribute="trailing" secondItem="Glm-4z-jEz" secondAttribute="trailing" constant="160" id="bGy-XF-x5A"/>
                             <constraint firstItem="vtV-tZ-Lay" firstAttribute="leading" secondItem="p1B-U6-PRl" secondAttribute="leading" constant="43" id="bbK-f6-dRQ"/>
                             <constraint firstItem="kxa-db-35J" firstAttribute="leading" secondItem="Wg2-ZT-0jH" secondAttribute="trailing" constant="36" id="e3w-61-wFo"/>
                             <constraint firstItem="933-8u-qD3" firstAttribute="leading" secondItem="p1B-U6-PRl" secondAttribute="leading" constant="68" id="g84-ju-qxi"/>
@@ -206,6 +205,7 @@
                             <constraint firstItem="3VG-yk-a23" firstAttribute="leading" secondItem="p1B-U6-PRl" secondAttribute="leading" constant="68" id="rXz-iS-8Io"/>
                             <constraint firstItem="KkN-DN-AVk" firstAttribute="top" secondItem="vtV-tZ-Lay" secondAttribute="bottom" constant="46" id="tPJ-Zg-hx2"/>
                             <constraint firstItem="KkN-DN-AVk" firstAttribute="leading" secondItem="EFQ-Iy-C3z" secondAttribute="trailing" constant="-21" id="uXJ-Tc-t9x"/>
+                            <constraint firstItem="Glm-4z-jEz" firstAttribute="centerX" secondItem="NXI-Jx-Ueg" secondAttribute="centerX" id="vig-ak-7VO"/>
                             <constraint firstItem="EFQ-Iy-C3z" firstAttribute="leading" secondItem="p1B-U6-PRl" secondAttribute="leading" constant="47" id="x44-0I-kTl"/>
                             <constraint firstItem="Glm-4z-jEz" firstAttribute="top" secondItem="kxa-db-35J" secondAttribute="bottom" constant="152" id="xoQ-Qf-vWP"/>
                         </constraints>
@@ -242,7 +242,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PHY-8s-Zkt">
                                                 <rect key="frame" x="135" y="283" width="259" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peso:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59l-eg-QSy">
                                                 <rect key="frame" x="60" y="283" width="43" height="21"/>
@@ -880,8 +880,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="distanceLabel" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="npF-Em-9yB">
-                                        <rect key="frame" x="202" y="138" width="11" height="21"/>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="distanceLabel" text="0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="npF-Em-9yB">
+                                        <rect key="frame" x="190" y="138" width="35" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -1048,6 +1048,7 @@
         <image name="ajustes" width="25" height="25"/>
         <image name="clock" width="25" height="25"/>
         <image name="documento" width="25" height="25"/>
+        <image name="person" catalog="system" width="64" height="58"/>
         <image name="persona" width="25" height="25"/>
         <image name="running" width="25" height="25"/>
         <image name="square.and.pencil" catalog="system" width="64" height="58"/>
