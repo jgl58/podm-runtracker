@@ -19,8 +19,11 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var labelDistancia: UILabel!
     
+    @IBOutlet weak var labelFecha: UILabel!
     @IBOutlet weak var labelTiempo: UILabel!
     @IBOutlet weak var labelRitmo: UILabel!
+    @IBOutlet weak var labelPasos: UILabel!
+    @IBOutlet weak var labelCalorias: UILabel!
     @IBOutlet weak var labelCadencia: UILabel!
     var arrayLocationsIsPaused = [Bool]()
     
@@ -74,15 +77,26 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
             }
         
 //           Mostrar detalles entrenamiento
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd-MM-yyyy"
             self.labelDistancia.text = String(format: "%.2f", (entrenamiento!.distance / 1000))+" km"
             
             self.labelTiempo.text = secondsToHoursMinutesSeconds(time: Int(self.entrenamiento!.segundos))
             
-            self.labelRitmo.text = String(format: "%.2f",Double(self.entrenamiento!.ritmoMedio)) + "min/km"
+            self.labelRitmo.text = String(format: "%.2f",Double(self.entrenamiento!.ritmoMedio)) + " min/km"
             
-            self.labelCadencia.text = String(format: "%.2f", self.entrenamiento!.cadenciaMedia) + "pasos/min"
+            self.labelCadencia.text = String(format: "%.2f", self.entrenamiento!.cadenciaMedia) + " pasos/min"
+            
+            self.labelCalorias.text = String(format: "%.2f", self.entrenamiento!.calorias) + " cal"
+            
+            self.labelPasos.text = String(self.entrenamiento!.pasos) + " pasos"
+            
+            let dateFormatter = DateFormatter()
+                  dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
+                  dateFormatter.locale = NSLocale.current
+                  dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" //Specify your format that you want
+            let strDate = dateFormatter.string(from: self.entrenamiento!.date)
+            self.labelFecha.text = strDate
+            
+            
         }
     }
     
