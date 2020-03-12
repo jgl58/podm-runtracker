@@ -180,13 +180,13 @@
     func getLabelTextbyValoresEntreno(value : valoresEntreno) -> String {
         switch value {
             case .tiempo:
-                return "Tiempo (s)"
+                return "Tiempo (h/m/s)"
             case .ritmo:
-                return "Ritmo (s/m)"
+                return "Ritmo (min/km)"
             case .distancia:
-                return "Distancia (Km)"
+                return "Distancia (km)"
             case .cadencia:
-                return "Cadencia (p/s)"
+                return "Cadencia (p/min)"
         }
     }
     
@@ -534,11 +534,11 @@
             let intervaloTiempo = UserDefaults().integer(forKey: "cadencia")
             switch intervaloTiempo {
             case 0:
-               self.cadenciaIntervalo = 50.0
+               self.cadenciaIntervalo = 15.0
             case 1:
-               self.cadenciaIntervalo = 500.0
+               self.cadenciaIntervalo = 60.0
             default:
-               self.cadenciaIntervalo = 5000.0
+               self.cadenciaIntervalo = 120.0
            }
             
         }
@@ -707,7 +707,7 @@
                     
                     let currentCadence = data?.currentCadence
                     if currentCadence != nil{
-                        let conversedCurrentCadence = Double(truncating: currentCadence!) / 60
+                        let conversedCurrentCadence = Double(truncating: currentCadence!) * 60
                         self.cadence = conversedCurrentCadence
                         self.cadenciaLabel.text = String(format: "%.2f", conversedCurrentCadence)
                         
@@ -746,6 +746,18 @@
         }
     }
     
+    
+    func calcularCalorias() -> Double {
+        let peso = StateSingleton.shared.usuarioActual.peso
+        let MET = 7.0
+        
+        let calorias = MET * Double(peso)
+        
+        let caloriasTransformadas = (calorias / 3600) * Double(seconds)
+        
+        return caloriasTransformadas
+    }
+    
     func saveTraining(){
         let miDelegate = UIApplication.shared.delegate! as! AppDelegate
         let miContexto = miDelegate.persistentContainer.viewContext
@@ -759,6 +771,7 @@
         train.cadenciaMedia = Double(self.totalSteps) / Double(self.seconds)
         print(self.seconds)
         train.segundos = Int16(self.seconds)
+        train.calorias = calcularCalorias()
         
         var id = 0
         for location in locationsHistory {

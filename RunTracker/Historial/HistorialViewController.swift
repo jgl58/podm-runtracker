@@ -74,6 +74,8 @@ class HistorialViewController: UITableViewController, NSFetchedResultsController
                 print("Segundos "+String(self.historial[indexPath.row].segundos))
                 train.segundos = self.historial[indexPath.row].segundos
                 
+                train.calorias = self.historial[indexPath.row].calorias
+                
                 let credSort = NSSortDescriptor(key:"id", ascending:true)
                 let arrayPuntos = self.historial[indexPath.row].puntos?.sortedArray(using: [credSort]) as! [LocationPoint]
                 
