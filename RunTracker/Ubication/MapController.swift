@@ -534,11 +534,11 @@
             let intervaloTiempo = UserDefaults().integer(forKey: "cadencia")
             switch intervaloTiempo {
             case 0:
-               self.cadenciaIntervalo = 50.0
+               self.cadenciaIntervalo = 15.0
             case 1:
-               self.cadenciaIntervalo = 500.0
+               self.cadenciaIntervalo = 60.0
             default:
-               self.cadenciaIntervalo = 5000.0
+               self.cadenciaIntervalo = 120.0
            }
             
         }
