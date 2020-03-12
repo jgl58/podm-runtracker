@@ -291,8 +291,9 @@
                                                     <constraint firstAttribute="height" constant="74" id="QFd-zP-Mha"/>
                                                 </constraints>
                                             </pickerView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nAj-lz-Xdq">
-                                                <rect key="frame" x="86" y="8" width="240" height="128"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nAj-lz-Xdq">
+                                                <rect key="frame" x="86" y="9.5" width="240" height="125.5"/>
+                                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="128" id="eXm-xL-gAY"/>
                                                 </constraints>
