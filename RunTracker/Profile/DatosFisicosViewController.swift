@@ -48,14 +48,25 @@ class DatosFisicosViewController: UIViewController, UIPickerViewDelegate, UIPick
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if segue.identifier == "primerosDatos"{
-            let destino = segue.destination as! RegisterViewController
-            destino.nombre = nombreTextField.text ?? ""
-            destino.genero = generos[generoPicker.selectedRow(inComponent: 0)]
-            destino.edad = Int(edadTextField?.text ?? "0") ?? 0
-            destino.altura = Int(alturaTextField.text ?? "0") ?? 0
-            destino.peso = Int(pesoTextField.text ?? "0") ?? 0
+            if nombreTextField.text!.isEmpty || edadTextField.text!.isEmpty || alturaTextField.text!.isEmpty || pesoTextField.text!.isEmpty {
+                mostrarAlerta(title: "Datos necesarios", message: "Introduce todos tus datos para continuar")
+            }else{
+                let destino = segue.destination as! RegisterViewController
+                destino.nombre = nombreTextField.text ?? ""
+                destino.genero = generos[generoPicker.selectedRow(inComponent: 0)]
+                destino.edad = Int(edadTextField?.text ?? "0") ?? 0
+                destino.altura = Int(alturaTextField.text ?? "0") ?? 0
+                destino.peso = Int(pesoTextField.text ?? "0") ?? 0
+            }
             
         }
+    }
+    
+    func mostrarAlerta(title: String, message: String) {
+        let alertGuia = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertGuia.addAction(ok)
+        present(alertGuia, animated: true, completion: nil)
     }
 
 }
