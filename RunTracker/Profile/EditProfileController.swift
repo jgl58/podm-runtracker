@@ -68,30 +68,41 @@ class EditProfileController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     @IBAction func guardar(_ sender: Any) {
-        let miDelegate = UIApplication.shared.delegate as! AppDelegate
-        let miContexto = miDelegate.persistentContainer.viewContext
-        let u = StateSingleton.shared.usuarioActual!
-        u.nombre = nombreTextField.text
-        u.edad = Int32(edadTextField?.text ?? self.defaults.string(forKey: "edad") ?? "0" )!
-        u.genero = edadTextField?.text
-        u.altura = Int32(alturaTextField.text ?? self.defaults.string(forKey: "altura") ?? "00")!
-        u.peso = Int32(pesoTextField.text ?? self.defaults.string(forKey: "peso") ?? "00")!
-        u.imagen = self.usuarioImage.image?.pngData()
-        
-        do{
-            try miContexto.save()
+        if nombreTextField.text!.isEmpty || edadTextField.text!.isEmpty || alturaTextField.text!.isEmpty || pesoTextField.text!.isEmpty {
+            mostrarAlerta(title: "Datos necesarios", message: "Datos físicos necesarios para continuar")
+        }else {
+            let miDelegate = UIApplication.shared.delegate as! AppDelegate
+            let miContexto = miDelegate.persistentContainer.viewContext
+            let u = StateSingleton.shared.usuarioActual!
+            u.nombre = nombreTextField.text
+            u.edad = Int32(edadTextField?.text ?? self.defaults.string(forKey: "edad") ?? "0" )!
+            u.genero = edadTextField?.text
+            u.altura = Int32(alturaTextField.text ?? self.defaults.string(forKey: "altura") ?? "00")!
+            u.peso = Int32(pesoTextField.text ?? self.defaults.string(forKey: "peso") ?? "00")!
+            u.imagen = self.usuarioImage.image?.pngData()
             
-            defaults.set(nombreTextField.text, forKey: "nombre")
-            defaults.set(Int(pesoTextField.text ?? "0") ?? 0, forKey: "peso")
-            defaults.set(Int(edadTextField?.text ?? "0") ?? 0, forKey: "edad")
-            defaults.set(Int(alturaTextField.text ?? "0") ?? 0, forKey: "altura")
-            defaults.set(generos[generoPicker.selectedRow(inComponent: 0)], forKey: "genero")
-            defaults.set(usuarioImage.image?.pngData(), forKey: "imagen")
-            self.navigationController?.popViewController(animated: true)
-        }catch{
-            print("Error al actualizar perfil")
+            do{
+                try miContexto.save()
+                
+                defaults.set(nombreTextField.text, forKey: "nombre")
+                defaults.set(Int(pesoTextField.text ?? "0") ?? 0, forKey: "peso")
+                defaults.set(Int(edadTextField?.text ?? "0") ?? 0, forKey: "edad")
+                defaults.set(Int(alturaTextField.text ?? "0") ?? 0, forKey: "altura")
+                defaults.set(generos[generoPicker.selectedRow(inComponent: 0)], forKey: "genero")
+                defaults.set(usuarioImage.image?.pngData(), forKey: "imagen")
+                self.navigationController?.popViewController(animated: true)
+            }catch{
+                print("Error al actualizar perfil")
+            }
         }
         
+    }
+    
+    func mostrarAlerta(title: String, message: String) {
+        let alertGuia = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertGuia.addAction(ok)
+        present(alertGuia, animated: true, completion: nil)
     }
     
     /*

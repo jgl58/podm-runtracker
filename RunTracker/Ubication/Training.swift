@@ -20,6 +20,7 @@ class Training {
     var pasos : Int16
     var cadenciaMedia : Double
     var segundos : Int16
+    var calorias : Double
     
     init(){
         self.distance = 0.0
@@ -31,6 +32,7 @@ class Training {
         self.pasos = 0
         self.cadenciaMedia = 0.0
         self.segundos = 0
+        self.calorias = 0.0
     }
     
 }

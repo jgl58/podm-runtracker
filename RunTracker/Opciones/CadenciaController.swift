@@ -30,9 +30,9 @@ final class CadenciaController: QuickTableViewController {
           ]),
           
           RadioSection(title: "Cadencia mínima", options: [
-            OptionRow(text: "50 pasos/minuto", isSelected: cadenciaValue == 0, action: didToggleSelection()),
-            OptionRow(text: "500 pasos/minuto", isSelected: cadenciaValue == 1, action: didToggleSelection()),
-            OptionRow(text: "5000 pasos/minuto", isSelected: cadenciaValue == 2, action: didToggleSelection())
+            OptionRow(text: "15 pasos/minuto", isSelected: cadenciaValue == 0, action: didToggleSelection()),
+            OptionRow(text: "60 pasos/minuto", isSelected: cadenciaValue == 1, action: didToggleSelection()),
+            OptionRow(text: "120 pasos/minuto", isSelected: cadenciaValue == 2, action: didToggleSelection())
           ], footer: "Selecciona un valor mínimo de cadencia")
           
         ]
@@ -40,9 +40,9 @@ final class CadenciaController: QuickTableViewController {
 
     private func didToggleSelection() -> (Row) -> Void {
         return { [weak self] row in
-            if row.text == "50 pasos/minuto" {
+            if row.text == "15 pasos/minuto" {
                 self!.prefs.set(0, forKey:"cadencia")
-            } else if row.text == "500 pasos/minuto" {
+            } else if row.text == "60 pasos/minuto" {
                 self!.prefs.set(1, forKey:"cadencia")
             } else {
                 self!.prefs.set(2, forKey:"cadencia")
