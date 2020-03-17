@@ -33,6 +33,10 @@
 		C73520632406F4DB001D313B /* IntervalosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73520622406F4DB001D313B /* IntervalosController.swift */; };
 		C73520652406F52C001D313B /* PrecisionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73520642406F52C001D313B /* PrecisionController.swift */; };
 		C73520672406F693001D313B /* BandaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73520662406F693001D313B /* BandaController.swift */; };
+		C7425143242133ED00FB2E85 /* MiBand2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7425141242133EC00FB2E85 /* MiBand2.swift */; };
+		C7425144242133ED00FB2E85 /* MiBand2Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7425142242133ED00FB2E85 /* MiBand2Service.swift */; };
+		C742514924214DD000FB2E85 /* PeripheralDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C742514824214DD000FB2E85 /* PeripheralDelegate.swift */; };
+		C742514B24214E6500FB2E85 /* CentralManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C742514A24214E6500FB2E85 /* CentralManagerDelegate.swift */; };
 		C7F991BE240FFCDB000AB3AB /* fast-action.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7F991BB240FFCDB000AB3AB /* fast-action.mp3 */; };
 		C7F991BF240FFCDB000AB3AB /* iphone_notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7F991BC240FFCDB000AB3AB /* iphone_notification.mp3 */; };
 		C7F991C0240FFCDB000AB3AB /* eventually.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C7F991BD240FFCDB000AB3AB /* eventually.mp3 */; };
@@ -69,6 +73,10 @@
 		C73520622406F4DB001D313B /* IntervalosController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalosController.swift; sourceTree = "<group>"; };
 		C73520642406F52C001D313B /* PrecisionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecisionController.swift; sourceTree = "<group>"; };
 		C73520662406F693001D313B /* BandaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandaController.swift; sourceTree = "<group>"; };
+		C7425141242133EC00FB2E85 /* MiBand2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiBand2.swift; sourceTree = "<group>"; };
+		C7425142242133ED00FB2E85 /* MiBand2Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiBand2Service.swift; sourceTree = "<group>"; };
+		C742514824214DD000FB2E85 /* PeripheralDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralDelegate.swift; sourceTree = "<group>"; };
+		C742514A24214E6500FB2E85 /* CentralManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralManagerDelegate.swift; sourceTree = "<group>"; };
 		C7F991BB240FFCDB000AB3AB /* fast-action.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fast-action.mp3"; sourceTree = "<group>"; };
 		C7F991BC240FFCDB000AB3AB /* iphone_notification.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = iphone_notification.mp3; sourceTree = "<group>"; };
 		C7F991BD240FFCDB000AB3AB /* eventually.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eventually.mp3; sourceTree = "<group>"; };
@@ -182,7 +190,11 @@
 				C73520602406F035001D313B /* CadenciaController.swift */,
 				C73520622406F4DB001D313B /* IntervalosController.swift */,
 				C73520642406F52C001D313B /* PrecisionController.swift */,
+				C742514824214DD000FB2E85 /* PeripheralDelegate.swift */,
+				C742514A24214E6500FB2E85 /* CentralManagerDelegate.swift */,
 				C73520662406F693001D313B /* BandaController.swift */,
+				C7425141242133EC00FB2E85 /* MiBand2.swift */,
+				C7425142242133ED00FB2E85 /* MiBand2Service.swift */,
 			);
 			path = Opciones;
 			sourceTree = "<group>";
@@ -328,6 +340,7 @@
 				424427D9240EC88A00876680 /* SignInViewController.swift in Sources */,
 				7DBD07BE2406D38200B68FC4 /* Training.swift in Sources */,
 				424D6E0F240432D4007CB6C2 /* ProfileController.swift in Sources */,
+				C7425144242133ED00FB2E85 /* MiBand2Service.swift in Sources */,
 				C735205C2406C523001D313B /* SettingsController.swift in Sources */,
 				424D6E122404593D007CB6C2 /* EditProfileController.swift in Sources */,
 				C73520612406F035001D313B /* CadenciaController.swift in Sources */,
@@ -337,7 +350,10 @@
 				C73520672406F693001D313B /* BandaController.swift in Sources */,
 				C73520632406F4DB001D313B /* IntervalosController.swift in Sources */,
 				C73520652406F52C001D313B /* PrecisionController.swift in Sources */,
+				C7425143242133ED00FB2E85 /* MiBand2.swift in Sources */,
 				7D81ACF023FD8DE5008DADF9 /* Place.swift in Sources */,
+				C742514924214DD000FB2E85 /* PeripheralDelegate.swift in Sources */,
+				C742514B24214E6500FB2E85 /* CentralManagerDelegate.swift in Sources */,
 				7D56BBF623F477DE00E1080A /* MapController.swift in Sources */,
 				424427DF240EDC8100876680 /* RegisterViewController.swift in Sources */,
 				42637A3E2416E95C0060E040 /* StateSingleton.swift in Sources */,

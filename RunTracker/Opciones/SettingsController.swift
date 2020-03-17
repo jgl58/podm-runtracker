@@ -60,7 +60,7 @@ final class SettingsController: QuickTableViewController {
           ]),
           
           Section(title: "Conectividad", rows: [
-            NavigationRow(text: "Banda HRM", detailText: .value1("Desconectada"), icon: .named("corazon"), action: { _ in
+            NavigationRow(text: "Mi Band", detailText: .value1("Ver más"), icon: .named("corazon"), action: { _ in
                 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let newViewController = storyBoard.instantiateViewController(withIdentifier: "Banda") as! BandaController
                 self.navigationController!.pushViewController(newViewController, animated: true)

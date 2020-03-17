@@ -276,7 +276,7 @@
             case .tiempo:
                 self.icono.image = UIImage(named: "clock")
             case .ritmo:
-                self.icono.image = UIImage(named: "pulse")
+                self.icono.image = UIImage(named: "ejercicio")
             case .distancia:
                 self.icono.image = UIImage(named: "ruler")
             case .cadencia:
