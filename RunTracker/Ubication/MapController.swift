@@ -127,6 +127,16 @@
         tapGestureCadencia.numberOfTapsRequired = 1
         self.cadenciaLabel.addGestureRecognizer(tapGestureCadencia)
         
+        let tapGestureFirst = UITapGestureRecognizer(target: self, action: #selector (tapFirstLabel))
+        tapGestureFirst.numberOfTapsRequired = 1
+        self.firstText.addGestureRecognizer(tapGestureFirst)
+        let tapGestureMiddle = UITapGestureRecognizer(target: self, action: #selector (tapMiddleLabel))
+        tapGestureMiddle.numberOfTapsRequired = 1
+        self.middleText.addGestureRecognizer(tapGestureMiddle)
+        let tapGestureLast = UITapGestureRecognizer(target: self, action: #selector (tapLastLabel))
+        tapGestureLast.numberOfTapsRequired = 1
+        self.lastText.addGestureRecognizer(tapGestureLast)
+        
       }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -349,6 +359,31 @@
                 top!.center = CGPoint(x: self.icono.center.x + self.icono.frame.size.width/2 +  xTimer,y: 80)
             }
         }
+    }
+    
+    func switchValuesFromTexts(_ position : valoresEntreno){
+        switch position {
+        case .cadencia:
+            self.tapCadencia()
+        case .distancia:
+            self.tapDistancia()
+        case .ritmo:
+            self.tapRitmo()
+        case .tiempo:
+            self.tapTiempo()
+        }
+    }
+    
+    @objc func tapFirstLabel(){
+        self.switchValuesFromTexts(self.valoresEntrenoPositions[1])
+    }
+    
+    @objc func tapMiddleLabel(){
+        self.switchValuesFromTexts(self.valoresEntrenoPositions[2])
+    }
+    
+    @objc func tapLastLabel(){
+        self.switchValuesFromTexts(self.valoresEntrenoPositions[3])
     }
     
     @objc func tapTiempo() {
