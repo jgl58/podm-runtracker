@@ -25,8 +25,8 @@ let prefs = UserDefaults()
         OptionRow(text: "Media", isSelected: self.prefs.integer(forKey: "precision") == 1, action: didToggleSelection()),
         OptionRow(text: "Óptima", isSelected: self.prefs.integer(forKey: "precision") == 2, action: didToggleSelection())
       ], footer: "Selecciona un valor de precisión para el GPS")
-      
     ]
+    
   }
 
   private func didToggleSelection() -> (Row) -> Void {

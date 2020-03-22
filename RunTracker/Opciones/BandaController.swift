@@ -19,9 +19,10 @@ final class BandaController : QuickTableViewController {
     var miBand:MiBand2!
     
     var dispositivo = "Conectando..."
-    var bateria = "-"
+    var bateria = "..."
     var pulso = "Pulsa el botón"
     var iconoBateria = "fullBattery"
+    var conectado = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,9 +72,14 @@ final class BandaController : QuickTableViewController {
     }
     
     func getHeartRate(_ sender: Row) {
-        self.pulso = "Midiendo..."
+        if self.conectado {
+            self.pulso = "Midiendo..."
+            
+            miBand.measureHeartRate()
+        } else {
+            self.pulso = "Conecta una MiBand2"
+        }
         self.actualizarTabla()
-        miBand.measureHeartRate()
     }
 
 }

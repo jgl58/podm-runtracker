@@ -78,7 +78,7 @@ final class IntervalosController: QuickTableViewController {
                 OptionRow(text: "10 mins", isSelected: intervaloTiempoValue == 2, action: didToggleSelection()),
                 OptionRow(text: "30 mins", isSelected: intervaloTiempoValue == 3, action: didToggleSelection()),
                 OptionRow(text: "60 mins", isSelected: intervaloTiempoValue == 4, action: didToggleSelection())
-            ], footer: "Selecciona un valor mínimo de cadencia"),
+            ], footer: "Selecciona un valor de intervalo de tiempo"),
 
             Section(title: "Distancia", rows: [
                 SwitchRow(text: "Activar por distancia", switchValue: self.prefs.bool(forKey:"intervaloDistanciaActivada"), action: { _ in
@@ -99,7 +99,7 @@ final class IntervalosController: QuickTableViewController {
                 OptionRow(text: "5000 m", isSelected: intervaloDistanciaValue == 2, action: didToggleSelectionDistancia()),
                 OptionRow(text: "10000 m", isSelected: intervaloDistanciaValue == 3, action: didToggleSelectionDistancia()),
                 OptionRow(text: "20000 m", isSelected: intervaloDistanciaValue == 4, action: didToggleSelectionDistancia())
-            ], footer: "Selecciona un valor mínimo de cadencia")
+            ], footer: "Selecciona un valor de intervalo de distancia")
           
         ]
     }

@@ -15,6 +15,10 @@ extension BandaController: CBCentralManagerDelegate {
         switch central.state{
         case .poweredOn:
             print("poweredOn")
+            self.dispositivo = "Conectando..."
+            self.bateria = "..."
+            self.pulso = "Pulsa el botón"
+            self.actualizarTabla()
             
             let lastPeripherals = centralManager.retrieveConnectedPeripherals(withServices: [MiBand2Service.UUID_SERVICE_MIBAND2_SERVICE])
             
@@ -26,9 +30,12 @@ extension BandaController: CBCentralManagerDelegate {
             else {
                 centralManager.scanForPeripherals(withServices: nil, options: nil)
             }
-            
-            
-            
+        case .poweredOff:
+            self.conectado = false
+            self.dispositivo = "Dispositivo no conectado"
+            self.bateria = "..."
+            self.pulso = "Conecta una MiBand2"
+            self.actualizarTabla()
         default:
             print(central.state)
         }
@@ -50,6 +57,7 @@ extension BandaController: CBCentralManagerDelegate {
         miBand.peripheral.delegate = self as? CBPeripheralDelegate
         miBand.peripheral.discoverServices(nil)
         self.dispositivo = miBand.peripheral.name!
+        self.conectado = true
         actualizarTabla()
     }
 
