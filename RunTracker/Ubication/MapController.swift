@@ -641,7 +641,7 @@
                         }else{
                             area = [previousPoint.coordinate, newLocation.coordinate]
                             totalMovementDistance += newLocation.distance(from: previousPoint)
-
+                            contadorDistanciaIntervalos += newLocation.distance(from: previousPoint)
                         }
                       
                       let polyline = MKPolyline(coordinates: &area, count: area.count)
