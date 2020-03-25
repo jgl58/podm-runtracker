@@ -73,11 +73,11 @@ final class SettingsController: QuickTableViewController {
     func getCadencia(_ cadencia : Int) -> String {
         switch cadencia {
             case 0:
-                return "50 pasos/minuto"
+                return "15 pasos/minuto"
             case 1:
-                return "500 pasos/minuto"
+                return "60 pasos/minuto"
             case 2:
-                return "5000 pasos/minuto"
+                return "120 pasos/minuto"
             default:
                 return "Desactivada"
         }
