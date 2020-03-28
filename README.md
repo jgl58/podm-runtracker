@@ -1,4 +1,6 @@
-# Runtracker
+# Runtracker 
+
+![alt text](https://github.com/jgl58/podm-runtracker/blob/master/RunTracker/Assets.xcassets/AppIcon.appiconset/120.png)
 
 Runtracker es una aplicación realizada para la asignatura de **Programación Optimizada para Dispositivos Móviles** del master de **Desarrollo de Doftware para Dispositivos Móviles de la Universidad de Alicante**.
 
