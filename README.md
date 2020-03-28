@@ -22,7 +22,7 @@ Se nos proponían diferentes objetivos obligatorios, así como otros optativos. 
 - Animación en el botón al efectuar pulsación prolongada para finalizar entreno.
 - Core Bluetooth para acceder a la lectura de datos de una Mi Band 2.
 
-Además de estos objetivos hemos incluido diferentes Librerías que nos han ayudado en el desarrollo de alguno de estos.
+Además de estos objetivos hemos incluido diferentes *Pods* que nos han ayudado en el desarrollo de alguno de estos.
 
 - **QuickTableViewController**: Simplifica enormemente la construcción de pantallas de ajustes en formato de tabla, dando un diseño similar al de los ajustes de aplicación nativos de iOS por Settings Bundle.
 - **Anim**: Nos ha permitido generar animaciones de una manera mucho más sencilla y clara, permitiendo un control total sobre el flujo de las mismas.
